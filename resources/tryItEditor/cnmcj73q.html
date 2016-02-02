@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- This sample shows usage of addEventListener() method -->
+<div id="indicatorDiv">Method Name: <b>addEventListener()</b>
+
+    <br>
+    <br>Used to listen to events triggered by a specific chart.</br>
+    <br>For the pie chart shown below, the <b>dataplotRollOver</b> event has been added using the <b>addEventListener</b> method. After the event is added , every time the mouse pointer is rolled over a data plot of the pie chart, details related to the data plot are shown</div>
+<br>
+<center>
+    <div id="data1">Hover on a data plot to get its details</div>
+    <div id="chart-container">FusionCharts will render here</div>
+    <div id="data2"></div>
+</center><script type="text/javascript">FusionCharts.ready(function () {
+    var visitChart = new FusionCharts({
+        type: 'pie2d',
+        renderAt: 'chart-container',
+        width: '400',
+        height: '250',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Split of Visitors by Age Group",
+                    "subCaption": "Last year",
+                    "paletteColors": "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000",
+                    "bgColor": "#ffffff",
+                    "showBorder": "0",
+                    "use3DLighting": "0",
+                    "showShadow": "0",
+                    "enableSmartLabels": "0",
+                    "startingAngle": "0",
+                    "showPercentValues": "1",
+                    "showPercentInTooltip": "0",
+                    "decimals": "1",
+                    "captionFontSize": "13",
+                    "subcaptionFontSize": "12",
+                    "subcaptionFontBold": "0",
+                    "toolTipColor": "#ffffff",
+                    "toolTipBorderThickness": "0",
+                    "toolTipBgColor": "#000000",
+                    "toolTipBgAlpha": "80",
+                    "toolTipBorderRadius": "2",
+                    "toolTipPadding": "5",
+                    "showHoverEffect": "1",
+                    "showLegend": "1",
+                    "legendBgColor": "#ffffff",
+                    "legendBorderAlpha": '0',
+                    "legendShadow": '0',
+                    "legendItemFontSize": '10',
+                    "legendItemFontColor": '#666666'
+            },
+                "data": [{
+                "label": "Teenage",
+                    "value": "1250400"
+            }, {
+                "label": "Adult",
+                    "value": "1463300"
+            }, {
+                "label": "Mid-age",
+                    "value": "1050700"
+            }, {
+                "label": "Senior",
+                    "value": "491000"
+            }]
+        }
+    });
+
+    visitChart.render();
+
+
+    /**
+             * @description
+             * The addEventListener() method is used to listen to the events across all FusionCharts  instonces on a page and executes custom functions when an event is triggered.
+             *
+             * @param {String} type: type of the event need to be handeled.
+             * @param {Function} handler: handler function is called whenever the specified event is triggered.  
+             * usage: chartObject.addEventListener(type,handler);
+          
+             */
+    function handler(eventObj, dataObj) {
+        console.log(dataObj);
+
+        var json = eventObj.sender.getJSONData();
+        document.getElementById("data2").innerHTML = "Age Group: " + dataObj.categoryLabel + " | Value: " + dataObj.dataValue;
+    }
+    visitChart.addEventListener("dataplotRollOver", handler);
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

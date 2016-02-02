@@ -1,0 +1,324 @@
+<p>FusionCharts Suite XT allows you plot 3D charts as well. 3D charts plot the data points with depth, and gradients and shadows to enhance the effect. While 3D charts add a dimension to the chart visuals, they are not recommended for all dashboards.</p>
+
+<h3 id="lets-begin">Let’s Begin</h3>
+
+<p>Creating 3D charts involves the following steps:</p>
+
+<ol>
+  <li>Installing FusionCharts Suite XT for your application</li>
+  <li>Converting your data to a JSON or XML format. FusionCharts Suite XT accepts both data formats, and can read it as a string, or from a file, local or remote</li>
+  <li>Including the FusionCharts JavaScript library in your HTML page</li>
+  <li>Creating a container <code>&lt;div&gt;</code> for the chart</li>
+  <li>Using the new <code>FusionCharts()</code> constructor to create the chart instance, and then calling the <code>render()</code> method</li>
+</ol>
+
+<p>In this section, we will look at how you can create a Column 3D, a Pie 3D, and a Funnel 3D chart.</p>
+
+<h3 id="column-3d-chart">Column 3D Chart</h3>
+
+<p>Let’s build a column 3D chart showing the monthly revenue Harry’s SuperMart generated in the last year.</p>
+
+<p>The column 3D chart will look like this:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-3d-charts-example-1.js"></script>
+
+<p>The HTML code needed to generate this chart would look like this:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Column 3D chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a>
+<a name="True-8"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-9"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-10"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;mscolumn3d&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-15"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span>  <span class="p">{</span>
+<a name="True-16"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-17"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Sales in Last Two Years&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter-wise comparison&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Sales (In USD)&quot;</span><span class="p">,</span>
+<a name="True-21"></a>                <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-22"></a>                <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-23"></a>            <span class="p">},</span>
+<a name="True-24"></a>
+<a name="True-25"></a>            <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-26"></a>                <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-27"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-28"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-29"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-30"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-31"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-32"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-33"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-34"></a>                <span class="p">}]</span>
+<a name="True-35"></a>            <span class="p">}],</span>
+<a name="True-36"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-37"></a>                <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Previous Year&quot;</span><span class="p">,</span>
+<a name="True-38"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-39"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;10000&quot;</span>
+<a name="True-40"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-41"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11500&quot;</span>
+<a name="True-42"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-43"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;12500&quot;</span>
+<a name="True-44"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-45"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-46"></a>                <span class="p">}]</span>
+<a name="True-47"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-48"></a>                <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Current Year&quot;</span><span class="p">,</span>
+<a name="True-49"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-50"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25400&quot;</span>
+<a name="True-51"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-52"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;29800&quot;</span>
+<a name="True-53"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-54"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21800&quot;</span>
+<a name="True-55"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-56"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;26800&quot;</span>
+<a name="True-57"></a>                <span class="p">}]</span>
+<a name="True-58"></a>            <span class="p">}]</span>
+<a name="True-59"></a>        <span class="p">}</span>
+<a name="True-60"></a>    <span class="p">});</span>
+<a name="True-61"></a>
+<a name="True-62"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-63"></a>
+<a name="True-64"></a><span class="p">});</span>
+<a name="True-65"></a>
+<a name="True-66"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-67"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-68"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-69"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A column 3D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-70"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-71"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>In the above code, we:</p>
+
+<ul>
+  <li>
+    <p>Created an instance of <code>FusionCharts</code> object in the <code>revenueChart</code> variable. Each chart or gauge in your HTML page needs to have a separate variable. The initialization code is wrapped within <code>FusionCharts.ready</code> method. This safeguards your chart instantiation code from being called before FusionCharts Suite XT library is loaded and is ready to be used on the page.</p>
+  </li>
+  <li>
+    <p>Next, we created an instance of <code>column3d</code> chart. Each chart type in FusionCharts Suite XT has a unique alias, using which you can create instance of that chart. In this case, we are creating an instance of a Column 3D chart with dimensions of 400x300 pixels, and providing JSON data as a string.</p>
+  </li>
+  <li>
+    <p>To specify the data format as JSON, we set the <code>dataFormat</code> parameter to <code>json</code>.</p>
+  </li>
+  <li>
+    <p>The actual JSON data is embedded as string as value of <code>dataSource</code> parameter. The <code>chart</code> object contains a list of key-value pairs that let you configure the functional and cosmetic attributes of your chart. Each row of the tabular data is present within the <code>data</code> array, with quarter of the year with key as <code>label</code>, and revenue with key as <code>value</code>.</p>
+  </li>
+  <li>
+    <p>If you noted, we have used the <code>theme</code> attribute in the chart’s JSON data and provided <code>fint</code> (FusionCharts Suite XT Internal theme) as the value for it. Themes let you centralize your cosmetic and functional properties across various charts in your web application. FusionCharts Suite XT are shipped with 3 default themes - <code>ocean</code>, <code>zune</code> and <code>carbon</code>.</p>
+  </li>
+  <li>
+    <p>Call the <code>render</code> method to draw the chart in chart-container <code>&lt;div&gt;</code> element.</p>
+  </li>
+</ul>
+
+<p>Thats it! You just created your first interactive Column 3D JavaScript chart using FusionCharts Suite XT.</p>
+
+<h3 id="pie-3d-chart">Pie 3D Chart</h3>
+
+<p>The Great Online Sale, where several shopping portals offered their products at reduced prices, has just concluded. Harry has participated in this sale and is analyzing his website’s performance during this sale based on different parameters. Among other things, Harry wishes to know the percentage of visitors, who visited his website during the sale, according to age groups: teenagers, adults, middle-aged people, and senior citizens.</p>
+
+<p>Let’s build a 3D pie chart for Harry that will show him the percentage of visitors according to their age group.</p>
+
+<p>The Pie 3D chart will look like this:</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-3d-charts-example-2.js"></script>
+
+<p>The HTML code needed to do generate this chart would look like this</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Pie 3D chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">demographicsChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;pie3d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Age profile of website visitors&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last Year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                <span class="s2">&quot;startingAngle&quot;</span><span class="o">:</span> <span class="s2">&quot;120&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                <span class="s2">&quot;showLabels&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                <span class="s2">&quot;showLegend&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-21"></a>                <span class="s2">&quot;enableMultiSlicing&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-22"></a>                <span class="s2">&quot;slicingDistance&quot;</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<a name="True-23"></a>
+<a name="True-24"></a>                <span class="c1">//To show the values in percentage</span>
+<a name="True-25"></a>                <span class="s2">&quot;showPercentValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-26"></a>                <span class="s2">&quot;showPercentInTooltip&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-27"></a>                <span class="s2">&quot;plotTooltext&quot;</span><span class="o">:</span> <span class="s2">&quot;Age group : $label&lt;br&gt;Total visit : $datavalue&quot;</span><span class="p">,</span>
+<a name="True-28"></a>                <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-29"></a>            <span class="p">},</span>
+<a name="True-30"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-31"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Teenage&quot;</span><span class="p">,</span>
+<a name="True-32"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1250400&quot;</span>
+<a name="True-33"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-34"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Adult&quot;</span><span class="p">,</span>
+<a name="True-35"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1463300&quot;</span>
+<a name="True-36"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-37"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mid-age&quot;</span><span class="p">,</span>
+<a name="True-38"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1050700&quot;</span>
+<a name="True-39"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-40"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Senior&quot;</span><span class="p">,</span>
+<a name="True-41"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;491000&quot;</span>
+<a name="True-42"></a>            <span class="p">}]</span>
+<a name="True-43"></a>        <span class="p">}</span>
+<a name="True-44"></a>    <span class="p">});</span>
+<a name="True-45"></a>
+<a name="True-46"></a>    <span class="nx">demographicsChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-47"></a><span class="p">});</span>
+<a name="True-48"></a>
+<a name="True-49"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-50"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-51"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-52"></a> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A pie 3D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-53"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-54"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>In the above code, we:</p>
+
+<ul>
+  <li>
+    <p>Created an instance of <code>FusionCharts</code> object in the <code>demographicsChart</code> variable. Each chart or gauge in your HTML page needs to have a separate variable. The initialization code is wrapped within <code>FusionCharts.ready</code> method. This safeguards your chart instantiation code from being called before FusionCharts Suite XT library is loaded and is ready to be used on the page.</p>
+  </li>
+  <li>
+    <p>Next, we created an instance of <code>pie3D</code> chart. Each chart type in FusionCharts Suite XT has a unique alias, using which you can create instance of that chart.</p>
+  </li>
+  <li>
+    <p>To specify the data format as JSON, we set the <code>dataFormat</code> parameter to <code>json</code>.</p>
+  </li>
+  <li>
+    <p>The actual JSON data is embedded as string as value of <code>dataSource</code> parameter. The <code>chart</code> object contains a list of key-value pairs that let you configure the functional and cosmetic attributes of your chart. In this example it has the age group with key as value in the <code>data</code> array.</p>
+  </li>
+  <li>
+    <p>If you noted, we have used the <code>theme</code> attribute in the chart’s JSON data and provided <code>fint</code> (FusionCharts Suite XT Internal theme) as the value for it. Themes let you centralize your cosmetic and functional properties across various charts in your web application. FusionCharts Suite XT are shipped with 3 default themes - <code>ocean</code>, <code>zune</code> and <code>carbon</code>.</p>
+  </li>
+  <li>
+    <p>Call the <code>render</code> method to draw the chart in chart-container <code>&lt;div&gt;</code> element.</p>
+  </li>
+</ul>
+
+<h4 id="funnel-3d-chart">Funnel 3D Chart</h4>
+
+<p>To maintain his newly-found foothold in the market, it is important that Harry understands customer interactions on his website. One metric that helps to analyze customer behavior is the visit to purchase conversion. Harry wants to understand the visits to purchase conversion for the last year. For this he needs to understand, how many unique visits were recorded, how many customers registered, and how many finally went to purchase products. This will also help him understand at what stage of the process his numbers fall and, thus, indicate what corrective measures to take.</p>
+
+<p>Let’s build a funnel chart for Harry that will show this conversion analysis.</p>
+
+<div class="chart-example" id="chart-container-3">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-3d-charts-example-3.js"></script>
+
+<p>The HTML code needed to do generate this chart would look like this:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Funnel 3D chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a>  <span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>  <span class="kd">var</span> <span class="nx">conversionChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;funnel&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;400&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Conversion Funnel Analysis for last year&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart Website&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                    <span class="s2">&quot;decimals&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                    <span class="s2">&quot;labelDistance&quot;</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                    <span class="s2">&quot;plotTooltext&quot;</span><span class="o">:</span> <span class="s2">&quot;Success : $percentOfPrevValue&quot;</span><span class="p">,</span>
+<a name="True-21"></a>
+<a name="True-22"></a>                    <span class="c1">//To show the values in percentage</span>
+<a name="True-23"></a>                    <span class="s2">&quot;showPercentValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-24"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-25"></a>            <span class="p">},</span>
+<a name="True-26"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-27"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Unique Website Visits&quot;</span><span class="p">,</span>
+<a name="True-28"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1460000&quot;</span>
+<a name="True-29"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-30"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Programme Details Section Visits&quot;</span><span class="p">,</span>
+<a name="True-31"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;930000&quot;</span>
+<a name="True-32"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-33"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Attempts to Register&quot;</span><span class="p">,</span>
+<a name="True-34"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;540000&quot;</span>
+<a name="True-35"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-36"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Successful Registrations&quot;</span><span class="p">,</span>
+<a name="True-37"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;210000&quot;</span>
+<a name="True-38"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-39"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Logged In&quot;</span><span class="p">,</span>
+<a name="True-40"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;190000&quot;</span>
+<a name="True-41"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-42"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchased on Introductory Offers&quot;</span><span class="p">,</span>
+<a name="True-43"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;120000&quot;</span>
+<a name="True-44"></a>            <span class="p">}]</span>
+<a name="True-45"></a>        <span class="p">}</span>
+<a name="True-46"></a>    <span class="p">});</span>
+<a name="True-47"></a>
+<a name="True-48"></a>  <span class="nx">conversionChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-49"></a>  <span class="p">});</span>
+<a name="True-50"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-51"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-52"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-53"></a> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A funnel 3D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-54"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-55"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>In the above code, we:</p>
+
+<ul>
+  <li>
+    <p>Created an instance of <code>FusionCharts</code> object in the <code>conversionChart</code> variable. Each chart or gauge in your HTML page needs to have a separate variable. The initialization code is wrapped within <code>FusionCharts.ready</code> method. This safeguards your chart instantiation code from being called before FusionCharts Suite XT library is loaded and is ready to be used on the page.</p>
+  </li>
+  <li>
+    <p>Next, we created an instance of <code>funnel</code> chart. Each chart type in FusionCharts Suite XT has a unique alias, using which you can create instance of that chart.</p>
+  </li>
+  <li>
+    <p>To specify the data format as JSON, we set the <code>dataFormat</code> parameter to <code>json</code>.</p>
+  </li>
+  <li>
+    <p>The actual JSON data is embedded as string as value of <code>dataSource</code> parameter. The <code>chart</code> object contains a list of key-value pairs that let you configure the functional and cosmetic attributes of your chart. In this example it has the conversion stage with key as value in the <code>data</code> array.</p>
+  </li>
+  <li>
+    <p>If you noted, we have used the <code>theme</code> attribute in the chart’s JSON data and provided <code>fint</code> (FusionCharts Suite XT Internal theme) as the value for it. Themes let you centralize your cosmetic and functional properties across various charts in your web application. FusionCharts Suite XT are shipped with 3 default themes - <code>ocean</code>, <code>zune</code> and <code>carbon</code>.</p>
+  </li>
+  <li>
+    <p>Call the <code>render</code> method to draw the chart in chart-container <code>&lt;div&gt;</code> element.</p>
+  </li>
+</ul>
+
+<p>Thats it! you have configured your funnel chart.</p>
+
+<h2 id="was-there-a-problem-rendering-the-chart">Was there a problem rendering the chart?</h2>
+
+<p>In case something went wrong and you are unable to see the chart, check for the following:</p>
+
+<ul>
+  <li>
+    <p>If you are getting a JavaScript error on your page, check your browser console for the exact error and fix accordingly.</p>
+  </li>
+  <li>
+    <p>If the chart does not show up at all, but there are no JavaScript errors, check if the FusionCharts Suite XT JavaScript library has loaded correctly. You can use developer tools within your browser to see if <code>fusioncharts.js</code> was loaded. Check if the path to <code>fusioncharts.js</code> file is correct, and whether the file exists in that location.</p>
+  </li>
+  <li>
+    <p>If you get a <strong>Loading Data</strong> or <strong>Error in loading data</strong> message, check whether your JSON data structure is correct, and there are no conflicts related to quotation marks in your code.</p>
+  </li>
+</ul>
+
+<p>Click here for more information on <a href="/dev/troubleshooting/debugger.html">Troubleshooting</a>.</p>

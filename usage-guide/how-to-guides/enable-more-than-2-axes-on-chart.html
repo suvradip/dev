@@ -1,0 +1,298 @@
+<p>The Multi Axis line chart supports more than 2 axis which can be enabled by adding data objects in the <code>axis</code> array.</p>
+
+<p>Shown below is a snippet on how an <code>axis</code> object looks like</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Power [W]&quot;</span><span class="p">,</span>
+<a name="True-3"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-4"></a>            <span class="p">{</span>
+<a name="True-5"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6&quot;</span>
+<a name="True-6"></a>            <span class="p">},</span>
+<a name="True-7"></a>            <span class="p">{</span>
+<a name="True-8"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;26&quot;</span>
+<a name="True-9"></a>            <span class="p">},</span>
+<a name="True-10"></a>            <span class="p">{</span>
+<a name="True-11"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16&quot;</span>
+<a name="True-12"></a>            <span class="p">},</span>
+<a name="True-13"></a>            <span class="p">{</span>
+<a name="True-14"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;27&quot;</span>
+<a name="True-15"></a>            <span class="p">},</span>
+<a name="True-16"></a>            <span class="p">{</span>
+<a name="True-17"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;28&quot;</span>
+<a name="True-18"></a>            <span class="p">},</span>
+<a name="True-19"></a>            <span class="p">{</span>
+<a name="True-20"></a>                <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;33&quot;</span>
+<a name="True-21"></a>            <span class="p">}</span>
+<a name="True-22"></a>            <span class="p">]</span>
+<a name="True-23"></a>        <span class="p">}</span></code></pre></div>
+
+<p>The above snippet adds an axis by name Power to the multi-axis line chart when added to the data of the chart</p>
+
+<p>Shown below is a multi axis line chart with the axis shown above added</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-enable-more-than-2-axes-on-chart-example-1.js"></script>
+
+<p>The data structure of the chart is shown below</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Power Generator",
+        "xaxisname": "Time",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "00:00s"
+                },
+                {
+                    "label": "00:04s"
+                },
+                {
+                    "label": "00:08s"
+                },
+                {
+                    "label": "00:12s"
+                },
+                {
+                    "label": "00:16s"
+                },
+                {
+                    "label": "00:20s"
+                }
+            ]
+        }
+    ],
+    "axis": [
+        {
+            "title": "Power",
+            "tickwidth": "10",
+            "divlineDashed": "1",
+            "dataset": [
+                {
+                    "seriesname": "Power [W]",
+                    "data": [
+                        {
+                            "value": "6"
+                        },
+                        {
+                            "value": "26"
+                        },
+                        {
+                            "value": "16"
+                        },
+                        {
+                            "value": "27"
+                        },
+                        {
+                            "value": "28"
+                        },
+                        {
+                            "value": "33"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Temp.",
+            "numdivlines": "14",
+            "tickwidth": "10",
+            "divlineDashed": "1",
+            "dataset": [
+                {
+                    "seriesname": "Temperature",
+                    "data": [
+                        {
+                            "value": "296"
+                        },
+                        {
+                            "value": "311"
+                        },
+                        {
+                            "value": "336"
+                        },
+                        {
+                            "value": "371"
+                        },
+                        {
+                            "value": "389"
+                        },
+                        {
+                            "value": "393"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Speed[RPM]",
+            "axisonleft": "0",
+            "numdivlines": "10",
+            "tickwidth": "10",
+            "divlineDashed": "1",
+            "dataset": [
+                {
+                    "seriesname": "Speed",
+                    "data": [
+                        {
+                            "value": "1"
+                        },
+                        {
+                            "value": "11"
+                        },
+                        {
+                            "value": "36"
+                        },
+                        {
+                            "value": "49"
+                        },
+                        {
+                            "value": "68"
+                        },
+                        {
+                            "value": "88"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Power Generator&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;xaxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-6"></a>    <span class="p">},</span>
+<a name="True-7"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-8"></a>        <span class="p">{</span>
+<a name="True-9"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-10"></a>                <span class="p">{</span>
+<a name="True-11"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:00s&quot;</span>
+<a name="True-12"></a>                <span class="p">},</span>
+<a name="True-13"></a>                <span class="p">{</span>
+<a name="True-14"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:04s&quot;</span>
+<a name="True-15"></a>                <span class="p">},</span>
+<a name="True-16"></a>                <span class="p">{</span>
+<a name="True-17"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:08s&quot;</span>
+<a name="True-18"></a>                <span class="p">},</span>
+<a name="True-19"></a>                <span class="p">{</span>
+<a name="True-20"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:12s&quot;</span>
+<a name="True-21"></a>                <span class="p">},</span>
+<a name="True-22"></a>                <span class="p">{</span>
+<a name="True-23"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:16s&quot;</span>
+<a name="True-24"></a>                <span class="p">},</span>
+<a name="True-25"></a>                <span class="p">{</span>
+<a name="True-26"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;00:20s&quot;</span>
+<a name="True-27"></a>                <span class="p">}</span>
+<a name="True-28"></a>            <span class="p">]</span>
+<a name="True-29"></a>        <span class="p">}</span>
+<a name="True-30"></a>    <span class="p">],</span>
+<a name="True-31"></a>    <span class="s2">&quot;axis&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-32"></a>        <span class="p">{</span>
+<a name="True-33"></a>            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Power&quot;</span><span class="p">,</span>
+<a name="True-34"></a>            <span class="s2">&quot;tickwidth&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-35"></a>            <span class="s2">&quot;divlineDashed&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-36"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-37"></a>                <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Power [W]&quot;</span><span class="p">,</span>
+<a name="True-39"></a>                    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-40"></a>                        <span class="p">{</span>
+<a name="True-41"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6&quot;</span>
+<a name="True-42"></a>                        <span class="p">},</span>
+<a name="True-43"></a>                        <span class="p">{</span>
+<a name="True-44"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;26&quot;</span>
+<a name="True-45"></a>                        <span class="p">},</span>
+<a name="True-46"></a>                        <span class="p">{</span>
+<a name="True-47"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16&quot;</span>
+<a name="True-48"></a>                        <span class="p">},</span>
+<a name="True-49"></a>                        <span class="p">{</span>
+<a name="True-50"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;27&quot;</span>
+<a name="True-51"></a>                        <span class="p">},</span>
+<a name="True-52"></a>                        <span class="p">{</span>
+<a name="True-53"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;28&quot;</span>
+<a name="True-54"></a>                        <span class="p">},</span>
+<a name="True-55"></a>                        <span class="p">{</span>
+<a name="True-56"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;33&quot;</span>
+<a name="True-57"></a>                        <span class="p">}</span>
+<a name="True-58"></a>                    <span class="p">]</span>
+<a name="True-59"></a>                <span class="p">}</span>
+<a name="True-60"></a>            <span class="p">]</span>
+<a name="True-61"></a>        <span class="p">},</span>
+<a name="True-62"></a>        <span class="p">{</span>
+<a name="True-63"></a>            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Temp.&quot;</span><span class="p">,</span>
+<a name="True-64"></a>            <span class="s2">&quot;numdivlines&quot;</span><span class="o">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+<a name="True-65"></a>            <span class="s2">&quot;tickwidth&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-66"></a>            <span class="s2">&quot;divlineDashed&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-67"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-68"></a>                <span class="p">{</span>
+<a name="True-69"></a>                    <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Temperature&quot;</span><span class="p">,</span>
+<a name="True-70"></a>                    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-71"></a>                        <span class="p">{</span>
+<a name="True-72"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;296&quot;</span>
+<a name="True-73"></a>                        <span class="p">},</span>
+<a name="True-74"></a>                        <span class="p">{</span>
+<a name="True-75"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;311&quot;</span>
+<a name="True-76"></a>                        <span class="p">},</span>
+<a name="True-77"></a>                        <span class="p">{</span>
+<a name="True-78"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;336&quot;</span>
+<a name="True-79"></a>                        <span class="p">},</span>
+<a name="True-80"></a>                        <span class="p">{</span>
+<a name="True-81"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;371&quot;</span>
+<a name="True-82"></a>                        <span class="p">},</span>
+<a name="True-83"></a>                        <span class="p">{</span>
+<a name="True-84"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;389&quot;</span>
+<a name="True-85"></a>                        <span class="p">},</span>
+<a name="True-86"></a>                        <span class="p">{</span>
+<a name="True-87"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;393&quot;</span>
+<a name="True-88"></a>                        <span class="p">}</span>
+<a name="True-89"></a>                    <span class="p">]</span>
+<a name="True-90"></a>                <span class="p">}</span>
+<a name="True-91"></a>            <span class="p">]</span>
+<a name="True-92"></a>        <span class="p">},</span>
+<a name="True-93"></a>        <span class="p">{</span>
+<a name="True-94"></a>            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Speed[RPM]&quot;</span><span class="p">,</span>
+<a name="True-95"></a>            <span class="s2">&quot;axisonleft&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-96"></a>            <span class="s2">&quot;numdivlines&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-97"></a>            <span class="s2">&quot;tickwidth&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-98"></a>            <span class="s2">&quot;divlineDashed&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-99"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-100"></a>                <span class="p">{</span>
+<a name="True-101"></a>                    <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Speed&quot;</span><span class="p">,</span>
+<a name="True-102"></a>                    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-103"></a>                        <span class="p">{</span>
+<a name="True-104"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-105"></a>                        <span class="p">},</span>
+<a name="True-106"></a>                        <span class="p">{</span>
+<a name="True-107"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11&quot;</span>
+<a name="True-108"></a>                        <span class="p">},</span>
+<a name="True-109"></a>                        <span class="p">{</span>
+<a name="True-110"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;36&quot;</span>
+<a name="True-111"></a>                        <span class="p">},</span>
+<a name="True-112"></a>                        <span class="p">{</span>
+<a name="True-113"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;49&quot;</span>
+<a name="True-114"></a>                        <span class="p">},</span>
+<a name="True-115"></a>                        <span class="p">{</span>
+<a name="True-116"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;68&quot;</span>
+<a name="True-117"></a>                        <span class="p">},</span>
+<a name="True-118"></a>                        <span class="p">{</span>
+<a name="True-119"></a>                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;88&quot;</span>
+<a name="True-120"></a>                        <span class="p">}</span>
+<a name="True-121"></a>                    <span class="p">]</span>
+<a name="True-122"></a>                <span class="p">}</span>
+<a name="True-123"></a>            <span class="p">]</span>
+<a name="True-124"></a>        <span class="p">}</span>
+<a name="True-125"></a>    <span class="p">]</span>
+<a name="True-126"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>The y-axis in the above chart has been added for Power, Temperature and Speed.</p>
+
+<p>The <code>tickWidth</code> attribute specifies the distance between successive intervals on the axis line. The <code>titlePos</code> attribute lets you display the axis title on the left or on the right of the axis line.</p>
+
+<p>You can toggle data for an axis being displayed by clicking on the check box at the bottom of the axis.</p>
+

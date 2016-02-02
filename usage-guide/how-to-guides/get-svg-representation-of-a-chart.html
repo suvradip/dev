@@ -1,0 +1,16 @@
+<p>You can easily get the SVG string of any chart using the <code>getSVGString</code> method. Shown below is a chart that displays the SVG string of a chart when the button is clicked.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-get-svg-representation-of-a-chart-example-1.js"></script>
+
+<p>Shown below is a code snippet that shows you how to get a SVG string from a chart.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="kd">var</span> <span class="nx">svgString</span> <span class="o">=</span> <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">getSVGString</span><span class="p">();</span></code></pre></div>
+
+<p>Here the chart reference is stored in <code>revenueChart</code> and the <code>svgString</code> variable contains the SVG representation of the chart.</p>
+
+<p>Alternatively you can also download a SVG file of your chart using the export functionality. You must enable the export feature using the <code>exportEnabled</code> attribute at the <code>chart</code> level like this</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="s2">&quot;exportEnabled&quot;</span> <span class="o">:</span> <span class="s2">&quot;1&quot;</span></code></pre></div>
+
+<p>You will see a list of options when you click on the icon on the top right of the screen, one of them being Download as SVG vector image.</p>

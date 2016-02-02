@@ -1,0 +1,317 @@
+<p>It may be required at times to show only thumbnail versions of charts. These thumbnails when clicked will expand, this implementation is particularly useful when space is a limitation</p>
+
+<p>Shown below is an example with chart thumbnails that enlarge on click.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-render-thumbnail-versions-of-chart-example-1.js"></script>
+
+<p>Chart thumbnails are characterised by the following:</p>
+
+<ol>
+  <li>
+    <p>Only plots are rendered while all other chart elements are hidden</p>
+  </li>
+  <li>
+    <p>Interactivity is disabled</p>
+  </li>
+  <li>
+    <p>Animation is disabled</p>
+  </li>
+  <li>
+    <p>Generic features are disabled</p>
+  </li>
+</ol>
+
+<p>In a nutshell, a chart thumbnail is like a static image with an associated link accessible via click / touch. Lets discuss the characteristic features and how to implement them using FusionCharts.</p>
+
+<h1 id="render-plots-shedding-all-other-chart-elements">Render plots shedding all other chart elements</h1>
+
+<p>A chart is composed of a host of elements. The general elements and how to hide them is tabulated as below.</p>
+
+<table>
+  <tr>
+    <th>Chart elements</th>
+    <th>Attributes and values</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p>Captions</p>
+</td>
+<td><p><code>caption : ""</code><br />
+<code>subcaption : ""</code></p>
+</td>
+<td><p>Hide caption and subcaption</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Canvas</p>
+</td>
+<td><p><code>showCanvasBorder : "0"</code><br />
+<code>numDivLines : "0"</code><br />
+<code>showAxisLimitGridLines : "0"</code></p>
+</td>
+<td><p>Hide canvas along with grid lines</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Background</p>
+</td>
+<td><p><code>bgAlpha : "0"</code><br />
+<code>showBorder : "0"</code></p>
+</td>
+<td><p>Possibly hide chart background and border</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Axes</p>
+</td>
+<td><p><code>showXAxisLine : "0"</code><br />
+<code>showYAxisLine:  "0"</code></p>
+</td>
+<td><p>Do not show axes</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Axis Names</p>
+</td>
+<td><p><code>xAxisName : ""</code><br />
+<code>yAxisName : ""</code></p>
+</td>
+<td><p>Hide axis names</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Axis labels</p>
+</td>
+<td><p><code>showLabels : "0"</code><br />
+<code>showYAxisValues : "0"</code></p>
+</td>
+<td><p>Hide x-axis labels and y-axis values</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Data values</p>
+</td>
+<td><p><code>showValues : "0"</code></p>
+</td>
+<td><p>Hide data value labels with the plots</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Legend</p>
+</td>
+<td><p><code>showLegend : "0"</code></p>
+</td>
+<td><p>Hide legend</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Plot</p>
+</td>
+<td><p><code>showShadow : "0"</code><br />
+<code>showPlotBorder : "0"</code><br />
+<code>drawAnchors : "0"</code></p>
+</td>
+<td><p>Remove extra cosmetics from the plots like border and shadow. You may not render anchors in line / area charts.</p>
+</td>
+  </tr>
+  <tr>
+<td><p>Logo</p>
+</td>
+<td><p><code>logoURL : ""</code></p>
+</td>
+<td><p>Remove link to logo image if any</p>
+</td>
+  </tr>
+</table>
+
+<h1 id="disable-all-charting-interactivities">Disable all charting interactivities</h1>
+
+<p>Charts have varying interactive feature. However some of these interactivities are common across the suite. The following table summarise the common ones.</p>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>showTooltip</code></p>
+</td>
+<td><p><code>0</code></p>
+</td>
+<td><p>Disable tooltext on plot hover</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>showHoverEffect</code></p>
+</td>
+<td><p><code>0</code></p>
+</td>
+<td><p>Deactivate plot hover effects</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>clickURL</code></p>
+</td>
+<td><p><code>""</code></p>
+</td>
+<td><p>Remove link associated to chart if any</p>
+</td>
+  </tr>
+</table>
+
+<h1 id="static-presentation-of-chart">Static presentation of chart</h1>
+
+<p>An image type presentation makes it necessary to be visually static. Some of the required measures in this context are given below.</p>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>animation</code></p>
+</td>
+<td><p><code>0</code></p>
+</td>
+<td><p>Disable initial animation</p>
+</td>
+  </tr>
+</table>
+
+<p>The JavaScript code to show the above effect is given below</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-2"></a>    <span class="c1">// write a function which creates a thumbnail of the required dimensions but turning off some of the properties which are not required in a thumbnail, for some other charts there might be a few more additional properties that need to be turned off.</span>
+<a name="True-3"></a>    <span class="kd">var</span> <span class="nx">createThumbNail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">chartId</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">,</span> <span class="nx">divId</span><span class="p">)</span> <span class="p">{</span>
+<a name="True-4"></a>        <span class="c1">// we clone the chart first and then set new width and height</span>
+<a name="True-5"></a>        <span class="kd">var</span> <span class="nx">chartRef</span> <span class="o">=</span> <span class="nx">FusionCharts</span><span class="p">(</span><span class="nx">chartId</span><span class="p">),</span>
+<a name="True-6"></a>            <span class="nx">clonedChart</span> <span class="o">=</span> <span class="nx">chartRef</span><span class="p">.</span><span class="nx">clone</span><span class="p">({</span>
+<a name="True-7"></a>                <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="nx">width</span><span class="p">,</span>
+<a name="True-8"></a>                <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="nx">height</span>
+<a name="True-9"></a>            <span class="p">});</span>
+<a name="True-10"></a>
+<a name="True-11"></a>        <span class="c1">// turn off properties which are not required</span>
+<a name="True-12"></a>        <span class="nx">clonedChart</span><span class="p">.</span><span class="nx">setChartAttribute</span><span class="p">({</span>
+<a name="True-13"></a>            <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-14"></a>            <span class="s2">&quot;showLabels&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-15"></a>            <span class="s2">&quot;animation&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-16"></a>            <span class="s2">&quot;exportEnabled&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-17"></a>            <span class="s2">&quot;showTooltip&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-18"></a>            <span class="s2">&quot;showHoverEffect&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;showYAxisValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-20"></a>            <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a name="True-21"></a>            <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a name="True-22"></a>            <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a name="True-23"></a>            <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a name="True-24"></a>            <span class="s2">&quot;showXAxisLine&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-25"></a>            <span class="s2">&quot;showYAxisLine&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-26"></a>            <span class="s2">&quot;numDivLines&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-27"></a>            <span class="s2">&quot;enableSlicing&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-28"></a>            <span class="s2">&quot;enableRotation&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span>
+<a name="True-29"></a>        <span class="p">});</span>
+<a name="True-30"></a>
+<a name="True-31"></a>        <span class="c1">// listen for the chartClick event to render the detailed chart</span>
+<a name="True-32"></a>        <span class="nx">clonedChart</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;chartClick&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-33"></a>            <span class="nx">FusionCharts</span><span class="p">(</span><span class="nx">chartId</span><span class="p">).</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chart-container&#39;</span><span class="p">);</span>
+<a name="True-34"></a>        <span class="p">});</span>
+<a name="True-35"></a>
+<a name="True-36"></a>        <span class="c1">// create the thumbnail</span>
+<a name="True-37"></a>        <span class="nx">clonedChart</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">divId</span><span class="p">,</span> <span class="s1">&#39;append&#39;</span><span class="p">);</span>
+<a name="True-38"></a>    <span class="p">};</span>
+<a name="True-39"></a>
+<a name="True-40"></a>    <span class="c1">// since data is common for all three charts, we store it in a common variable</span>
+<a name="True-41"></a>    <span class="kd">var</span> <span class="nx">chartData</span> <span class="o">=</span> <span class="p">{</span>
+<a name="True-42"></a>        <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-43"></a>            <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-44"></a>            <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-45"></a>            <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-46"></a>            <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-47"></a>            <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-48"></a>            <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;rotateValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-50"></a>            <span class="s2">&quot;exportEnabled&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-51"></a>        <span class="p">},</span>
+<a name="True-52"></a>
+<a name="True-53"></a>        <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-54"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-55"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-56"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-57"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-58"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-59"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-60"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-61"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-62"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-63"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-64"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-65"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-66"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-67"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span><span class="p">,</span>
+<a name="True-68"></a>            <span class="s2">&quot;anchorRadius&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-69"></a>            <span class="s2">&quot;anchorBorderColor&quot;</span><span class="o">:</span> <span class="s2">&quot;0372AB&quot;</span><span class="p">,</span>
+<a name="True-70"></a>            <span class="s2">&quot;anchorBgColor&quot;</span><span class="o">:</span> <span class="s2">&quot;E1f5ff&quot;</span>
+<a name="True-71"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-72"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-73"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-74"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-75"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-76"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-77"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-78"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-79"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-80"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-81"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-82"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-83"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-84"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-85"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-86"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-87"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-88"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-89"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-90"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-91"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-92"></a>        <span class="p">}]</span>
+<a name="True-93"></a>    <span class="p">};</span>
+<a name="True-94"></a>
+<a name="True-95"></a>    <span class="c1">// create all the three chart instances of column, pie, bar</span>
+<a name="True-96"></a>    <span class="kd">var</span> <span class="nx">revenueChartColumn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-97"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-98"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-99"></a>        <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span><span class="p">,</span>
+<a name="True-100"></a>        <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span>
+<a name="True-101"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+<a name="True-102"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart-column&#39;</span><span class="p">,</span>
+<a name="True-103"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">chartData</span>
+<a name="True-104"></a>    <span class="p">});</span>
+<a name="True-105"></a>    <span class="kd">var</span> <span class="nx">revenueChartPie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-106"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;pie2d&#39;</span><span class="p">,</span>
+<a name="True-107"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-108"></a>        <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span><span class="p">,</span>
+<a name="True-109"></a>        <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span>
+<a name="True-110"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+<a name="True-111"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart-pie&#39;</span><span class="p">,</span>
+<a name="True-112"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">chartData</span>
+<a name="True-113"></a>    <span class="p">});</span>
+<a name="True-114"></a>    <span class="kd">var</span> <span class="nx">revenueChartBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-115"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;bar2d&#39;</span><span class="p">,</span>
+<a name="True-116"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-117"></a>        <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span><span class="p">,</span>
+<a name="True-118"></a>        <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span>
+<a name="True-119"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+<a name="True-120"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart-bar&#39;</span><span class="p">,</span>
+<a name="True-121"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">chartData</span>
+<a name="True-122"></a>    <span class="p">});</span>
+<a name="True-123"></a>
+<a name="True-124"></a>    <span class="c1">// create thumbnails for all the three charts</span>
+<a name="True-125"></a>    <span class="nx">createThumbNail</span><span class="p">(</span><span class="s1">&#39;revenue-chart-column&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thumbnail-column&#39;</span><span class="p">);</span>
+<a name="True-126"></a>    <span class="nx">createThumbNail</span><span class="p">(</span><span class="s1">&#39;revenue-chart-pie&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thumbnail-pie&#39;</span><span class="p">);</span>
+<a name="True-127"></a>    <span class="nx">createThumbNail</span><span class="p">(</span><span class="s1">&#39;revenue-chart-bar&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thumbnail-bar&#39;</span><span class="p">);</span>
+<a name="True-128"></a>
+<a name="True-129"></a>    <span class="c1">// render column chart by default</span>
+<a name="True-130"></a>    <span class="nx">revenueChartColumn</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-131"></a><span class="p">});</span></code></pre></div>
+

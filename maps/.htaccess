@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Do not rewrite for ajax / xhr requests
+#RewriteCond %{HTTP:X-REQUESTED-WITH} !^(XMLHttpRequest)$
+RewriteRule ^marker-data/(.*)$ marker-data/index.html?map=$1
+
+# Do not rewrite for ajax / xhr requests
+#RewriteCond %{HTTP:X-REQUESTED-WITH} !^(XMLHttpRequest)$
+RewriteRule ^spec-sheets/(.*)$ spec-sheets/index.html?map=$1

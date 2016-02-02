@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- This sample shows the usage of the transcodeData() method -->
+<div id="indicatorDiv">Method Name: <b>transcodeData()</b>
+
+    <br>
+    <br>Transcodes data from one supported format to another, without initializing a new instance of FusionCharts. Click <a href="http://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods.html#static-transcodeData" target="_blank">here</a> to read more about the <b>transcodeData</b> method.</br>
+    <br>Click <b>Convert Data</b> to convert the chart from the JSON format into the CSV format.</br>
+</div>
+<br>
+<center>
+    <br>
+    <button id="transcode_data">Transcode data</button>
+    </br>
+    <br>
+    <div id="msg"></div>
+    </br>
+    <br>
+    <div id="chart-container" class="container">FusionCharts will render here.</div>
+    </br>
+</center><script type="text/javascript">FusionCharts.ready(function () {
+    var data = {
+        "chart": {
+            "caption": "Split of Revenue by Product Categories",
+                "subCaption": "Last year",
+                "numberPrefix": "$",
+                "theme": "fint",
+                "captionFontSize": "13",
+                "subcaptionFontSize": "12",
+                "subcaptionFontBold": "0"
+        },
+            "data": [{
+            "label": "Food",
+                "value": "28504"
+        }, {
+            "label": "Apparels",
+                "value": "14633"
+        }, {
+            "label": "Electronics",
+                "value": "10507"
+        }, {
+            "label": "Household",
+                "value": "4910"
+        }]
+    };
+
+    var revenueChart = new FusionCharts({
+        type: 'doughnut2d',
+        renderAt: 'chart-container',
+        width: '350',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: data
+    }).render();
+
+    /**
+     * @description
+     * FusionCharts supports a number of formats in which data can be provided. The static transcodeData() method transcodes data from one supported format to another, without initializing a new instance of FusionCharts. It is very useful when you already have a set of data stored or prepared in one FusionCharts data format and want to convert it to another format. The fact that we do not need to instantiate a new FusionCharts instance speeds the conversion process.
+     *
+     * @param {Object} data: Data to transcode
+     * @param {FusionCharts-dataFormat} source: Source format
+     * @param {FusionCharts-dataFormat} target: Target format
+     * @param {Boolean} advanced: Request the transcoding to return data in a verbose format where it returns the conversion result along with additional trancosing information. default: false.
+     * usage: FusionCharts.transcodeData();
+     *         
+     */
+    function getTranscodedData() {
+
+        var csv = FusionCharts.transcodeData(data, "json", "csv");
+        csv = csv.replace(/\n/g, "<br>");
+        document.getElementById('msg').innerHTML = csv;
+    }
+
+    document.getElementById("transcode_data").addEventListener("click", getTranscodedData);
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,169 @@
+<p>This guide will show you how you can get tabular data from a chart and display it as a table alongside it. Shown below is a chart that displays its data in a tabular format.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-view-data-of-existing-chart-on-page-example-1.js"></script>
+
+<p>Here we created a simple column 2D chart and use the data from this chart to build a HTML table.</p>
+
+<p>First we get the data of the chart using the <code>getDataAsCSV</code> method like this.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">getDataAsCSV</span><span class="p">();</span></code></pre></div>
+
+<p>Here the <code>chart</code> variable contains a reference to the chart object and the returned CSV is stored in the <code>data</code> variable`</p>
+
+<p>Next we parse the CSV and get the rows and columns of the HTML table.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a>var renderTable = function(chart, containerId) {
+<a name="True-2"></a>    // After the chart is rendered we export the data as CSV, parse it and then create a markup
+<a name="True-3"></a>    // equivalent to a table by parsing the exported CSV.
+<a name="True-4"></a>    var data = chart.getDataAsCSV(),
+<a name="True-5"></a>        rows,
+<a name="True-6"></a>        row,
+<a name="True-7"></a>        i,
+<a name="True-8"></a>        length,
+<a name="True-9"></a>        tableBody = &#39;&#39;,
+<a name="True-10"></a>        tableHeader = &#39;&#39;;
+<a name="True-11"></a>
+<a name="True-12"></a>    // Get all the rows by splitting data with &#39;\n&#39; seperator
+<a name="True-13"></a>    rows = data.replace(/&quot;/g, &#39;&#39;).split(&#39;\n&#39;);
+<a name="True-14"></a>
+<a name="True-15"></a>    // Retrieve the data from the rows and compute body string from the data rows
+<a name="True-16"></a>    for (i = 1, length = rows.length; i <span class="nt">&lt; length</span><span class="err">;</span> <span class="na">i</span><span class="err">++)</span> <span class="err">{</span>
+<a name="True-17"></a>        <span class="na">row =</span><span class="err"> </span><span class="s">rows[i].split(&#39;,&#39;);</span>
+<a name="True-18"></a>        <span class="na">tableBody</span> <span class="err">+=</span> <span class="err">&#39;&lt;</span><span class="na">tr</span><span class="nt">&gt;&lt;td&gt;</span>&#39; + row[0] + &#39;<span class="nt">&lt;/td&gt;&lt;td&gt;</span>&#39; + row[1] + &#39;<span class="nt">&lt;/td&gt;&lt;/tr&gt;</span>&#39;;
+<a name="True-19"></a>    }
+<a name="True-20"></a>
+<a name="True-21"></a>    // Compute header string from first row
+<a name="True-22"></a>    row = rows[0].split(&#39;,&#39;);
+<a name="True-23"></a>    tableHeader = &#39;<span class="nt">&lt;tr&gt;&lt;th&gt;</span>&#39; + row[0] + &#39;<span class="nt">&lt;/th&gt;&lt;th&gt;</span>&#39; + row[1] + &#39;<span class="nt">&lt;/th&gt;&lt;/tr&gt;</span>&#39;;
+<a name="True-24"></a>
+<a name="True-25"></a>    // Create the table string and append it to the table container
+<a name="True-26"></a>    document.getElementById(containerId).innerHTML = &#39;<span class="nt">&lt;table</span> <span class="na">width =</span><span class="s">&quot;500px;&quot;</span><span class="nt">&gt;&lt;tbody&gt;</span>&#39; + tableHeader + tableBody + &#39;<span class="err">&lt;</span>/tbody<span class="nt">&lt;/table&gt;</span>&#39;;
+<a name="True-27"></a>};</code></pre></div>
+
+<p>The <code>renderTable</code> function uses the CSV data from the <code>data</code> variable and builds a HTML table.</p>
+
+<p>Finally we tap into the <code>renderComplete</code> event of the chart and call the method <code>renderTable</code> inside it. This ensures that a chart is always present before the table is populated.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="nx">revenueChart</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;renderComplete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-2"></a>    <span class="cm">/* In the renderComplete event create the table, even when the data is updated by calling</span>
+<a name="True-3"></a><span class="cm">     * setChartData method, this event will be fired and the updated data will reflect in the</span>
+<a name="True-4"></a><span class="cm">     * table too, since renderTable will be called again.</span>
+<a name="True-5"></a><span class="cm">     * Creating the table on &#39;render&#39; event will not update the table everytime, it will only</span>
+<a name="True-6"></a><span class="cm">     * update when render() method is called. */</span>
+<a name="True-7"></a>    <span class="nx">renderTable</span><span class="p">(</span><span class="nx">revenueChart</span><span class="p">,</span> <span class="s1">&#39;table-container&#39;</span><span class="p">);</span>
+<a name="True-8"></a><span class="p">});</span></code></pre></div>
+
+<p>You can now call the <code>render</code> function now to display the chart anywhere on the page.</p>
+
+<p>The full HTML code of the example is given here</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My first chart using FusionCharts Suite XT<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="c1">// This data will be used to both render the chart and grid, since</span>
+<a name="True-9"></a>    <span class="c1">// the grid need to be related with the chart.</span>
+<a name="True-10"></a>    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span>  <span class="p">{</span>
+<a name="True-11"></a>        <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-12"></a>            <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-13"></a>            <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-14"></a>            <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-15"></a>            <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-16"></a>            <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-17"></a>            <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-18"></a>        <span class="p">},</span>
+<a name="True-19"></a>        <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-20"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-21"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-22"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-23"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-24"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-25"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-26"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-27"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-28"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-29"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-30"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-31"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-32"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-34"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-35"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-36"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-37"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-38"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-39"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-40"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-41"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-42"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-43"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-44"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-45"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-46"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-47"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-48"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-49"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-50"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-51"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-52"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-53"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-54"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-55"></a>        <span class="p">}]</span>
+<a name="True-56"></a>    <span class="p">};</span>
+<a name="True-57"></a>
+<a name="True-58"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-59"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-60"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-61"></a>        <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;500&#39;</span><span class="p">,</span>
+<a name="True-62"></a>        <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span>
+<a name="True-63"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+<a name="True-64"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">data</span>
+<a name="True-65"></a>    <span class="p">});</span>
+<a name="True-66"></a>    <span class="kd">var</span> <span class="nx">renderTable</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">containerId</span><span class="p">)</span> <span class="p">{</span>
+<a name="True-67"></a>        <span class="c1">// After the chart is rendered we export the data as CSV, parse it and then create a markup</span>
+<a name="True-68"></a>        <span class="c1">// equivalent to a table by parsing the exported CSV.</span>
+<a name="True-69"></a>        <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">getDataAsCSV</span><span class="p">(),</span>
+<a name="True-70"></a>            <span class="nx">rows</span><span class="p">,</span>
+<a name="True-71"></a>            <span class="nx">row</span><span class="p">,</span>
+<a name="True-72"></a>            <span class="nx">i</span><span class="p">,</span>
+<a name="True-73"></a>            <span class="nx">length</span><span class="p">,</span>
+<a name="True-74"></a>            <span class="nx">tableBody</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a name="True-75"></a>            <span class="nx">tableHeader</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<a name="True-76"></a>
+<a name="True-77"></a>        <span class="c1">// Get all the rows by splitting data with &#39;\n&#39; seperator</span>
+<a name="True-78"></a>        <span class="nx">rows</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+<a name="True-79"></a>
+<a name="True-80"></a>        <span class="c1">// Retrieve the data from the rows and compute body string from the data rows</span>
+<a name="True-81"></a>        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">rows</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a name="True-82"></a>            <span class="nx">row</span> <span class="o">=</span> <span class="nx">rows</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+<a name="True-83"></a>            <span class="nx">tableBody</span> <span class="o">+=</span> <span class="s1">&#39;&lt;tr&gt;&lt;td&gt;&#39;</span> <span class="o">+</span> <span class="nx">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&lt;/td&gt;&lt;td&gt;&#39;</span><span class="o">+</span> <span class="nx">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;&lt;/td&gt;&lt;/tr&gt;&#39;</span> <span class="p">;</span>
+<a name="True-84"></a>        <span class="p">}</span>
+<a name="True-85"></a>
+<a name="True-86"></a>        <span class="c1">// Compute header string from first row</span>
+<a name="True-87"></a>        <span class="nx">row</span> <span class="o">=</span> <span class="nx">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+<a name="True-88"></a>        <span class="nx">tableHeader</span> <span class="o">=</span> <span class="s1">&#39;&lt;tr&gt;&lt;th&gt;&#39;</span> <span class="o">+</span> <span class="nx">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&lt;/th&gt;&lt;th&gt;&#39;</span> <span class="o">+</span> <span class="nx">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;&lt;/th&gt;&lt;/tr&gt;&#39;</span> <span class="p">;</span>
+<a name="True-89"></a>
+<a name="True-90"></a>        <span class="c1">// Create the table string and append it to the table container</span>
+<a name="True-91"></a>        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">containerId</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">&#39;&lt;table width =&quot;500px;&quot;&gt;&lt;tbody&gt;&#39;</span><span class="o">+</span><span class="nx">tableHeader</span><span class="o">+</span><span class="nx">tableBody</span><span class="o">+</span><span class="s1">&#39;&lt;/tbody&lt;/table&gt;&#39;</span><span class="p">;</span>
+<a name="True-92"></a>
+<a name="True-93"></a>    <span class="p">};</span>
+<a name="True-94"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;renderComplete&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-95"></a>        <span class="c1">// In the renderComplete event create the table, even when the data is updated by calling setChartData method, this event will be fired and the updated data will reflect in the table too, since renderTable will be called again.</span>
+<a name="True-96"></a>        <span class="c1">// Creating the table on &#39;render&#39; event will not update the table everytime, it will only update when render() method is called.</span>
+<a name="True-97"></a>        <span class="nx">renderTable</span><span class="p">(</span><span class="nx">revenueChart</span><span class="p">,</span> <span class="s1">&#39;table-container&#39;</span><span class="p">);</span>
+<a name="True-98"></a>    <span class="p">});</span>
+<a name="True-99"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-100"></a>
+<a name="True-101"></a>  <span class="p">});</span>
+<a name="True-102"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-103"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-104"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-105"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chart-container&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-106"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;table-container&quot;</span><span class="nt">&gt;</span>The table corresponding to the chart will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-107"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-108"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+

@@ -1,0 +1,90 @@
+<p>A legend is a chart element that displays the series name of each dataset in charts that plot data for multiple datasets.  It helps to correlate a data plot to its series name with the color used to represent the data belonging to that series.</p>
+
+<p>In this section, we will look at:</p>
+
+<ul>
+  <li>
+    <p>Legend interactivity</p>
+  </li>
+  <li>
+    <p>Legend events</p>
+  </li>
+</ul>
+
+<h2 id="legend-interactivity">Legend Interactivity</h2>
+
+<p>By default, the FusionCharts Suite XT legends are interactive - clicking a legend icon will show/hide the data plot it represents. Legends are shown for all charts that plot data for multiple datasets. FusionCharts Suite XT supports gradient legends and icon legends. Each legend type has its own interactive features.</p>
+
+<h3 id="icon-legend">Icon Legend</h3>
+
+<p>An icon legend is rendered with single-color icons for all datasets plotted on the chart.</p>
+
+<p>A multi-series chart with an icon legend is shown below:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/interactivity-chart-specific-interactivity-legends-example-1.js"></script>
+
+<p>The above chart compares the quarterly revenue for the previous year and the current year - each year representing one dataset. When you click the <code>Previous Year</code> icon in the legend, all the data plots corresponding to this dataset are hidden.</p>
+
+<p class="text-info">For pie/doughnut charts, instead of showing/hiding data plots, legend interactivity will slice-in and slice-out data plots.
+</p>
+
+<h3 id="gradient-legend">Gradient Legend</h3>
+
+<p>A gradient legend is a pane of blended colors derived from the definitions of the <code>colorRange</code> object. A linear scale is drawn with two drag-able pointers. Each color defined for a range blends with the next color, thus forming a gradient strip. Each point on the gradient scale represents a unique color and value. So, all different values in a chart will appear in unique colors as per the position on the gradient scale. The gradient legend is supported only for heat map charts.</p>
+
+<p>A heat map chart with a gradient legend looks as shown below:</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/interactivity-chart-specific-interactivity-legends-example-2.js"></script>
+
+<p>You can drag the pointers on a legend item to show/hide all the cells mapped within the color range that lies between the two pointers.</p>
+
+<h2 id="legend-events">Legend Events</h2>
+
+<p>Given below is a brief description of all events associated with legends:</p>
+
+<table>
+  <tr>
+    <th>Event Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>legendPointerDragStart</code></p>
+</td>
+<td><p>This is event is fired when you start dragging the legend pointer in a gradient legend.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>legendPointerDragStop</code></p>
+</td>
+<td><p>This is event is fired when you stop dragging the legend pointer in a gradient legend.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>legendRangeUpdated</code></p>
+</td>
+<td><p>This event is fired when the gradient legend scale is updated.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>legendItemClicked</code></p>
+</td>
+<td><p>This event is fired when you click individual legend items.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>legendItemRollover</code></p>
+</td>
+<td><p>This event is fired when the mouse pointer is moved over any individual legend item.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>legendItemRollout</code></p>
+</td>
+<td><p>This event is fired when the mouse is hovered out of the chart’s legend item.</p>
+</td>
+  </tr>
+</table>
+
+<p>For more information on how you can configure legends, click <a href="/dev/basic-chart-configurations/legend.html">here</a>.</p>

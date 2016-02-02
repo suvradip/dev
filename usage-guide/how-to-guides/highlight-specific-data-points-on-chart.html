@@ -1,0 +1,534 @@
+<p>To help user visualize data, it is often necessary for you to highlight one or more data points in a chart. There are a number of ways that you can take to make a data point stand out and draw attention. One of the most common way that we will discuss here is about tweaking the cosmetic properties of the data plot.</p>
+
+<p>Data plots can be broadly classified into two groups.</p>
+
+<ul>
+  <li>
+    <p>Plots that are graphically well defined and independent of other plots, e.g. individual columns in a Column chart</p>
+  </li>
+  <li>
+    <p>Plots that are interlinked and lack independent existence, e.g. lines between two successive points in a Line chart</p>
+  </li>
+</ul>
+
+<p>The well defined and independent data plots have in general 3 configurable properties that can be used to highlight a data point. The properties are detailed below.</p>
+
+<table>
+  <tr>
+    <th>Attribute Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>color</code></p>
+</td>
+<td><p>Fill color of the data plot in hex code, e.g. <code>#00ffaa</code></p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>alpha</code></p>
+</td>
+<td><p>Fill alpha of the data plot ranging from <code>0</code> (transparent) to <code>100</code> (opaque)</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dashed</code></p>
+</td>
+<td><p>Border of the plot fill is dashed for the value of <code>1</code></p>
+</td>
+  </tr>
+</table>
+
+<p>In charts like line, spline and area, the visualisation is more about the change in data. Data plots do not have any individual / independent existence or to be precise, they are missing! FusionCharts provides anchors to place on data points in these charts. Since, an anchor is graphically independent, it can be used to highlight a specific data point.</p>
+
+<p>You can configure the anchors using the attributes detailed below.</p>
+
+<table>
+  <tr>
+    <th>Attribute Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>anchorSides</code></p>
+</td>
+<td><p>Number of sides of the polygon acting as the anchor, accepting any positive integer greater than <code>2</code></p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorRadius</code></p>
+</td>
+<td><p>Radius of the polygon acting as the anchor in pixels</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorBorderColor</code></p>
+</td>
+<td><p>Border color of the anchor in hex code, e.g. <code>#00ffaa</code></p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorBorderThickness</code></p>
+</td>
+<td><p>Border thickness of the anchor in pixels</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorBgColor</code></p>
+</td>
+<td><p>Background color of the anchor in hex code, e.g <code>#00ffaa</code></p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorBgAlpha</code></p>
+</td>
+<td><p>Background alpha of the anchor ranging from <code>0</code> (transparent) to <code>100</code> (opaque)</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>anchorAlpha</code></p>
+</td>
+<td><p>Overall alpha of the anchor, affecting both fill and border, and ranging from <code>0</code> (transparent) to <code>100</code> (opaque)</p>
+</td>
+  </tr>
+</table>
+
+<p>Some of the most prominent ways of highlighting data points using FusionCharts are as below.</p>
+
+<ul>
+  <li>
+    <p>Changing the color of an individual data point</p>
+  </li>
+  <li>
+    <p>Highlighting the data point by changing its alpha and using dashed border</p>
+  </li>
+  <li>
+    <p>Changing anchor properties in charts like line and area</p>
+  </li>
+</ul>
+
+<h1 id="changing-the-color-of-an-individual-data-point">Changing the color of an individual data point</h1>
+
+<p>A plot with a distinctly different color stands out of a set of uniformly colored data plots. This is the easiest and most prominent way to highlight a data plot. But, this technique fails in case different colors are used on different data plots.</p>
+
+<p>The following live chart highlights a column plot in the MSColumn2D chart.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-highlight-specific-data-points-on-chart-example-1.js"></script>
+
+<p>Inspect the data structure of the sample shown below on how to configure the attributes at data point object level in the data JSONs.</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Comparison of Quarterly Revenue",
+        "subCaption": "Harry's SuperMart",
+        "xAxisname": "Quarter",
+        "yAxisName": "Amount",
+        "numberPrefix": "$",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "Q1"
+                },
+                {
+                    "label": "Q2"
+                },
+                {
+                    "label": "Q3"
+                },
+                {
+                    "label": "Q4"
+                }
+            ]
+        }
+    ],
+    "dataset": [
+        {
+            "seriesname": "Previous Year",
+            "data": [
+                {
+                    "value": "10000",
+                    "color": "#999900"
+                },
+                {
+                    "value": "11500"
+                },
+                {
+                    "value": "12500"
+                },
+                {
+                    "value": "15000"
+                }
+            ]
+        },
+        {
+            "seriesname": "Current Year",
+            "data": [
+                {
+                    "value": "25400"
+                },
+                {
+                    "value": "29800"
+                },
+                {
+                    "value": "21800"
+                },
+                {
+                    "value": "26800"
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Comparison of Quarterly Revenue&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-9"></a>    <span class="p">},</span>
+<a name="True-10"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-11"></a>        <span class="p">{</span>
+<a name="True-12"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-13"></a>                <span class="p">{</span>
+<a name="True-14"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-15"></a>                <span class="p">},</span>
+<a name="True-16"></a>                <span class="p">{</span>
+<a name="True-17"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-18"></a>                <span class="p">},</span>
+<a name="True-19"></a>                <span class="p">{</span>
+<a name="True-20"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-21"></a>                <span class="p">},</span>
+<a name="True-22"></a>                <span class="p">{</span>
+<a name="True-23"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-24"></a>                <span class="p">}</span>
+<a name="True-25"></a>            <span class="p">]</span>
+<a name="True-26"></a>        <span class="p">}</span>
+<a name="True-27"></a>    <span class="p">],</span>
+<a name="True-28"></a>    <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-29"></a>        <span class="p">{</span>
+<a name="True-30"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Previous Year&quot;</span><span class="p">,</span>
+<a name="True-31"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-32"></a>                <span class="p">{</span>
+<a name="True-33"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+<a name="True-34"></a>                    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="s2">&quot;#999900&quot;</span>
+<a name="True-35"></a>                <span class="p">},</span>
+<a name="True-36"></a>                <span class="p">{</span>
+<a name="True-37"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11500&quot;</span>
+<a name="True-38"></a>                <span class="p">},</span>
+<a name="True-39"></a>                <span class="p">{</span>
+<a name="True-40"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;12500&quot;</span>
+<a name="True-41"></a>                <span class="p">},</span>
+<a name="True-42"></a>                <span class="p">{</span>
+<a name="True-43"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-44"></a>                <span class="p">}</span>
+<a name="True-45"></a>            <span class="p">]</span>
+<a name="True-46"></a>        <span class="p">},</span>
+<a name="True-47"></a>        <span class="p">{</span>
+<a name="True-48"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Current Year&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-50"></a>                <span class="p">{</span>
+<a name="True-51"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25400&quot;</span>
+<a name="True-52"></a>                <span class="p">},</span>
+<a name="True-53"></a>                <span class="p">{</span>
+<a name="True-54"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;29800&quot;</span>
+<a name="True-55"></a>                <span class="p">},</span>
+<a name="True-56"></a>                <span class="p">{</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21800&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span>
+<a name="True-59"></a>                <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;26800&quot;</span>
+<a name="True-61"></a>                <span class="p">}</span>
+<a name="True-62"></a>            <span class="p">]</span>
+<a name="True-63"></a>        <span class="p">}</span>
+<a name="True-64"></a>    <span class="p">]</span>
+<a name="True-65"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<h1 id="highlighting-the-data-point-by-changing-its-alpha-and-using-dashed-border">Highlighting the data point by changing its alpha and using dashed border</h1>
+
+<p>This is a more subtle way to highlight a data plot, where you may not prefer to colorize the plot with a distinctly different color. Change the plot opacity and you get a color derivative of the original color. If thats not enough as a highlighter, make the border dashed to add weight and help the plot stand out in the show.</p>
+
+<p>The following live chart highlights a column plot in the Column2D chart.</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-highlight-specific-data-points-on-chart-example-2.js"></script>
+
+<p>Inspect the data structure of the sample shown below on how to configure the attributes at data point object level in the data JSONs.</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Harry's SuperMart",
+        "subCaption": "Monthly revenue for last year",
+        "xAxisName": "Month",
+        "yAxisName": "Amount",
+        "numberPrefix": "$",
+        "theme": "fint",
+        "rotateValues": "1",
+        "showPlotBorder": "1"
+    },
+    "data": [
+        {
+            "label": "Jan",
+            "value": "420000"
+        },
+        {
+            "label": "Feb",
+            "value": "810000"
+        },
+        {
+            "label": "Mar",
+            "value": "720000"
+        },
+        {
+            "label": "Apr",
+            "value": "550000"
+        },
+        {
+            "label": "May",
+            "value": "910000",
+            "alpha": "20",
+            "dashed": "1"
+        },
+        {
+            "label": "Jun",
+            "value": "510000"
+        },
+        {
+            "label": "Jul",
+            "value": "680000"
+        },
+        {
+            "label": "Aug",
+            "value": "620000"
+        },
+        {
+            "label": "Sep",
+            "value": "610000"
+        },
+        {
+            "label": "Oct",
+            "value": "490000"
+        },
+        {
+            "label": "Nov",
+            "value": "900000"
+        },
+        {
+            "label": "Dec",
+            "value": "730000"
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;rotateValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;showPlotBorder&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-11"></a>    <span class="p">},</span>
+<a name="True-12"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-13"></a>        <span class="p">{</span>
+<a name="True-14"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-15"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-16"></a>        <span class="p">},</span>
+<a name="True-17"></a>        <span class="p">{</span>
+<a name="True-18"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-20"></a>        <span class="p">},</span>
+<a name="True-21"></a>        <span class="p">{</span>
+<a name="True-22"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-23"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-24"></a>        <span class="p">},</span>
+<a name="True-25"></a>        <span class="p">{</span>
+<a name="True-26"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-27"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-28"></a>        <span class="p">},</span>
+<a name="True-29"></a>        <span class="p">{</span>
+<a name="True-30"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-31"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span><span class="p">,</span>
+<a name="True-32"></a>            <span class="s2">&quot;alpha&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;dashed&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-34"></a>        <span class="p">},</span>
+<a name="True-35"></a>        <span class="p">{</span>
+<a name="True-36"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-37"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-38"></a>        <span class="p">},</span>
+<a name="True-39"></a>        <span class="p">{</span>
+<a name="True-40"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-41"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-42"></a>        <span class="p">},</span>
+<a name="True-43"></a>        <span class="p">{</span>
+<a name="True-44"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-45"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-46"></a>        <span class="p">},</span>
+<a name="True-47"></a>        <span class="p">{</span>
+<a name="True-48"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-50"></a>        <span class="p">},</span>
+<a name="True-51"></a>        <span class="p">{</span>
+<a name="True-52"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-53"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-54"></a>        <span class="p">},</span>
+<a name="True-55"></a>        <span class="p">{</span>
+<a name="True-56"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-57"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-58"></a>        <span class="p">},</span>
+<a name="True-59"></a>        <span class="p">{</span>
+<a name="True-60"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-61"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-62"></a>        <span class="p">}</span>
+<a name="True-63"></a>    <span class="p">]</span>
+<a name="True-64"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<h1 id="changing-anchor-properties-in-charts-like-line-and-area">Changing anchor properties in charts like line and area</h1>
+
+<p>Anchors represent data points in charts that lack data plots to represent numerical data. Charts plotting line or area or both (as in combination charts) fall in this category. Spline charts fall in this category either. In a nutshell, if you have line, spline or area plots in any chart and you need to highlight data points on any of these, use anchors if not yet and highlight the required data plot.</p>
+
+<p>The following live chart highlights a line anchor in the Line chart.</p>
+
+<div class="chart-example" id="chart-container-3">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-highlight-specific-data-points-on-chart-example-3.js"></script>
+
+<p>Inspect the data structure of the sample shown below on how to configure the attributes at data point object level in the data JSONs.</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Harry's SuperMart",
+        "subCaption": "Monthly revenue for last year",
+        "xAxisName": "Month",
+        "yAxisName": "Amount",
+        "numberPrefix": "$",
+        "theme": "fint",
+        "rotateValues": "1"
+    },
+    "data": [
+        {
+            "label": "Jan",
+            "value": "420000"
+        },
+        {
+            "label": "Feb",
+            "value": "810000"
+        },
+        {
+            "label": "Mar",
+            "value": "720000"
+        },
+        {
+            "label": "Apr",
+            "value": "550000"
+        },
+        {
+            "label": "May",
+            "value": "910000",
+            "anchorRadius": "6",
+            "anchorBorderColor": "0372AB",
+            "anchorBgColor": "E1f5ff"
+        },
+        {
+            "label": "Jun",
+            "value": "510000"
+        },
+        {
+            "label": "Jul",
+            "value": "680000"
+        },
+        {
+            "label": "Aug",
+            "value": "620000"
+        },
+        {
+            "label": "Sep",
+            "value": "610000"
+        },
+        {
+            "label": "Oct",
+            "value": "490000"
+        },
+        {
+            "label": "Nov",
+            "value": "900000"
+        },
+        {
+            "label": "Dec",
+            "value": "730000"
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;rotateValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-10"></a>    <span class="p">},</span>
+<a name="True-11"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-12"></a>        <span class="p">{</span>
+<a name="True-13"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-14"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-15"></a>        <span class="p">},</span>
+<a name="True-16"></a>        <span class="p">{</span>
+<a name="True-17"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-18"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-19"></a>        <span class="p">},</span>
+<a name="True-20"></a>        <span class="p">{</span>
+<a name="True-21"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-22"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-23"></a>        <span class="p">},</span>
+<a name="True-24"></a>        <span class="p">{</span>
+<a name="True-25"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-26"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-27"></a>        <span class="p">},</span>
+<a name="True-28"></a>        <span class="p">{</span>
+<a name="True-29"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-30"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span><span class="p">,</span>
+<a name="True-31"></a>            <span class="s2">&quot;anchorRadius&quot;</span><span class="o">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<a name="True-32"></a>            <span class="s2">&quot;anchorBorderColor&quot;</span><span class="o">:</span> <span class="s2">&quot;0372AB&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;anchorBgColor&quot;</span><span class="o">:</span> <span class="s2">&quot;E1f5ff&quot;</span>
+<a name="True-34"></a>        <span class="p">},</span>
+<a name="True-35"></a>        <span class="p">{</span>
+<a name="True-36"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-37"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-38"></a>        <span class="p">},</span>
+<a name="True-39"></a>        <span class="p">{</span>
+<a name="True-40"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-41"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-42"></a>        <span class="p">},</span>
+<a name="True-43"></a>        <span class="p">{</span>
+<a name="True-44"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-45"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-46"></a>        <span class="p">},</span>
+<a name="True-47"></a>        <span class="p">{</span>
+<a name="True-48"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-50"></a>        <span class="p">},</span>
+<a name="True-51"></a>        <span class="p">{</span>
+<a name="True-52"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-53"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-54"></a>        <span class="p">},</span>
+<a name="True-55"></a>        <span class="p">{</span>
+<a name="True-56"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-57"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-58"></a>        <span class="p">},</span>
+<a name="True-59"></a>        <span class="p">{</span>
+<a name="True-60"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-61"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-62"></a>        <span class="p">}</span>
+<a name="True-63"></a>    <span class="p">]</span>
+<a name="True-64"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>

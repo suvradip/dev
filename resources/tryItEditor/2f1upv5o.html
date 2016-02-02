@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- This sample shows the event parameters, and their values, when resizeCancelled event is triggered-->
+<div id="indicatorDiv">Event name: <b> resizeCancelled </b> 
+    <br>
+    <br>Triggered when the eventObj.preventDefault() method is called from within the beforeResize event.</br>
+    <br>All events, when triggered, will provide two parameters for the handler - <b> eventObj </b> (object containing information generic to all events) and <b> dataObj </b> (object containing information specific to an event).</br>
+    <br>Click the '+' or '-' buttons (for width/height) below the chart to resize the chart and trigger the event. Scroll down to the table below the chart and view information contained in the dataObj object. To view information contained in the eventObj object, open the console.</br>
+    </br>
+</div>
+<div id="chart-container">FusionCharts will render here</div>
+<div>
+    <div>
+        <div id="header">
+            <div class="parameter-name">Parameter Name</div>
+            <div class="parameter-value">Parameter Value</div>
+        </div>
+        <div id="attrs-table"></div>
+    </div>
+</div><script type="text/javascript">FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'column2d',
+        id: 'wh-chart',
+        renderAt: 'chart-container',
+        width: '500',
+        height: '300',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Harry's SuperMart",
+                    "subCaption": "Monthly revenue for last year",
+                    "xAxisName": "Month",
+                    "yAxisName": "Amount",
+                    "numberPrefix": "$",
+                    "theme": "fint",
+                    "rotateValues": "1"
+            },
+
+                "data": [{
+                "label": "Jan",
+                    "value": "420000"
+            }, {
+                "label": "Feb",
+                    "value": "810000"
+            }, {
+                "label": "Mar",
+                    "value": "720000"
+            }, {
+                "label": "Apr",
+                    "value": "550000"
+            }, {
+                "label": "May",
+                    "value": "910000"
+            }, {
+                "label": "Jun",
+                    "value": "510000"
+            }, {
+                "label": "Jul",
+                    "value": "680000"
+            }, {
+                "label": "Aug",
+                    "value": "620000"
+            }, {
+                "label": "Sep",
+                    "value": "610000"
+            }, {
+                "label": "Oct",
+                    "value": "490000"
+            }, {
+                "label": "Nov",
+                    "value": "900000"
+            }, {
+                "label": "Dec",
+                    "value": "730000"
+            }]
+        },
+        events: {
+            'beforeRender': function (evt, args) {
+                // Create container div for width & height controls
+                var controls = document.createElement('div');
+                controls.innerHTML = '<span>Width: </span><input type="button" value="+" id="wplus" /><input type="button" value="-" id="wminus" /><span>Height: </span><input type="button" value="+" id="hplus" /><input type="button" value="-" id="hminus" />';
+
+                args.container.appendChild(controls);
+
+                // set css style for "span" elements in control div
+                var span = controls.getElementsByTagName('span');
+                for (var i = 0; i < span.length; i++) {
+                    span[i].style.cssText = 'font-size: 11px;';
+                }
+
+                // set css styles for "input" elements in controls div
+                var input = controls.getElementsByTagName('input');
+                for (i = 0; i < input.length; i++) {
+                    input[i].style.cssText = 'font-size: 11px;';
+                }
+            },
+                'renderComplete': function () {
+                // Get chart object
+                var revenueChart = FusionCharts.items['wh-chart'];
+
+                // resize the chart by attaching functions to buttons that increase or
+                // decrease chart dimensions              
+                document.getElementById("wplus").onclick = function () {
+                    revenueChart.resizeTo(Number(revenueChart.width) + 20);
+                };
+
+                document.getElementById("wminus").onclick = function () {
+                    revenueChart.resizeTo(Number(revenueChart.width) - 20);
+                };
+
+                document.getElementById("hplus").onclick = function () {
+                    revenueChart.resizeTo(undefined, Number(revenueChart.height) + 20);
+                };
+
+                document.getElementById("hminus").onclick = function () {
+                    revenueChart.resizeTo(undefined, Number(revenueChart.height) - 20);
+                };
+            },
+                "beforeResize": function (evt, data) {
+                evt.preventDefault();
+            },
+
+            /**
+             * @description
+             * The resizeCancelled event is triggered when the eventObj.preventDefault() method is called from within the beforeResize event.
+             *
+             * @param {Object} eventObj: An object containing all the details related to this event like eventId, sender, etc.
+             * @param {Object} dataObj: An object containing all the details related to the chart resize, such as the cancelled width and height.
+             */
+
+                "resizeCancelled": function (eventObj, dataObj) {
+                console.log(eventObj);
+                var header = document.getElementById('header');
+                header.style.display = 'block';
+
+                var tempDiv = document.createElement('div');
+                var attrsTable = document.getElementById('attrs-table');
+                var titleDiv, valueDiv;
+                for (var prop in dataObj) {
+                    titleDiv = document.createElement('div');
+                    titleDiv.className = 'title';
+                    titleDiv.innerHTML = prop;
+
+                    valueDiv = document.createElement('div');
+                    valueDiv.className = 'value';
+                    valueDiv.innerHTML = dataObj[prop];
+
+                    tempDiv.appendChild(titleDiv);
+                    tempDiv.appendChild(valueDiv);
+                }
+                attrsTable.innerHTML = '';
+                attrsTable.appendChild(tempDiv);
+            }
+        }
+    }).render();
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+
