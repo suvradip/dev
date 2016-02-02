@@ -1,0 +1,845 @@
+[{
+    "category": "Demos",
+    "data": [{
+                 "path": "content/demos/chart-gallery.md"
+            }, {
+                "path": "content/demos/dashboards.md"
+            }, {
+                "path": "content/demos/fiddles.md"
+            }]
+
+}, {
+    "category": "Beginner's Guide",
+    "data": [{
+            "title": "Getting Started",
+            "path": "content/tutorials/getting-started",
+            "children": [{
+                "path": "content/tutorials/getting-started/installation.md"
+            }, {
+                "path": "content/tutorials/getting-started/upgrading-from-evaluation-versions.md"
+            }, {
+                "path": "content/tutorials/getting-started/upgrading-from-previous-versions.md"
+            }, {
+                "path": "content/tutorials/getting-started/building-your-first-chart.md"
+            }, {
+                "path": "content/tutorials/getting-started/building-your-gauge.md"
+            }, {
+                "path": "content/tutorials/getting-started/building-your-map.md"
+            }, {
+                "path": "content/tutorials/getting-started/building-a-dashboard.md"
+            }, {
+                "path": "content/tutorials/getting-started/using-xml-as-data-format.md"
+            }, {
+                "path": "content/tutorials/getting-started/list-of-charts.md"
+            }, {
+                "path": "content/tutorials/getting-started/list-of-maps.md"
+            }]
+        }
+    ]
+}, {
+    "category": "Charts / Gauges / Maps Guide",
+    "data": [
+        {
+            "path": "content/tutorials/chart-guide/",
+            "title": "Chart Guide",
+            "children": [{
+                "path": "content/tutorials/chart-guide/standard-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/standard-charts/creating-standard-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/standard-charts/configuring-standard-charts.md"
+                }],
+                "title": "Standard Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/pie-and-doughnut-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/pie-and-doughnut-charts/creating-pie-and-doughnut-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/pie-and-doughnut-charts/configuring-pie-and-doughnut-charts.md"
+                }],
+                "title": "Pie and Doughnut Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/multi-series-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/multi-series-charts/creating-multi-series-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/multi-series-charts/configuring-multi-series-charts.md"
+                }],
+                "title": "Multi-series Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/combination-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/combination-charts/creating-combination-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/combination-charts/configuring-combination-charts.md"
+                }],
+                "title": "Combination Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/stacked-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/stacked-charts/creating-stacked-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/stacked-charts/configuring-stacked-charts.md"
+                }],
+                "title": "Stacked Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/scroll-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/scroll-charts/creating-scroll-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/scroll-charts/configuring-scroll-charts.md"
+                }],
+                "title": "Scroll Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/bubble-and-xy-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/bubble-and-xy-charts/creating-bubble-and-xy-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/bubble-and-xy-charts/configuring-bubble-and-xy-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/bubble-and-xy-charts/customizing-quadrants.md"
+                }],
+                "title": "Bubble and XY Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/pareto-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/pareto-chart/creating-a-pareto-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/pareto-chart/configuring-a-pareto-chart.md"
+                }],
+                "title": "Pareto Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/marimekko-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/marimekko-chart/creating-a-marimekko-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/marimekko-chart/configuring-a-marimekko-chart.md"
+                }],
+                "title": "Marimekko Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/zoom-line-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/zoom-line-chart/creating-a-zoom-line-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/zoom-line-chart/configuring-a-zoom-line-chart.md"
+                }],
+                "title": "Zoom Line Chart"
+            },  {
+                "path": "content/tutorials/chart-guide/zoom-line-dy-chart.md"
+            }, {
+                "path": "content/tutorials/chart-guide/heat-map-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/heat-map-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/heat-map-chart/creating-numeric-heat-map-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/heat-map-chart/creating-category-based-heat-map-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/heat-map-chart/legend-options.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/heat-map-chart/configuring-labels-and-tool-tips.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/heat-map-chart/handling-out-of-range-data.md"
+                }],
+                "title": "Heat Map Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/treemap-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/treemap-chart/introducing-the-treemap-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/treemap-chart/creating-a-simple-treemap-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/treemap-chart/configuring-the-treemap-chart-I.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/treemap-chart/configuring-the-treemap-chart-II.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/treemap-chart/handling-events-in-the-treemap-chart.md"
+                }],
+                "title": "Treemap Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/drag-node-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/drag-node-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/configuring-drag-node-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/adding-and-editing-nodes.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/adding-and-editing-connectors.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/adding-and-deleting-text-labels.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/updating-chart-data-on-server.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-node-chart/getting-data-using-javascript.md"
+                }],
+                "title": "Drag Node Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/drag-able-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/drag-able-charts/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-able-charts/creating-drag-able-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-able-charts/configuring-drag-able-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/drag-able-charts/retrieving-data.md"
+                }],
+                "title": "Drag-able Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/select-scatter-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/select-scatter-chart/creating-a-select-scatter-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/select-scatter-chart/getting-selected-data.md"
+                }],
+                "title": "Select-scatter Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/zoom-scatter-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/zoom-scatter-chart/introducing-the-zoom-scatter-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/zoom-scatter-chart/creating-a-zoom-scatter-chart.md"
+                }],
+                "title": "Zoom-scatter Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/radar-chart.md"
+            }, {
+                "path": "content/tutorials/chart-guide/multi-axis-line-chart.md"
+            }, {
+                "path": "content/tutorials/chart-guide/multi-level-pie-chart.md"
+            }, {
+                "path": "content/tutorials/chart-guide/candlestick-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/candlestick-chart/creating-a-candlestick-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/candlestick-chart/configuring-a-candlestick-chart.md"
+                }],
+                "title": "Candlestick Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/waterfall-or-cascade-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/waterfall-or-cascade-chart/creating-a-waterfall-or-cascade-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/waterfall-or-cascade-chart/configuring-a-waterfall-or-cascade-chart.md"
+                }],
+                "title": "Waterfall (Cascade) Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/box-and-whisker-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/creating-box-and-whisker-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-the-five-summary-numbers.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-mean.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-mean-deviation.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-standard-deviation.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-quartile-deviation.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/box-and-whisker-chart/configuring-outliers.md"
+                }],
+                "title": "Box and Whisker Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/error-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/error-charts/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/error-charts/creating-error-bar-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/error-charts/creating-error-line-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/error-charts/creating-error-scatter-chart.md"
+                }],
+                "title": "Error Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/spline-charts.md"
+            }, {
+                "path": "content/tutorials/chart-guide/inverse-y-axis-chart.md"
+            }, {
+                "path": "content/tutorials/chart-guide/logarithmic-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/logarithmic-charts/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/logarithmic-charts/creating-logarithmic-charts.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/logarithmic-charts/configuring-logarithmic-charts.md"
+                }],
+                "title": "Logarithmic Charts"
+            }, {
+                "path": "content/tutorials/chart-guide/step-line-chart/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/step-line-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/step-line-chart/creating-a-step-line-chart.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/step-line-chart/configuring-a-step-line-chart.md"
+                }],
+                "title": "Step Line Chart"
+            }, {
+                "path": "content/tutorials/chart-guide/kagi-chart.md"
+            }, {
+                "title": "Real-time Charts",
+                "path": "content/tutorials/chart-guide/real-time-charts/",
+                "children": [{
+                    "path": "content/tutorials/chart-guide/real-time-charts/introduction.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/data-format.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/multiple-datasets-and-updates.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/adding-historical-data.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/chart-configurations.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/adding-data-stamp.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/setting-alert-manager.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/setting-message-logger.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/clearing-chart-view.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/feeding-and-retrieving-data-through-api.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/listening-to-events.md"
+                }, {
+                    "path": "content/tutorials/chart-guide/real-time-charts/troubleshooting.md"
+                }]
+            }]
+        }, {
+            "title": "Gauge & Widgets Guide",
+            "path": "content/tutorials/gauge-and-widgets-guide/",
+            "children": [{
+                "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/configuring-gauge-cosmetics.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/configuring-dials.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/configuring-tick-marks.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/adding-trend-points.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/configuring-angles-and-origins.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/dynamically-resizing-gauges.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/creating-editable-gauges.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/creating-real-time-gauges.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/angular-gauge/logging-real-time-messages.md"
+                }],
+                "title": "Angular Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/configuring-gauge-cosmetics.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/configuring-tick-marks.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/adding-trend-points.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/creating-editable-gauges.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/linear-gauge/real-time-gauges.md"
+                }],
+                "title": "Linear Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/led-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/led-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/led-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/led-gauge/configuring-gauge.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/led-gauge/real-time-gauges.md"
+                }],
+                "title": "LED Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/thermometer-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/thermometer-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/thermometer-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/thermometer-gauge/configuring-gauge.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/thermometer-gauge/real-time-gauges.md"
+                }],
+                "title": "Thermometer Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/cylinder-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/cylinder-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/cylinder-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/cylinder-gauge/configuring-gauge.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/cylinder-gauge/real-time-gauges.md"
+                }],
+                "title": "Cylinder Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/bulb-gauge/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/bulb-gauge/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/bulb-gauge/simple-gauge-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/bulb-gauge/configuring-gauge.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/bulb-gauge/real-time-gauges.md"
+                }],
+                "title": "Bulb Gauge"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/funnel-chart/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/funnel-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/funnel-chart/simple-chart-example.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/funnel-chart/configuring-chart.md"
+                }],
+                "title": "Funnel Chart"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/pyramid-chart/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/pyramid-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/pyramid-chart/simple-pyramid-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/pyramid-chart/configuring-chart.md"
+                }],
+                "title": "Pyramid Chart"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/creating-spark-line-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/configuring-spark-line-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/creating-spark-column-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/configuring-spark-column-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/creating-spark-win-loss-charts.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/spark-charts/configuring-spark-win-loss-charts.md"
+                }],
+                "title": "Spark Charts"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/bullet-graph/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/bullet-graph/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/bullet-graph/creating-bullet-graphs.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/bullet-graph/configuring-bullet-graph.md"
+                }],
+                "title": "Bullet Graphs"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/creating-simple-gantt-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/configuring-cosmetics.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/configuring-task-bars.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/configuring-date-formats.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/adding-scroll-to-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/adding-multiple-task-to-a-process.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/creating-time-based-charts.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/adding-milestones-to-a-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/connecting-tasks-on-chart.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/adding-trend-lines.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/gantt-chart/events-in-gantt-chart.md"
+                }],
+                "title": "Gantt Chart"
+            }, {
+                "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/",
+                "children": [{
+                    "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/introduction.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/setting-up-real-time-gauges.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/setting-alert-manager.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/using-events.md"
+                }, {
+                    "path": "content/tutorials/gauge-and-widgets-guide/real-time-gauges/troubleshooting-real-time-gauges.md"
+                }],
+                "title": "Real-time Gauges"
+            }]
+        }, {
+            "title": "Map Guide",
+            "path": "content/tutorials/map-guide/",
+            "children": [{
+                "path": "content/tutorials/map-guide/setup.md"
+            }, {
+                "path": "content/tutorials/map-guide/simple-data-driven-map.md"
+            }, {
+                "path": "content/tutorials/map-guide/customizing-your-map.md"
+            }, {
+                "path": "content/tutorials/map-guide/custom-entity-ids.md"
+            }, {
+                "path": "content/tutorials/map-guide/colouring-based-on-data-range.md"
+            }, {
+                "path": "content/tutorials/map-guide/adding-markers.md"
+            }, {
+                "path": "content/tutorials/map-guide/data-driven-markers.md"
+            }, {
+                "path": "content/tutorials/map-guide/using-marker-sheets.md"
+            }, {
+                "path": "content/tutorials/map-guide/listening-to-map-events.md"
+            }, {
+                "path": "content/tutorials/map-guide/adding-drill-down-to-maps.md"
+            }]
+        }, {
+            "title": "Map Reference",
+            "path": "content/map-reference/",
+            "children": [{
+                "path": "content/map-reference/marker-data.md"
+            }, {
+                "path": "content/map-reference/spec-sheets.md"
+            }, {
+                "path": "content/map-reference/attribute-reference.md"
+            }]
+        }
+
+    ]
+}, {
+    "category": "Customizing Charts",
+    "data": [
+        {
+            "title": "Basic Chart Configurations",
+            "path": "content/tutorials/configuring-your-chart-basic/",
+            "children": [{
+                "path": "content/tutorials/configuring-your-chart-basic/changing-the-size-and-type.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/border-and-background.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/canvas.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/titles-and-axis-names.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/data-plot.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/data-labels.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/data-values.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/number-format.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/fonts.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/chart-palettes.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/centralizing-themes-for-your-charts.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/theme-manager.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/chart-limits.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/div-lines-and-grids.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/vertical-div-lines.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/zero-plane.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/trend-lines-and-zones.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/anchors-and-lines.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/tool-tips.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/vertical-lines.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/legend.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/annotations.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/tick-marks.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/loading-external-logo.md"
+            }, {
+                "path": "content/tutorials/configuring-your-chart-basic/chart-paddings-and-margins.md"
+            }]
+        }, {
+            "title": "Advanced Chart Configurations",
+            "path": "content/tutorials/advanced-charting/",
+            "children": [{
+                "path": "content/tutorials/advanced-charting/events/",
+                "children": [{
+                    "path": "content/tutorials/advanced-charting/events/introduction-to-events.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/events/handling-events.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/events/classifying-events.md"
+                }],
+                "title": "Events"
+            }, {
+                "path": "content/tutorials/advanced-charting/drill-down/",
+                "children": [{
+                    "path": "content/tutorials/advanced-charting/drill-down/simple-drill-down.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/drill-down/opening-in-pop-up-or-frames.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/drill-down/set-chart-as-hotspot.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/drill-down/linkedcharts.md"
+                }],
+                "title": "Drill-down"
+            }, {
+                "path": "content/tutorials/advanced-charting/annotations/",
+                "children": [{
+                    "path": "content/tutorials/advanced-charting/annotations/introduction.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/creating-annotations/",
+                    "children": [{
+                        "path": "content/tutorials/advanced-charting/annotations/creating-annotations/introduction.md"
+                    }, {
+                        "path": "content/tutorials/advanced-charting/annotations/creating-annotations/creating-text-annotations.md"
+                    }, {
+                        "path": "content/tutorials/advanced-charting/annotations/creating-annotations/creating-image-annotations.md"
+                    }, {
+                        "path": "content/tutorials/advanced-charting/annotations/creating-annotations/creating-shape-annotations.md"
+                    }, {
+                        "path": "content/tutorials/advanced-charting/annotations/creating-annotations/creating-path-annotations.md"
+                    }],
+                    "title": "Creating Annotations"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/positioning-annotations-using-absolute-values.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/positioning-annotations-using-macros.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/grouping-annotations.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/controlling-annotations-dynamically.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/using-annotation-events.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/real-life-use-cases.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/annotations/annotations-references.md"
+                }],
+                "title": "Annotations"
+            }, {
+                "path": "content/tutorials/advanced-charting/theme-manager/",
+                "children": [{
+                    "path": "content/tutorials/advanced-charting/theme-manager/introduction-to-themes.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/theme-manager/applying-themes.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/theme-manager/basics-of-theme-definition.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/theme-manager/modifying-existing-themes.md"
+                }, {
+                    "path": "content/tutorials/advanced-charting/theme-manager/creating-new-themes.md"
+                }],
+                "title": "Theme Manager"
+            }]
+        }, {
+            "title": "Chart Attributes",
+            "path": "content/attrs.md"
+        }, {
+            "title": "Exporting as Image and PDF",
+            "path": "content/tutorials/exporting-as-image-and-pdf/",
+            "children": [{
+                "title": "Server-side Export",
+                "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export",
+                "children": [{
+                    "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/introduction.md"
+                }, {
+                    "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/configuring-export-feature.md"
+                }, {
+                    "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/setup-private-export-server/",
+                    "children": [{
+                        "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/setup-private-export-server/asp-net.md"
+                    }, {
+                        "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/setup-private-export-server/php.md"
+                    }, {
+                        "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/setup-private-export-server/java.md"
+                    }, {
+                        "path": "content/tutorials/exporting-as-image-and-pdf/server-side-export/setup-private-export-server/ruby-on-rails.md"
+                    }],
+                    "title": "Setup Private Export Server"
+                }]
+            }, {
+                "path": "content/tutorials/exporting-as-image-and-pdf/client-side-export/exporting-to-images-or-pdf-using-client-side-exporting.md",
+                "title": "Client-side Export"
+            }]
+        }
+    ]
+
+}, {
+    "category": "API",
+    "data": [{
+        "title": "API Reference",
+        "children": [{
+            "title": "FusionCharts",
+            "path": "content/api/fusioncharts.md"
+        }, {
+            "path": "content/api/fusioncharts/events.md"
+        }, {
+            "path": "content/api/fusioncharts/methods.md"
+        }, {
+            "path": "content/api/fusioncharts/properties.md"
+        }, {
+            "path": "content/api/fusioncharts/typedefs.md"
+        }, {
+            "title": "Namespaces",
+            "children": [{
+                "path": "content/api/fusioncharts/namespaces/debugger.md"
+            }, {
+                "path": "content/api/fusioncharts/namespaces/ajax.md"
+            }, {
+                "path": "content/api/fusioncharts/namespaces/print-manager.md"
+            }, {
+                "path": "content/api/fusioncharts/namespaces/annotations.md"
+            }],
+            "path": "content/api/fusioncharts/namespaces/"
+        }, {
+            "path": "content/api/global-methods.md"
+        }],
+        "path": "content/api/"
+    }]
+}, {
+    "category": "Integrating With Your Stack",
+    "data": [
+        {
+            "title": "Using with Server Side Languages",
+            "path": "content/tutorials/using-with-server-side-languages/",
+            "children": [{
+                "path": "content/tutorials/using-with-server-side-languages/php/",
+                "children": [{
+                    "path": "content/tutorials/using-with-server-side-languages/php/introduction.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/php/different-ways-of-loading-data.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/php/creating-charts-with-data-from-a-database.md"
+                }],
+                "title": "PHP"
+            }, {
+                "path": "content/tutorials/using-with-server-side-languages/ruby-on-rails/",
+                "children": [{
+                    "path": "content/tutorials/using-with-server-side-languages/ruby-on-rails/introduction.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/ruby-on-rails/different-ways-of-loading-data.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/ruby-on-rails/creating-charts-with-data-from-a-database.md"
+                }],
+                "title": "Ruby on Rails"
+            }, {
+                "path": "content/tutorials/using-with-server-side-languages/asp-net/",
+                "children": [{
+                    "path": "content/tutorials/using-with-server-side-languages/asp-net/introduction.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/asp-net/different-ways-of-loading-data.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/asp-net/creating-charts-with-data-from-a-database.md"
+                }, {
+                    "path": "content/tutorials/using-with-server-side-languages/asp-net/creating-drill-down-charts.md"
+                }],
+                "title": "ASP.NET"
+            }]
+        }, {
+            "path": "content/tutorials/using-with-javascript-libraries/",
+            "children": [{
+                "path": "content/tutorials/using-with-javascript-libraries/jquery/",
+                "children": [{
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/introduction.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/rendering-charts-using-jquery.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/updating-chart-properties-using-jquery.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/selecting-charts-using-jquery.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/handling-events-using-jquery.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/rendering-charts-from-html-tables.md"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/jquery/api-reference.md"
+                }],
+                "title": "jQuery"
+            }, {
+                "path": "content/tutorials/using-with-javascript-libraries/angularjs/",
+                "children": [{
+                    "path": "content/tutorials/using-with-javascript-libraries/angularjs/introduction.md",
+                    "name": "Introduction"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/angularjs/creating-charts-using-the-angular-fusioncharts-plugin.md",
+                    "name": "Creating Charts Using the Angular-FusionCharts Plugin"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/angularjs/configuring-charts-using-the-angularjs-scope-object.md",
+                    "name": "Configuring Charts Using the Scope"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/angularjs/configuring-advanced-features-using-angularjs.md",
+                    "name": "Configuring Advanced Features Using AngularJS"
+                }],
+                "title": "AngularJS"
+            }, {
+                "path": "content/tutorials/using-with-javascript-libraries/reactjs/",
+                "children": [{
+                    "path": "content/tutorials/using-with-javascript-libraries/reactjs/introduction.md",
+                    "name": "Introduction"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/reactjs/creating-charts-using-the-react-fusioncharts-plugin.md",
+                    "name": "Creating Charts Using the React-FusionCharts Plugin"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/reactjs/configuring-charts-using-the-reactjs-props-object.md",
+                    "name": "Configuring Charts Using the ReactJS Props Object"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/reactjs/configuring-advanced-features-using-reactjs.md",
+                    "name": "Configuring Advanced Features Using ReactJS"
+                }, {
+                    "path": "content/tutorials/using-with-javascript-libraries/reactjs/including-interactivity-in-charts-using-reactjs.md",
+                    "name": "Including Interactivity in Charts Using ReactJS"
+                }],
+                "title": "ReactJS"
+            }],
+            "title": "Using with JavaScript Libraries"
+        }
+    ]
+}, {
+    "category": "Help",
+    "data": [{
+            "path": "content/tutorials-list.md",
+            "title": "Tutorials"
+        }, {
+            "path": "content/tutorials/troubleshooting/",
+            "children": [{
+                "path": "content/tutorials/troubleshooting/debugger.md"
+            }],
+            "title": "Troubleshooting"
+        }
+
+    ]
+}]

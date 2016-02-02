@@ -1,0 +1,1493 @@
+<p>Harry is considering international expansion and needs to present his investors statistics that are strong enough to convince them to invest in his plans. Among the several reports he has to present to his investors, one report includes comparing the revenue earned last year with the projected revenue and the profits earned.</p>
+
+<p>He wants to have the following data series rendered on the same chart:</p>
+
+<ul>
+  <li>Revenue earned- projected as a column chart</li>
+  <li>Revenue projected - projected as a line chart</li>
+  <li>Profit earned - projected as an area chart</li>
+</ul>
+
+<p>To plot these three distinct data series on the same chart, but each one rendered as a different chart type, we need to use a special type of chart called combination chart. Combination charts let you plot multiple datasets on the same chart, where each dataset can have a different unit and/or magnitude. There are two kinds of combination charts:</p>
+
+<ul>
+  <li>
+    <p><strong>Single Y-axis Combination Charts</strong> - In this type of combination chart, there can be multiple data series, but all series plots against the same axis (primary axis), and hence have the same unit. For example, for the current chart we need to make for Harry, all the datasets refer to either revenue or profit, but have the unit as $.</p>
+  </li>
+  <li>
+    <p><strong>Dual Y-Axis Combination Charts</strong> - In this type of combination chart, there are two different axis - primary axis and secondary axis, each with a different unit and magnitude. For example, if Harry had to plot revenue vs employees, both data series cannot be plotted on the same axis, and he will need this type of combination chart.</p>
+  </li>
+</ul>
+
+<p>Let’s build the chart that Harry wants on a single y-axis combination chart.</p>
+
+<h3 id="single-y-axis">Single Y-axis</h3>
+
+<p>The chart where Harry needs to compare actual revenue, projected revenue and profit, would look as under:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-combination-charts-example-1.js"></script>
+
+<p>The data used in this chart is given here</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Actual Revenue</th>
+      <th>Projected Revenue</th>
+      <th>Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jan</td>
+      <td>$16,000</td>
+      <td>$15,000</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>Feb</td>
+      <td>$20,000</td>
+      <td>$16,000</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <td>March</td>
+      <td>$18,000</td>
+      <td>$17,000</td>
+      <td>$3,000</td>
+    </tr>
+    <tr>
+      <td>April</td>
+      <td>$19,000</td>
+      <td>$18,000</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>May</td>
+      <td>$15,000</td>
+      <td>$19,000</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>June</td>
+      <td>$21,000</td>
+      <td>$19,000</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <td>July</td>
+      <td>$16,000</td>
+      <td>$20,000</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>August</td>
+      <td>$20,000</td>
+      <td>$19,000</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>September</td>
+      <td>$17,000</td>
+      <td>$20,000</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>October</td>
+      <td>$25,000</td>
+      <td>$21,000</td>
+      <td>$8,000</td>
+    </tr>
+    <tr>
+      <td>Nov</td>
+      <td>$19,000</td>
+      <td>$22,000</td>
+      <td>$2,000</td>
+    </tr>
+    <tr>
+      <td>Dec</td>
+      <td>$23,000</td>
+      <td>$23,000</td>
+      <td>$7,000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Creating this chart involves the following steps</p>
+
+<ol>
+  <li>Installing FusionCharts Suite XT for your application</li>
+  <li>Converting your data to a JSON or XML format. FusionCharts Suite XT accepts both data formats, and can read it as a string, or from a file, local or remote</li>
+  <li>Including the FusionCharts Suite XT JavaScript library in your HTML page</li>
+  <li>Creating a container <code>&lt;div&gt;</code> for the chart</li>
+  <li>Using the new <code>FusionCharts()</code> constructor to create the chart instance, and then calling the <code>render()</code> method</li>
+</ol>
+
+<h3 id="converting-your-data-to-fusioncharts-suite-xt-jsonxml-format">Converting your data to FusionCharts Suite XT JSON/XML format</h3>
+
+<p>For this example, our dataset, when converted to FusionCharts Suite XT JSON/XML format, looks as under.</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Actual Revenues, Targeted Revenues &amp; Profits",
+        "subCaption": "Last year",
+        "xAxisname": "Month",
+        "yAxisName": "Amount (In USD)",
+        "numberPrefix": "$",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "Jan"
+                },
+                {
+                    "label": "Feb"
+                },
+                {
+                    "label": "Mar"
+                },
+                {
+                    "label": "Apr"
+                },
+                {
+                    "label": "May"
+                },
+                {
+                    "label": "Jun"
+                },
+                {
+                    "label": "Jul"
+                },
+                {
+                    "label": "Aug"
+                },
+                {
+                    "label": "Sep"
+                },
+                {
+                    "label": "Oct"
+                },
+                {
+                    "label": "Nov"
+                },
+                {
+                    "label": "Dec"
+                }
+            ]
+        }
+    ],
+    "dataset": [
+        {
+            "seriesName": "Actual Revenue",
+            "data": [
+                {
+                    "value": "16000"
+                },
+                {
+                    "value": "20000"
+                },
+                {
+                    "value": "18000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "15000"
+                },
+                {
+                    "value": "21000"
+                },
+                {
+                    "value": "16000"
+                },
+                {
+                    "value": "20000"
+                },
+                {
+                    "value": "17000"
+                },
+                {
+                    "value": "25000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "23000"
+                }
+            ]
+        },
+        {
+            "seriesName": "Projected Revenue",
+            "renderAs": "line",
+            "showValues": "0",
+            "data": [
+                {
+                    "value": "15000"
+                },
+                {
+                    "value": "16000"
+                },
+                {
+                    "value": "17000"
+                },
+                {
+                    "value": "18000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "20000"
+                },
+                {
+                    "value": "21000"
+                },
+                {
+                    "value": "22000"
+                },
+                {
+                    "value": "23000"
+                }
+            ]
+        },
+        {
+            "seriesName": "Profit",
+            "renderAs": "area",
+            "showValues": "0",
+            "data": [
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "5000"
+                },
+                {
+                    "value": "3000"
+                },
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "7000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "8000"
+                },
+                {
+                    "value": "2000"
+                },
+                {
+                    "value": "7000"
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenues, Targeted Revenues &amp; Profits&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount (In USD)&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-9"></a>    <span class="p">},</span>
+<a name="True-10"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-11"></a>        <span class="p">{</span>
+<a name="True-12"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-13"></a>                <span class="p">{</span>
+<a name="True-14"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span>
+<a name="True-15"></a>                <span class="p">},</span>
+<a name="True-16"></a>                <span class="p">{</span>
+<a name="True-17"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span>
+<a name="True-18"></a>                <span class="p">},</span>
+<a name="True-19"></a>                <span class="p">{</span>
+<a name="True-20"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span>
+<a name="True-21"></a>                <span class="p">},</span>
+<a name="True-22"></a>                <span class="p">{</span>
+<a name="True-23"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span>
+<a name="True-24"></a>                <span class="p">},</span>
+<a name="True-25"></a>                <span class="p">{</span>
+<a name="True-26"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span>
+<a name="True-27"></a>                <span class="p">},</span>
+<a name="True-28"></a>                <span class="p">{</span>
+<a name="True-29"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span>
+<a name="True-30"></a>                <span class="p">},</span>
+<a name="True-31"></a>                <span class="p">{</span>
+<a name="True-32"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span>
+<a name="True-33"></a>                <span class="p">},</span>
+<a name="True-34"></a>                <span class="p">{</span>
+<a name="True-35"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span>
+<a name="True-36"></a>                <span class="p">},</span>
+<a name="True-37"></a>                <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span>
+<a name="True-39"></a>                <span class="p">},</span>
+<a name="True-40"></a>                <span class="p">{</span>
+<a name="True-41"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span>
+<a name="True-42"></a>                <span class="p">},</span>
+<a name="True-43"></a>                <span class="p">{</span>
+<a name="True-44"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span>
+<a name="True-45"></a>                <span class="p">},</span>
+<a name="True-46"></a>                <span class="p">{</span>
+<a name="True-47"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span>
+<a name="True-48"></a>                <span class="p">}</span>
+<a name="True-49"></a>            <span class="p">]</span>
+<a name="True-50"></a>        <span class="p">}</span>
+<a name="True-51"></a>    <span class="p">],</span>
+<a name="True-52"></a>    <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-53"></a>        <span class="p">{</span>
+<a name="True-54"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenue&quot;</span><span class="p">,</span>
+<a name="True-55"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-56"></a>                <span class="p">{</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span>
+<a name="True-59"></a>                <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-61"></a>                <span class="p">},</span>
+<a name="True-62"></a>                <span class="p">{</span>
+<a name="True-63"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-64"></a>                <span class="p">},</span>
+<a name="True-65"></a>                <span class="p">{</span>
+<a name="True-66"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-67"></a>                <span class="p">},</span>
+<a name="True-68"></a>                <span class="p">{</span>
+<a name="True-69"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-70"></a>                <span class="p">},</span>
+<a name="True-71"></a>                <span class="p">{</span>
+<a name="True-72"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-73"></a>                <span class="p">},</span>
+<a name="True-74"></a>                <span class="p">{</span>
+<a name="True-75"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-76"></a>                <span class="p">},</span>
+<a name="True-77"></a>                <span class="p">{</span>
+<a name="True-78"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-79"></a>                <span class="p">},</span>
+<a name="True-80"></a>                <span class="p">{</span>
+<a name="True-81"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-82"></a>                <span class="p">},</span>
+<a name="True-83"></a>                <span class="p">{</span>
+<a name="True-84"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25000&quot;</span>
+<a name="True-85"></a>                <span class="p">},</span>
+<a name="True-86"></a>                <span class="p">{</span>
+<a name="True-87"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-88"></a>                <span class="p">},</span>
+<a name="True-89"></a>                <span class="p">{</span>
+<a name="True-90"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-91"></a>                <span class="p">}</span>
+<a name="True-92"></a>            <span class="p">]</span>
+<a name="True-93"></a>        <span class="p">},</span>
+<a name="True-94"></a>        <span class="p">{</span>
+<a name="True-95"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Projected Revenue&quot;</span><span class="p">,</span>
+<a name="True-96"></a>            <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+<a name="True-97"></a>            <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-98"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-99"></a>                <span class="p">{</span>
+<a name="True-100"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-101"></a>                <span class="p">},</span>
+<a name="True-102"></a>                <span class="p">{</span>
+<a name="True-103"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-104"></a>                <span class="p">},</span>
+<a name="True-105"></a>                <span class="p">{</span>
+<a name="True-106"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-107"></a>                <span class="p">},</span>
+<a name="True-108"></a>                <span class="p">{</span>
+<a name="True-109"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-110"></a>                <span class="p">},</span>
+<a name="True-111"></a>                <span class="p">{</span>
+<a name="True-112"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-113"></a>                <span class="p">},</span>
+<a name="True-114"></a>                <span class="p">{</span>
+<a name="True-115"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-116"></a>                <span class="p">},</span>
+<a name="True-117"></a>                <span class="p">{</span>
+<a name="True-118"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-119"></a>                <span class="p">},</span>
+<a name="True-120"></a>                <span class="p">{</span>
+<a name="True-121"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-122"></a>                <span class="p">},</span>
+<a name="True-123"></a>                <span class="p">{</span>
+<a name="True-124"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-125"></a>                <span class="p">},</span>
+<a name="True-126"></a>                <span class="p">{</span>
+<a name="True-127"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-128"></a>                <span class="p">},</span>
+<a name="True-129"></a>                <span class="p">{</span>
+<a name="True-130"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;22000&quot;</span>
+<a name="True-131"></a>                <span class="p">},</span>
+<a name="True-132"></a>                <span class="p">{</span>
+<a name="True-133"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-134"></a>                <span class="p">}</span>
+<a name="True-135"></a>            <span class="p">]</span>
+<a name="True-136"></a>        <span class="p">},</span>
+<a name="True-137"></a>        <span class="p">{</span>
+<a name="True-138"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit&quot;</span><span class="p">,</span>
+<a name="True-139"></a>            <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+<a name="True-140"></a>            <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-141"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-142"></a>                <span class="p">{</span>
+<a name="True-143"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-144"></a>                <span class="p">},</span>
+<a name="True-145"></a>                <span class="p">{</span>
+<a name="True-146"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5000&quot;</span>
+<a name="True-147"></a>                <span class="p">},</span>
+<a name="True-148"></a>                <span class="p">{</span>
+<a name="True-149"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3000&quot;</span>
+<a name="True-150"></a>                <span class="p">},</span>
+<a name="True-151"></a>                <span class="p">{</span>
+<a name="True-152"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-153"></a>                <span class="p">},</span>
+<a name="True-154"></a>                <span class="p">{</span>
+<a name="True-155"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-156"></a>                <span class="p">},</span>
+<a name="True-157"></a>                <span class="p">{</span>
+<a name="True-158"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-159"></a>                <span class="p">},</span>
+<a name="True-160"></a>                <span class="p">{</span>
+<a name="True-161"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-162"></a>                <span class="p">},</span>
+<a name="True-163"></a>                <span class="p">{</span>
+<a name="True-164"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-165"></a>                <span class="p">},</span>
+<a name="True-166"></a>                <span class="p">{</span>
+<a name="True-167"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-168"></a>                <span class="p">},</span>
+<a name="True-169"></a>                <span class="p">{</span>
+<a name="True-170"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-171"></a>                <span class="p">},</span>
+<a name="True-172"></a>                <span class="p">{</span>
+<a name="True-173"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2000&quot;</span>
+<a name="True-174"></a>                <span class="p">},</span>
+<a name="True-175"></a>                <span class="p">{</span>
+<a name="True-176"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-177"></a>                <span class="p">}</span>
+<a name="True-178"></a>            <span class="p">]</span>
+<a name="True-179"></a>        <span class="p">}</span>
+<a name="True-180"></a>    <span class="p">]</span>
+<a name="True-181"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<h3 id="including-fusioncharts-suite-xt-in-your-application">Including FusionCharts Suite XT in your application</h3>
+
+<p>To include the FusionCharts Suite XT JavaScript library in your HTML page, you use the <code>&lt;script&gt;</code> tag as under. Next, we include a theme file to style the chart. The theme is called <code>fint</code> (FusionCharts internal) and it is present in <code>themes</code> folder of your download.</p>
+
+<p>The HTML code needed to do this would look like:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Combination Chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-7"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>It informs the browser where to load the FusionCharts library from.</p>
+
+<h3 id="creating-a-container-for-your-chart-in-the-web-page">Creating a container for your chart in the web page</h3>
+
+<p>Next, you will need to create a container for your chart in the form of a <code>&lt;div&gt;</code> element, as under:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A stacked column 2D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;/body&gt;</span></code></pre></div>
+
+<h3 id="creating-an-instance-of-the-chart">Creating an instance of the chart</h3>
+
+<p>The JavaScript code needed to create an instance of this chart would look like</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-2"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-3"></a>    <span class="kd">var</span> <span class="nx">revenueCompChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-4"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;mscombi2d&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-10"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-11"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenues, Targeted Revenues &amp; Profits&quot;</span><span class="p">,</span>
+<a name="True-12"></a>                <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year&quot;</span><span class="p">,</span>
+<a name="True-13"></a>                <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-14"></a>                <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount (In USD)&quot;</span><span class="p">,</span>
+<a name="True-15"></a>                <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-16"></a>                <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-17"></a>            <span class="p">},</span>
+<a name="True-18"></a>            <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-19"></a>                <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-20"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span>
+<a name="True-21"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-22"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span>
+<a name="True-23"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-24"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span>
+<a name="True-25"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-26"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span>
+<a name="True-27"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-28"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span>
+<a name="True-29"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-30"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span>
+<a name="True-31"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-32"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span>
+<a name="True-33"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-34"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span>
+<a name="True-35"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-36"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span>
+<a name="True-37"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span>
+<a name="True-39"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-40"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span>
+<a name="True-41"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-42"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span>
+<a name="True-43"></a>                <span class="p">}]</span>
+<a name="True-44"></a>            <span class="p">}],</span>
+<a name="True-45"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-46"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenue&quot;</span><span class="p">,</span>
+<a name="True-47"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-48"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-49"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-50"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-51"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-52"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-53"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-54"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-55"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-56"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-57"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-58"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-59"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-61"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-62"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-63"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-64"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-65"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-66"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25000&quot;</span>
+<a name="True-67"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-68"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-69"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-70"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-71"></a>                <span class="p">}]</span>
+<a name="True-72"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-73"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Projected Revenue&quot;</span><span class="p">,</span>
+<a name="True-74"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+<a name="True-75"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-76"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-77"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-78"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-79"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-80"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-81"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-82"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-83"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-84"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-85"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-86"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-87"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-88"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-89"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-90"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-91"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-92"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-93"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-94"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-95"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-96"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-97"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;22000&quot;</span>
+<a name="True-98"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-99"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-100"></a>                <span class="p">}]</span>
+<a name="True-101"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-102"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit&quot;</span><span class="p">,</span>
+<a name="True-103"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+<a name="True-104"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-105"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-106"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-107"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-108"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5000&quot;</span>
+<a name="True-109"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-110"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3000&quot;</span>
+<a name="True-111"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-112"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-113"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-114"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-115"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-116"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-117"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-118"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-119"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-120"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-121"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-122"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-123"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-124"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-125"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-126"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2000&quot;</span>
+<a name="True-127"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-128"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-129"></a>                <span class="p">}]</span>
+<a name="True-130"></a>            <span class="p">}]</span>
+<a name="True-131"></a>        <span class="p">}</span>
+<a name="True-132"></a>    <span class="p">});</span>
+<a name="True-133"></a>
+<a name="True-134"></a>    <span class="nx">revenueCompChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-135"></a><span class="p">});</span>
+<a name="True-136"></a><span class="nt">&lt;/script&gt;</span></code></pre></div>
+
+<p>In the above code we:</p>
+
+<ul>
+  <li>
+    <p>Created an instance of <code>FusionCharts</code> object in the <code>revenueCompChart</code> variable. Each chart or gauge in your HTML page needs to have a separate variable. The initialization code is wrapped within <code>FusionCharts.ready</code> method. This safeguards your chart instantiation code from being called before FusionCharts Suite XT library is loaded and is ready to be used on the page.</p>
+  </li>
+  <li>
+    <p>Next, we created an instance of <code>mscombi2d</code> chart. Each chart type in FusionCharts Suite XT has a unique alias, using which you can create instance of that chart.</p>
+  </li>
+  <li>
+    <p>Next, we specified the width and height of chart (in pixels) using <code>width</code> and <code>height</code> property of the constructor.</p>
+  </li>
+  <li>
+    <p>To specify the data format as JSON, we set the <code>dataFormat</code> parameter to json.</p>
+  </li>
+  <li>
+    <p>Next we used a theme to manage the cosmetic properties of the chart. In this example we used the <strong>FusionCharts Internal Theme</strong> (<code>fint</code>). You can choose one of the predefined themes that are shipped with FusionCharts Suite XT like <code>ocean</code> ,  <code>zune</code> and <code>carbon</code> or create your own.</p>
+  </li>
+  <li>
+    <p>The actual JSON data is embedded as string as value of <code>dataSource</code> parameter. The <code>chart</code> object contains a list of key-value pairs that let you configure the functional and cosmetic attributes of your chart. Each category is contained in the <code>categories</code> array with <code>label</code> as key. Each of the series of the data is present within the <code>dataset</code> array, with name of the series as <code>seriesname</code>. The data itself is present within the <code>data</code> array, with revenue with the key as <code>value</code></p>
+  </li>
+  <li>
+    <p>Call the <code>render</code> method to draw the chart in chart-container <code>&lt;div&gt;</code> element.</p>
+  </li>
+</ul>
+
+<p>The final HTML code needed to create this chart will look like this</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Combination Chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">revenueCompChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;mscombi2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span>  <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenues, Targeted Revenues &amp; Profits&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount (In USD)&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-21"></a>                <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-22"></a>            <span class="p">},</span>
+<a name="True-23"></a>            <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-24"></a>                <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-25"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span>
+<a name="True-26"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-27"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span>
+<a name="True-28"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-29"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span>
+<a name="True-30"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-31"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span>
+<a name="True-32"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-33"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span>
+<a name="True-34"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-35"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span>
+<a name="True-36"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-37"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span>
+<a name="True-38"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-39"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span>
+<a name="True-40"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-41"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span>
+<a name="True-42"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-43"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span>
+<a name="True-44"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-45"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span>
+<a name="True-46"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-47"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span>
+<a name="True-48"></a>                <span class="p">}]</span>
+<a name="True-49"></a>            <span class="p">}],</span>
+<a name="True-50"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-51"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Actual Revenue&quot;</span><span class="p">,</span>
+<a name="True-52"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-53"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-54"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-55"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-56"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-59"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-60"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-61"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-62"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-63"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-64"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-65"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-66"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-67"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-68"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-69"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-70"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-71"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25000&quot;</span>
+<a name="True-72"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-73"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-74"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-75"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-76"></a>                <span class="p">}]</span>
+<a name="True-77"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-78"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Projected Revenue&quot;</span><span class="p">,</span>
+<a name="True-79"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+<a name="True-80"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-81"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-82"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-83"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-84"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-85"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-86"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-87"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-88"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-89"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-90"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-91"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-92"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-93"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-94"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-95"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-96"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-97"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-98"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-99"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-100"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-101"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-102"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;22000&quot;</span>
+<a name="True-103"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-104"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-105"></a>                <span class="p">}]</span>
+<a name="True-106"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-107"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit&quot;</span><span class="p">,</span>
+<a name="True-108"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+<a name="True-109"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-110"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-111"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-112"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-113"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5000&quot;</span>
+<a name="True-114"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-115"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3000&quot;</span>
+<a name="True-116"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-117"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-118"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-119"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-120"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-121"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-122"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-123"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-124"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-125"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-126"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-127"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-128"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-129"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-130"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-131"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2000&quot;</span>
+<a name="True-132"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-133"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-134"></a>                <span class="p">}]</span>
+<a name="True-135"></a>            <span class="p">}]</span>
+<a name="True-136"></a>        <span class="p">}</span>
+<a name="True-137"></a>    <span class="p">});</span>
+<a name="True-138"></a>
+<a name="True-139"></a>    <span class="nx">revenueCompChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-140"></a><span class="p">});</span>
+<a name="True-141"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-142"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-143"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-144"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A stacked column 2D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-145"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-146"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<h2 id="dual-y-axis">Dual Y-axis</h2>
+
+<p>In the previous example, we created a single y-axis combination chart, where all data series could be plotted against the same y-axis (primary y-axis). But what if we had to analyze datasets having different units and magnitude.</p>
+
+<p>Let’s say Harry wants to show the revenue and the profit earned over last year as well as the profit percent. Here, we could use a combination chart with a dual y-axis, using a column 2D chart to show the revenue earned, an area chart to show the profits earned, and a line chart to show the profit percent.</p>
+
+<p>Here we need the primary y-axis to represent the amount in $and the secondary y-axis to represent the percent values for profit.</p>
+
+<p>A chart that can help Harry in this situation will look like this</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-combination-charts-example-2.js"></script>
+
+<p>The data for this chart looks as under, in a tabular format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Actual Revenue</th>
+      <th>Profit%</th>
+      <th>Actual Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jan</td>
+      <td>$16,000</td>
+      <td>25%</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>Feb</td>
+      <td>$20,000</td>
+      <td>25%</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <td>March</td>
+      <td>$18,000</td>
+      <td>16.66%</td>
+      <td>$3,000</td>
+    </tr>
+    <tr>
+      <td>April</td>
+      <td>19,000</td>
+      <td>21.05%</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>May</td>
+      <td>$15,000</td>
+      <td>6.66%</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>June</td>
+      <td>$21,000</td>
+      <td>33.33%</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <td>July</td>
+      <td>$16,000</td>
+      <td>6.25%</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>August</td>
+      <td>$20,000</td>
+      <td>25%</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <td>September</td>
+      <td>$17,000</td>
+      <td>5.88%</td>
+      <td>$1,000</td>
+    </tr>
+    <tr>
+      <td>October</td>
+      <td>$25,000</td>
+      <td>36.36%</td>
+      <td>$8,000</td>
+    </tr>
+    <tr>
+      <td>Nov</td>
+      <td>$19,000</td>
+      <td>10.52%</td>
+      <td>$2,000</td>
+    </tr>
+    <tr>
+      <td>Dec</td>
+      <td>$23,000</td>
+      <td>30.43%</td>
+      <td>$7,000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This data, when converted to FusionCharts JSON/XML format, looks as under:</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Revenues and Profits",
+        "subCaption": "For last year",
+        "xAxisname": "Month",
+        "pYAxisName": "Amount (In USD)",
+        "sYAxisName": "Profit %",
+        "numberPrefix": "$",
+        "sNumberSuffix": "%",
+        "sYAxisMaxValue": "50",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "Jan"
+                },
+                {
+                    "label": "Feb"
+                },
+                {
+                    "label": "Mar"
+                },
+                {
+                    "label": "Apr"
+                },
+                {
+                    "label": "May"
+                },
+                {
+                    "label": "Jun"
+                },
+                {
+                    "label": "Jul"
+                },
+                {
+                    "label": "Aug"
+                },
+                {
+                    "label": "Sep"
+                },
+                {
+                    "label": "Oct"
+                },
+                {
+                    "label": "Nov"
+                },
+                {
+                    "label": "Dec"
+                }
+            ]
+        }
+    ],
+    "dataset": [
+        {
+            "seriesName": "Revenues",
+            "data": [
+                {
+                    "value": "16000"
+                },
+                {
+                    "value": "20000"
+                },
+                {
+                    "value": "18000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "15000"
+                },
+                {
+                    "value": "21000"
+                },
+                {
+                    "value": "16000"
+                },
+                {
+                    "value": "20000"
+                },
+                {
+                    "value": "17000"
+                },
+                {
+                    "value": "22000"
+                },
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "23000"
+                }
+            ]
+        },
+        {
+            "seriesName": "Profits",
+            "renderAs": "area",
+            "showValues": "0",
+            "data": [
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "5000"
+                },
+                {
+                    "value": "3000"
+                },
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "7000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "4000"
+                },
+                {
+                    "value": "1000"
+                },
+                {
+                    "value": "8000"
+                },
+                {
+                    "value": "2000"
+                },
+                {
+                    "value": "7000"
+                }
+            ]
+        },
+        {
+            "seriesName": "Profit %",
+            "parentYAxis": "S",
+            "renderAs": "line",
+            "showValues": "0",
+            "data": [
+                {
+                    "value": "25"
+                },
+                {
+                    "value": "25"
+                },
+                {
+                    "value": "16.66"
+                },
+                {
+                    "value": "21.05"
+                },
+                {
+                    "value": "6.66"
+                },
+                {
+                    "value": "33.33"
+                },
+                {
+                    "value": "6.25"
+                },
+                {
+                    "value": "25"
+                },
+                {
+                    "value": "5.88"
+                },
+                {
+                    "value": "36.36"
+                },
+                {
+                    "value": "10.52"
+                },
+                {
+                    "value": "30.43"
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues and Profits&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;pYAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount (In USD)&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;sYAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit %&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;sNumberSuffix&quot;</span><span class="o">:</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;sYAxisMaxValue&quot;</span><span class="o">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-12"></a>    <span class="p">},</span>
+<a name="True-13"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-14"></a>        <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-16"></a>                <span class="p">{</span>
+<a name="True-17"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span>
+<a name="True-18"></a>                <span class="p">},</span>
+<a name="True-19"></a>                <span class="p">{</span>
+<a name="True-20"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span>
+<a name="True-21"></a>                <span class="p">},</span>
+<a name="True-22"></a>                <span class="p">{</span>
+<a name="True-23"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span>
+<a name="True-24"></a>                <span class="p">},</span>
+<a name="True-25"></a>                <span class="p">{</span>
+<a name="True-26"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span>
+<a name="True-27"></a>                <span class="p">},</span>
+<a name="True-28"></a>                <span class="p">{</span>
+<a name="True-29"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span>
+<a name="True-30"></a>                <span class="p">},</span>
+<a name="True-31"></a>                <span class="p">{</span>
+<a name="True-32"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span>
+<a name="True-33"></a>                <span class="p">},</span>
+<a name="True-34"></a>                <span class="p">{</span>
+<a name="True-35"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span>
+<a name="True-36"></a>                <span class="p">},</span>
+<a name="True-37"></a>                <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span>
+<a name="True-39"></a>                <span class="p">},</span>
+<a name="True-40"></a>                <span class="p">{</span>
+<a name="True-41"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span>
+<a name="True-42"></a>                <span class="p">},</span>
+<a name="True-43"></a>                <span class="p">{</span>
+<a name="True-44"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span>
+<a name="True-45"></a>                <span class="p">},</span>
+<a name="True-46"></a>                <span class="p">{</span>
+<a name="True-47"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span>
+<a name="True-48"></a>                <span class="p">},</span>
+<a name="True-49"></a>                <span class="p">{</span>
+<a name="True-50"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span>
+<a name="True-51"></a>                <span class="p">}</span>
+<a name="True-52"></a>            <span class="p">]</span>
+<a name="True-53"></a>        <span class="p">}</span>
+<a name="True-54"></a>    <span class="p">],</span>
+<a name="True-55"></a>    <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-56"></a>        <span class="p">{</span>
+<a name="True-57"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues&quot;</span><span class="p">,</span>
+<a name="True-58"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-59"></a>                <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-61"></a>                <span class="p">},</span>
+<a name="True-62"></a>                <span class="p">{</span>
+<a name="True-63"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-64"></a>                <span class="p">},</span>
+<a name="True-65"></a>                <span class="p">{</span>
+<a name="True-66"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-67"></a>                <span class="p">},</span>
+<a name="True-68"></a>                <span class="p">{</span>
+<a name="True-69"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-70"></a>                <span class="p">},</span>
+<a name="True-71"></a>                <span class="p">{</span>
+<a name="True-72"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-73"></a>                <span class="p">},</span>
+<a name="True-74"></a>                <span class="p">{</span>
+<a name="True-75"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-76"></a>                <span class="p">},</span>
+<a name="True-77"></a>                <span class="p">{</span>
+<a name="True-78"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-79"></a>                <span class="p">},</span>
+<a name="True-80"></a>                <span class="p">{</span>
+<a name="True-81"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-82"></a>                <span class="p">},</span>
+<a name="True-83"></a>                <span class="p">{</span>
+<a name="True-84"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-85"></a>                <span class="p">},</span>
+<a name="True-86"></a>                <span class="p">{</span>
+<a name="True-87"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;22000&quot;</span>
+<a name="True-88"></a>                <span class="p">},</span>
+<a name="True-89"></a>                <span class="p">{</span>
+<a name="True-90"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-91"></a>                <span class="p">},</span>
+<a name="True-92"></a>                <span class="p">{</span>
+<a name="True-93"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-94"></a>                <span class="p">}</span>
+<a name="True-95"></a>            <span class="p">]</span>
+<a name="True-96"></a>        <span class="p">},</span>
+<a name="True-97"></a>        <span class="p">{</span>
+<a name="True-98"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profits&quot;</span><span class="p">,</span>
+<a name="True-99"></a>            <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+<a name="True-100"></a>            <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-101"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-102"></a>                <span class="p">{</span>
+<a name="True-103"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-104"></a>                <span class="p">},</span>
+<a name="True-105"></a>                <span class="p">{</span>
+<a name="True-106"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5000&quot;</span>
+<a name="True-107"></a>                <span class="p">},</span>
+<a name="True-108"></a>                <span class="p">{</span>
+<a name="True-109"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3000&quot;</span>
+<a name="True-110"></a>                <span class="p">},</span>
+<a name="True-111"></a>                <span class="p">{</span>
+<a name="True-112"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-113"></a>                <span class="p">},</span>
+<a name="True-114"></a>                <span class="p">{</span>
+<a name="True-115"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-116"></a>                <span class="p">},</span>
+<a name="True-117"></a>                <span class="p">{</span>
+<a name="True-118"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-119"></a>                <span class="p">},</span>
+<a name="True-120"></a>                <span class="p">{</span>
+<a name="True-121"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-122"></a>                <span class="p">},</span>
+<a name="True-123"></a>                <span class="p">{</span>
+<a name="True-124"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-125"></a>                <span class="p">},</span>
+<a name="True-126"></a>                <span class="p">{</span>
+<a name="True-127"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-128"></a>                <span class="p">},</span>
+<a name="True-129"></a>                <span class="p">{</span>
+<a name="True-130"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-131"></a>                <span class="p">},</span>
+<a name="True-132"></a>                <span class="p">{</span>
+<a name="True-133"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2000&quot;</span>
+<a name="True-134"></a>                <span class="p">},</span>
+<a name="True-135"></a>                <span class="p">{</span>
+<a name="True-136"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-137"></a>                <span class="p">}</span>
+<a name="True-138"></a>            <span class="p">]</span>
+<a name="True-139"></a>        <span class="p">},</span>
+<a name="True-140"></a>        <span class="p">{</span>
+<a name="True-141"></a>            <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit %&quot;</span><span class="p">,</span>
+<a name="True-142"></a>            <span class="s2">&quot;parentYAxis&quot;</span><span class="o">:</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span>
+<a name="True-143"></a>            <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+<a name="True-144"></a>            <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-145"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-146"></a>                <span class="p">{</span>
+<a name="True-147"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-148"></a>                <span class="p">},</span>
+<a name="True-149"></a>                <span class="p">{</span>
+<a name="True-150"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-151"></a>                <span class="p">},</span>
+<a name="True-152"></a>                <span class="p">{</span>
+<a name="True-153"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16.66&quot;</span>
+<a name="True-154"></a>                <span class="p">},</span>
+<a name="True-155"></a>                <span class="p">{</span>
+<a name="True-156"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21.05&quot;</span>
+<a name="True-157"></a>                <span class="p">},</span>
+<a name="True-158"></a>                <span class="p">{</span>
+<a name="True-159"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6.66&quot;</span>
+<a name="True-160"></a>                <span class="p">},</span>
+<a name="True-161"></a>                <span class="p">{</span>
+<a name="True-162"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;33.33&quot;</span>
+<a name="True-163"></a>                <span class="p">},</span>
+<a name="True-164"></a>                <span class="p">{</span>
+<a name="True-165"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6.25&quot;</span>
+<a name="True-166"></a>                <span class="p">},</span>
+<a name="True-167"></a>                <span class="p">{</span>
+<a name="True-168"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-169"></a>                <span class="p">},</span>
+<a name="True-170"></a>                <span class="p">{</span>
+<a name="True-171"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5.88&quot;</span>
+<a name="True-172"></a>                <span class="p">},</span>
+<a name="True-173"></a>                <span class="p">{</span>
+<a name="True-174"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;36.36&quot;</span>
+<a name="True-175"></a>                <span class="p">},</span>
+<a name="True-176"></a>                <span class="p">{</span>
+<a name="True-177"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;10.52&quot;</span>
+<a name="True-178"></a>                <span class="p">},</span>
+<a name="True-179"></a>                <span class="p">{</span>
+<a name="True-180"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;30.43&quot;</span>
+<a name="True-181"></a>                <span class="p">}</span>
+<a name="True-182"></a>            <span class="p">]</span>
+<a name="True-183"></a>        <span class="p">}</span>
+<a name="True-184"></a>    <span class="p">]</span>
+<a name="True-185"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>As you can see, the data structure for this chart is almost the same as that of single y-axis chart. The only exceptions are:</p>
+
+<ul>
+  <li>
+    <p>Since there are 2 y-axis now, the <code>yAxisName</code> attribute no longer applies, and you need to specify <code>pYAxisName</code> and <code>sYAxisName</code> attributes instead. The former lets you specify the title for primary y-axis, and the latter specifies the title for secondary y-axis.</p>
+  </li>
+  <li>
+    <p>For each dataset, you now need to specify whether it should plot on primary axis or secondary. This is done using the <code>"parentYAxis": "S"</code> attribute. It takes a value of <code>P</code> (primary axis) or <code>S</code> (secondary axis).</p>
+  </li>
+</ul>
+
+<p>The final HTML code to generate this example looks like this:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Multi-Series chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s1">&#39;mscombidy2d&#39;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues and Profits&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                    <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For last year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                    <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                    <span class="s2">&quot;pYAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount (In USD)&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                    <span class="s2">&quot;sYAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit %&quot;</span><span class="p">,</span>
+<a name="True-21"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-22"></a>                    <span class="s2">&quot;sNumberSuffix&quot;</span> <span class="o">:</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span>
+<a name="True-23"></a>                    <span class="s2">&quot;sYAxisMaxValue&quot;</span> <span class="o">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<a name="True-24"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-25"></a>            <span class="p">},</span>
+<a name="True-26"></a>            <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-27"></a>                <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-28"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span>
+<a name="True-29"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-30"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span>
+<a name="True-31"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-32"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span>
+<a name="True-33"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-34"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span>
+<a name="True-35"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-36"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span>
+<a name="True-37"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span>
+<a name="True-39"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-40"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span>
+<a name="True-41"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-42"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span>
+<a name="True-43"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-44"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span>
+<a name="True-45"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-46"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span>
+<a name="True-47"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-48"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span>
+<a name="True-49"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-50"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span>
+<a name="True-51"></a>                <span class="p">}]</span>
+<a name="True-52"></a>            <span class="p">}],</span>
+<a name="True-53"></a>            <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-54"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues&quot;</span><span class="p">,</span>
+<a name="True-55"></a>                    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-56"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-57"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-58"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-59"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;18000&quot;</span>
+<a name="True-61"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-62"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-63"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-64"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-65"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-66"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21000&quot;</span>
+<a name="True-67"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-68"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16000&quot;</span>
+<a name="True-69"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-70"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;20000&quot;</span>
+<a name="True-71"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-72"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;17000&quot;</span>
+<a name="True-73"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-74"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;22000&quot;</span>
+<a name="True-75"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-76"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-77"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-78"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;23000&quot;</span>
+<a name="True-79"></a>                <span class="p">}]</span>
+<a name="True-80"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-81"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profits&quot;</span><span class="p">,</span>
+<a name="True-82"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;area&quot;</span><span class="p">,</span>
+<a name="True-83"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-84"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-85"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-86"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-87"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5000&quot;</span>
+<a name="True-88"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-89"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3000&quot;</span>
+<a name="True-90"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-91"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-92"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-93"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-94"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-95"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-96"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-97"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-98"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-99"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;4000&quot;</span>
+<a name="True-100"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-101"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1000&quot;</span>
+<a name="True-102"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-103"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-104"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-105"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2000&quot;</span>
+<a name="True-106"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-107"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;7000&quot;</span>
+<a name="True-108"></a>                <span class="p">}]</span>
+<a name="True-109"></a>            <span class="p">},</span> <span class="p">{</span>
+<a name="True-110"></a>                <span class="s2">&quot;seriesName&quot;</span><span class="o">:</span> <span class="s2">&quot;Profit %&quot;</span><span class="p">,</span>
+<a name="True-111"></a>                <span class="s2">&quot;parentYAxis&quot;</span><span class="o">:</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span>
+<a name="True-112"></a>                <span class="s2">&quot;renderAs&quot;</span><span class="o">:</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+<a name="True-113"></a>                <span class="s2">&quot;showValues&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-114"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-115"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-116"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-117"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-118"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-119"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16.66&quot;</span>
+<a name="True-120"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-121"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;21.05&quot;</span>
+<a name="True-122"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-123"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6.66&quot;</span>
+<a name="True-124"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-125"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;33.33&quot;</span>
+<a name="True-126"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-127"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6.25&quot;</span>
+<a name="True-128"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-129"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span>
+<a name="True-130"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-131"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;5.88&quot;</span>
+<a name="True-132"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-133"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;36.36&quot;</span>
+<a name="True-134"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-135"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;10.52&quot;</span>
+<a name="True-136"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-137"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;30.43&quot;</span>
+<a name="True-138"></a>                <span class="p">}]</span>
+<a name="True-139"></a>            <span class="p">}]</span>
+<a name="True-140"></a>        <span class="p">}</span>
+<a name="True-141"></a>    <span class="p">});</span>
+<a name="True-142"></a>
+<a name="True-143"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-144"></a><span class="p">});</span>
+<a name="True-145"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-146"></a>
+<a name="True-147"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-148"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-149"></a>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A multi-series chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-150"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-151"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<h2 id="was-there-a-problem-rendering-the-chart">Was there a problem rendering the chart?</h2>
+
+<p>In case something went wrong and you are unable to see the chart, check for the following:</p>
+
+<ul>
+  <li>
+    <p>If you are getting a JavaScript error on your page, check your browser console for the exact error and fix accordingly.</p>
+  </li>
+  <li>
+    <p>If the chart does not show up at all, but there are no JavaScript errors, check if the FusionCharts Suite XT JavaScript library has loaded correctly. You can use developer tools within your browser to see if <code>fusioncharts.js</code> was loaded. Check if the path to <code>fusioncharts.js</code> file is correct, and whether the file exists in that location.</p>
+  </li>
+  <li>
+    <p>If you get a <strong>Loading Data</strong> or <strong>Error in loading data</strong> message, check whether your JSON data structure is correct, and there are no conflicts related to quotation marks in your code.</p>
+  </li>
+</ul>
+
+<p>Click here for more information on <a href="/dev/troubleshooting/debugger.html">Troubleshooting</a>.</p>

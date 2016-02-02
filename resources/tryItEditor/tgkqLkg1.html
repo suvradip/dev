@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- Fiddle sample for the static removeEventListener() method -->
+<div id="indicatorDiv">Method name: <b>removeEventListener()</b> (static)
+    <br>
+    <br>Removes the event listener(s) bound to an event configured for all charts on the page.</br>
+    <br>For this implementation, we have three pie charts rendered on the same page. When <b>Add event listener for all charts</b> is clicked, the <b>dataplotRollOver</b> event is configured for all three pie charts.<br>When <b>Remove event listener for all charts</br> is clicked, the event listener is removed for all charts rendered on the page.</br>    
+    <br></br>
+    <center>
+        <button id="add_lstnr">Add event listener for all charts</button>
+        <br></br>
+        <button id="rem_lstnr">Remove event listener for all charts</button>
+        <br>
+        <br>
+        <div id="data1"><i></i>
+
+        </div>
+        </br>
+        <br>
+        <div id="chart-container1">Chart Container 1</div>
+        </br>
+        <br>
+        <div id="chart-container2">Chart Container 2</div>
+        </br>
+        <br>
+        <div id="chart-container3">Chart Container 3</div>
+        </br>
+    </center><script type="text/javascript">FusionCharts.ready(function () {
+    var chart_1 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container1',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2012",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2500"
+            }, {
+                "label": "Electronics",
+                    "value": "2000"
+            }]
+        }
+    });
+    chart_1.render();
+
+    var chart_2 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container2',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2013",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2600"
+            }, {
+                "label": "Electronics",
+                    "value": "1800"
+            }]
+        }
+    });
+    chart_2.render();
+
+    var chart_3 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container3',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2014",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2800"
+            }, {
+                "label": "Electronics",
+                    "value": "2500"
+            }]
+        }
+    });
+    chart_3.render();
+
+    function handler(eventObj, dataObj) {
+
+
+        var json = eventObj.sender.getJSONData();
+        document.getElementById("data1").innerHTML = "Label: " + dataObj.categoryLabel + " | Value: " + dataObj.dataValue;
+    }
+
+    function addListener() {
+        FusionCharts.addEventListener("dataplotRollOver", handler);
+    }
+    
+    /**
+             * @description
+             * The static removeEventListener() method Removes the event listener(s) bound to an event configured for all charts on the page.
+.
+             *
+             * @param {String, Array} type: Type (name) of the event whose listener(s) has to be removed
+             * @param {Function} listener: Listener function to remove
+             * usage: FusionCharts.removeEventListener(type,listener);
+          
+             */
+
+    function removeListener() {
+        FusionCharts.removeEventListener("dataplotRollOver", handler);
+        document.getElementById("data1").innerHTML = "The event listener has been removed.";
+    }
+
+    document.getElementById("add_lstnr").addEventListener("click", addListener);
+
+    document.getElementById("rem_lstnr").addEventListener("click", removeListener);
+
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

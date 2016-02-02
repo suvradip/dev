@@ -1,0 +1,15 @@
+<p>It is essential to remove content that is no longer used from a page. It helps keep memory consumption to a minimum and keeps the UI smooth even when there are several elements on the page.</p>
+
+<p>Chart objects created as part of FusionCharts Suite XT support the <code>dispose</code> method, this completely cleans the memory space and all references to the chart and its data are removed.</p>
+
+<p>This is how you can use the method on a chart object <code>revenueChart</code> .</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="nx">revenueChart</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span></code></pre></div>
+
+<p>Shown below is a simple column 2D chart that is disposed at runtime when a button is clicked.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-remove-an-existing-chart-from-a-page-example-1.js"></script>
+
+<p>Removing a chart this way completely removes the chart object from memory, if you need to display the same chart again then it is redrawn from scratch.</p>
+

@@ -1,0 +1,190 @@
+<p>FusionCharts Suite XT includes drag-able charts that allow you to visually manipulate data on a chart, submit it, and observe its impact.</p>
+
+<p>At present, drag-able charts include the following chart types:</p>
+
+<ul>
+  <li>
+    <p>Drag-able Column 2D Chart</p>
+  </li>
+  <li>
+    <p>Drag-able Line 2D Chart</p>
+  </li>
+  <li>
+    <p>Drag-able Area 2D Chart</p>
+  </li>
+</ul>
+
+<p>These charts derive their basic features from the FusionCharts XT multi-series column, multi-series line, and multi-series area charts, respectively.</p>
+
+<p>Once you are done with visually updating the data, you can submit the data:</p>
+
+<ul>
+  <li>
+    <p>either back to the server as form data (like HTML forms)</p>
+  </li>
+  <li>
+    <p>or to JavaScript functions present on the same page as chart. These JavaScript functions can then process the data and do the needful.</p>
+  </li>
+</ul>
+
+<p>A drag-able column 2D chart is shown below:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/interactivity-chart-specific-interactivity-dragging-example-1.js"></script>
+
+<p>The above chart shows the inventory status for the top five food items at Bakersfield Central. It analyzes the available stock against the estimated demand. The data plots that represent the estimated demand are drag-able. Dragging these data plots updates the table shown below the chart for the no. of units estimated.</p>
+
+<p>The data structure needed to render the above chart is given below:</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Inventory status - Bakersfield Central",
+        "subCaption": "Top 5 Food items",
+        "xAxisName": "Food Item",
+        "yAxisName": "No. of Units",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "Poultry"
+                },
+                {
+                    "label": "Rice"
+                },
+                {
+                    "label": "Peanut Butter"
+                },
+                {
+                    "label": "Salmon"
+                },
+                {
+                    "label": "Cereal"
+                }
+            ]
+        }
+    ],
+    "dataset": [
+        {
+            "seriesname": "Available Stock",
+            "allowDrag": "0",
+            "data": [
+                {
+                    "value": "6000"
+                },
+                {
+                    "value": "9500"
+                },
+                {
+                    "value": "11900"
+                },
+                {
+                    "value": "8000"
+                },
+                {
+                    "value": "9700"
+                }
+            ]
+        },
+        {
+            "seriesname": "Estimated Demand",
+            "dashed": "1",
+            "data": [
+                {
+                    "value": "19000"
+                },
+                {
+                    "value": "16500"
+                },
+                {
+                    "value": "14300"
+                },
+                {
+                    "value": "10000"
+                },
+                {
+                    "value": "9800"
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Inventory status - Bakersfield Central&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Top 5 Food items&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Food Item&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;No. of Units&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-8"></a>    <span class="p">},</span>
+<a name="True-9"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-10"></a>        <span class="p">{</span>
+<a name="True-11"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-12"></a>                <span class="p">{</span>
+<a name="True-13"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Poultry&quot;</span>
+<a name="True-14"></a>                <span class="p">},</span>
+<a name="True-15"></a>                <span class="p">{</span>
+<a name="True-16"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Rice&quot;</span>
+<a name="True-17"></a>                <span class="p">},</span>
+<a name="True-18"></a>                <span class="p">{</span>
+<a name="True-19"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Peanut Butter&quot;</span>
+<a name="True-20"></a>                <span class="p">},</span>
+<a name="True-21"></a>                <span class="p">{</span>
+<a name="True-22"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Salmon&quot;</span>
+<a name="True-23"></a>                <span class="p">},</span>
+<a name="True-24"></a>                <span class="p">{</span>
+<a name="True-25"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Cereal&quot;</span>
+<a name="True-26"></a>                <span class="p">}</span>
+<a name="True-27"></a>            <span class="p">]</span>
+<a name="True-28"></a>        <span class="p">}</span>
+<a name="True-29"></a>    <span class="p">],</span>
+<a name="True-30"></a>    <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-31"></a>        <span class="p">{</span>
+<a name="True-32"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Available Stock&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;allowDrag&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-34"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-35"></a>                <span class="p">{</span>
+<a name="True-36"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;6000&quot;</span>
+<a name="True-37"></a>                <span class="p">},</span>
+<a name="True-38"></a>                <span class="p">{</span>
+<a name="True-39"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;9500&quot;</span>
+<a name="True-40"></a>                <span class="p">},</span>
+<a name="True-41"></a>                <span class="p">{</span>
+<a name="True-42"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11900&quot;</span>
+<a name="True-43"></a>                <span class="p">},</span>
+<a name="True-44"></a>                <span class="p">{</span>
+<a name="True-45"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8000&quot;</span>
+<a name="True-46"></a>                <span class="p">},</span>
+<a name="True-47"></a>                <span class="p">{</span>
+<a name="True-48"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;9700&quot;</span>
+<a name="True-49"></a>                <span class="p">}</span>
+<a name="True-50"></a>            <span class="p">]</span>
+<a name="True-51"></a>        <span class="p">},</span>
+<a name="True-52"></a>        <span class="p">{</span>
+<a name="True-53"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Estimated Demand&quot;</span><span class="p">,</span>
+<a name="True-54"></a>            <span class="s2">&quot;dashed&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-55"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-56"></a>                <span class="p">{</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;19000&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span>
+<a name="True-59"></a>                <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;16500&quot;</span>
+<a name="True-61"></a>                <span class="p">},</span>
+<a name="True-62"></a>                <span class="p">{</span>
+<a name="True-63"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;14300&quot;</span>
+<a name="True-64"></a>                <span class="p">},</span>
+<a name="True-65"></a>                <span class="p">{</span>
+<a name="True-66"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;10000&quot;</span>
+<a name="True-67"></a>                <span class="p">},</span>
+<a name="True-68"></a>                <span class="p">{</span>
+<a name="True-69"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;9800&quot;</span>
+<a name="True-70"></a>                <span class="p">}</span>
+<a name="True-71"></a>            <span class="p">]</span>
+<a name="True-72"></a>        <span class="p">}</span>
+<a name="True-73"></a>    <span class="p">]</span>
+<a name="True-74"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>For more details on drag-able charts, click <a href="/dev/chart-guide/drag-able-charts/introduction.html">here</a>.</p>

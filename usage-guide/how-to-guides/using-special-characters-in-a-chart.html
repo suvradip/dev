@@ -1,0 +1,499 @@
+<p>FusionCharts Suite supports all unicode characters as part of charts. You can use Multi Lingual text, Currency symbols as well as special characters as part of your charts.</p>
+
+<h2 id="using-multi-lingual-text">Using Multi Lingual Text</h2>
+
+<p>FusionCharts XT allows you to use multi-lingual (UTF-8) characters on the charts.</p>
+
+<p>To use multi-lingual characters on the chart, you necessarily need to use UTF-8 encoded XML.</p>
+
+<p>The XML file or stream requires a BOM stamp to be present as the very first three bytes of the file. Hence, one must remember the two basic thumb rules :</p>
+
+<p>Data URL method - the XML file or stream should have the BOM stamp<br />
+Data String method - the HTML or application file containing the XML as well as the chart object should have the BOM stamp.</p>
+
+<p class="text-info">What is BOM - Byte Order Mark. It is ‘EF BB EF’ - these three bytes in case of UTF-8 encoded files, the BOM being placed at the very beginning of the file. It is an indicator that the file is contains UTF-8 encoded strings.
+</p>
+
+<p>Shown here is a chart that uses arabic text</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-using-special-characters-in-a-chart-example-1.js"></script>
+
+<p>Given below is the data structure of the chart</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "سوبرماركت هاري",
+        "subCaption": "الإيرادات الشهرية للعام الماضي",
+        "xAxisName": "الشهر",
+        "yAxisName": "كمية",
+        "numberPrefix": "$",
+        "theme": "fint",
+        "rotateValues": "1",
+        "exportEnabled": "1"
+    },
+    "data": [
+        {
+            "label": "يناير",
+            "value": "420000"
+        },
+        {
+            "label": "فبراير",
+            "value": "810000"
+        },
+        {
+            "label": "مارس",
+            "value": "720000"
+        },
+        {
+            "label": "أبريل",
+            "value": "550000"
+        },
+        {
+            "label": "مايو",
+            "value": "910000"
+        },
+        {
+            "label": "يونيو",
+            "value": "510000"
+        },
+        {
+            "label": "يوليو",
+            "value": "680000"
+        },
+        {
+            "label": "أغسطس",
+            "value": "620000"
+        },
+        {
+            "label": "سبتمبر",
+            "value": "610000"
+        },
+        {
+            "label": "أكتوبر",
+            "value": "490000"
+        },
+        {
+            "label": "نوفمبر",
+            "value": "900000"
+        },
+        {
+            "label": "ديسمبر",
+            "value": "730000"
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;سوبرماركت هاري&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;الإيرادات الشهرية للعام الماضي&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;الشهر&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;كمية&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;rotateValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;exportEnabled&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-11"></a>    <span class="p">},</span>
+<a name="True-12"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-13"></a>        <span class="p">{</span>
+<a name="True-14"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;يناير&quot;</span><span class="p">,</span>
+<a name="True-15"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-16"></a>        <span class="p">},</span>
+<a name="True-17"></a>        <span class="p">{</span>
+<a name="True-18"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;فبراير&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-20"></a>        <span class="p">},</span>
+<a name="True-21"></a>        <span class="p">{</span>
+<a name="True-22"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;مارس&quot;</span><span class="p">,</span>
+<a name="True-23"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-24"></a>        <span class="p">},</span>
+<a name="True-25"></a>        <span class="p">{</span>
+<a name="True-26"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;أبريل&quot;</span><span class="p">,</span>
+<a name="True-27"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-28"></a>        <span class="p">},</span>
+<a name="True-29"></a>        <span class="p">{</span>
+<a name="True-30"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;مايو&quot;</span><span class="p">,</span>
+<a name="True-31"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-32"></a>        <span class="p">},</span>
+<a name="True-33"></a>        <span class="p">{</span>
+<a name="True-34"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;يونيو&quot;</span><span class="p">,</span>
+<a name="True-35"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-36"></a>        <span class="p">},</span>
+<a name="True-37"></a>        <span class="p">{</span>
+<a name="True-38"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;يوليو&quot;</span><span class="p">,</span>
+<a name="True-39"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-40"></a>        <span class="p">},</span>
+<a name="True-41"></a>        <span class="p">{</span>
+<a name="True-42"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;أغسطس&quot;</span><span class="p">,</span>
+<a name="True-43"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-44"></a>        <span class="p">},</span>
+<a name="True-45"></a>        <span class="p">{</span>
+<a name="True-46"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;سبتمبر&quot;</span><span class="p">,</span>
+<a name="True-47"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-48"></a>        <span class="p">},</span>
+<a name="True-49"></a>        <span class="p">{</span>
+<a name="True-50"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;أكتوبر&quot;</span><span class="p">,</span>
+<a name="True-51"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-52"></a>        <span class="p">},</span>
+<a name="True-53"></a>        <span class="p">{</span>
+<a name="True-54"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;نوفمبر&quot;</span><span class="p">,</span>
+<a name="True-55"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-56"></a>        <span class="p">},</span>
+<a name="True-57"></a>        <span class="p">{</span>
+<a name="True-58"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ديسمبر&quot;</span><span class="p">,</span>
+<a name="True-59"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-60"></a>        <span class="p">}</span>
+<a name="True-61"></a>    <span class="p">]</span>
+<a name="True-62"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>FusionCharts XT supports only left-to-right languages as of now. It does not have native support for right-to-left languages like Hebrew. So, if you want to use Hebrew with FusionCharts XT, you will have to programmatically reverse the sequence of words/characters and then provide the same to FusionCharts XT</p>
+
+<p class="text-warning">Do not rely on specifying the encoding setting, that is, <?xml version="1.0" encoding="UTF-8"?> in the XML header region. This does not add the Byte Order Mark (BOM) to the XML file.
+</p>
+
+<h2 id="using-currency-symbols">Using currency symbols</h2>
+
+<p>Currency symbols like the, £(Pound), €(Euro), ¥(Yen) etc., may also be a part of the data which is displayed on charts. To display these characters on a chart, you can simply include it in the XML/JSON data source of the chart. This is applicable in both Data URL and Data String methods.</p>
+
+<p>Shown below is a chart that uses the Yen symbol as a currency formatter.</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-using-special-characters-in-a-chart-example-2.js"></script>
+
+<p>Given below is the data structure of the chart</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Harry's SuperMart",
+        "subCaption": "Monthly revenue for last year",
+        "xAxisName": "Month",
+        "yAxisName": "Amount",
+        "numberPrefix": "¥",
+        "theme": "fint",
+        "rotateValues": "1",
+        "exportEnabled": "1"
+    },
+    "data": [
+        {
+            "label": "Jan",
+            "value": "420000"
+        },
+        {
+            "label": "Feb",
+            "value": "810000"
+        },
+        {
+            "label": "Mar",
+            "value": "720000"
+        },
+        {
+            "label": "Apr",
+            "value": "550000"
+        },
+        {
+            "label": "May",
+            "value": "910000"
+        },
+        {
+            "label": "Jun",
+            "value": "510000"
+        },
+        {
+            "label": "Jul",
+            "value": "680000"
+        },
+        {
+            "label": "Aug",
+            "value": "620000"
+        },
+        {
+            "label": "Sep",
+            "value": "610000"
+        },
+        {
+            "label": "Oct",
+            "value": "490000"
+        },
+        {
+            "label": "Nov",
+            "value": "900000"
+        },
+        {
+            "label": "Dec",
+            "value": "730000"
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;¥&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;rotateValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;exportEnabled&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+<a name="True-11"></a>    <span class="p">},</span>
+<a name="True-12"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-13"></a>        <span class="p">{</span>
+<a name="True-14"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-15"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-16"></a>        <span class="p">},</span>
+<a name="True-17"></a>        <span class="p">{</span>
+<a name="True-18"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-20"></a>        <span class="p">},</span>
+<a name="True-21"></a>        <span class="p">{</span>
+<a name="True-22"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-23"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-24"></a>        <span class="p">},</span>
+<a name="True-25"></a>        <span class="p">{</span>
+<a name="True-26"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-27"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-28"></a>        <span class="p">},</span>
+<a name="True-29"></a>        <span class="p">{</span>
+<a name="True-30"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-31"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-32"></a>        <span class="p">},</span>
+<a name="True-33"></a>        <span class="p">{</span>
+<a name="True-34"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-35"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-36"></a>        <span class="p">},</span>
+<a name="True-37"></a>        <span class="p">{</span>
+<a name="True-38"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-39"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-40"></a>        <span class="p">},</span>
+<a name="True-41"></a>        <span class="p">{</span>
+<a name="True-42"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-43"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-44"></a>        <span class="p">},</span>
+<a name="True-45"></a>        <span class="p">{</span>
+<a name="True-46"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-47"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-48"></a>        <span class="p">},</span>
+<a name="True-49"></a>        <span class="p">{</span>
+<a name="True-50"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-51"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-52"></a>        <span class="p">},</span>
+<a name="True-53"></a>        <span class="p">{</span>
+<a name="True-54"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-55"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-56"></a>        <span class="p">},</span>
+<a name="True-57"></a>        <span class="p">{</span>
+<a name="True-58"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-59"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-60"></a>        <span class="p">}</span>
+<a name="True-61"></a>    <span class="p">]</span>
+<a name="True-62"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>When using the HTML embedding method with data provided as embedded string, it is essential to encode yen character as %A5. This is true for other currency characters as well.</p>
+
+<p>Some special characters like the euro fall under the extended unicode character-set  category. To display a these characters in your chart, the XML file should be encoded with a UTF-8 BOM signature as explained earlier, otherwise the character will not be displayed properly.</p>
+
+<p>When using the HTML embedding method with data provided as embedded string, you need to use the encoded form (%E2%82%AC) instead of the character itself (€).</p>
+
+<h2 id="using-special-characters">Using special characters</h2>
+
+<p>You can directly embed most of the special characters and punctuation marks in the XML/JSON data source of your chart. However some characters like  <code>&amp;</code> , <code>&lt;</code> , <code>&gt;</code> , <code>'</code> (apostrophe) and <code>"</code> (quote) need to be specially encoded when providing the same as a part of the chart data. Apart from this, there is no need to encode any other special character.</p>
+
+<p>Given below is a table of the character and how it must be encoded, it is applicable in both Data URL and Data String methods.</p>
+
+<table>
+  <tr>
+    <th>Character</th>
+    <th>JSON/XML Encoding</th>
+    <th>HTML Embed Encoding</th>
+  </tr>
+  <tr>
+<td><p><code>&amp;amp;</code></p>
+</td>
+<td><p>&amp;amp;</p>
+</td>
+<td><p>%26</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>&amp;lt;</code></p>
+</td>
+<td><p>&amp;lt;</p>
+</td>
+<td><p>%26lt</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>&amp;gt;</code></p>
+</td>
+<td><p>&amp;gt;</p>
+</td>
+<td><p>%26gt</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>&amp;apos;</code></p>
+</td>
+<td><p>&amp;apos;</p>
+</td>
+<td><p>%26apos</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>&amp;quot;</code></p>
+</td>
+<td><p>&amp;quot;</p>
+</td>
+<td><p>%26quot</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>%</code></p>
+</td>
+<td><p>N/A</p>
+</td>
+<td><p>%25</p>
+</td>
+  </tr>
+</table>
+
+<p>Shown here is a chart that uses special characters</p>
+
+<div class="chart-example" id="chart-container-3">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-using-special-characters-in-a-chart-example-3.js"></script>
+
+<p>Given below is the data structure of the chart</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Harry's SuperMart",
+        "subcaption": "Monthly revenue for last year",
+        "xaxisname": "\"Month\"",
+        "yaxisname": "'Amount'",
+        "numberprefix": "¥",
+        "theme": "fint",
+        "rotatevalues": "1",
+        "exportenabled": "1",
+        "showlegend": "1",
+        "animation": "0"
+    },
+    "data": [
+        {
+            "label": "Jan",
+            "value": "420000"
+        },
+        {
+            "label": "Feb",
+            "value": "810000"
+        },
+        {
+            "label": "Mar",
+            "value": "720000"
+        },
+        {
+            "label": "Apr",
+            "value": "550000"
+        },
+        {
+            "label": "May",
+            "value": "910000"
+        },
+        {
+            "label": "Jun",
+            "value": "510000"
+        },
+        {
+            "label": "Jul",
+            "value": "680000"
+        },
+        {
+            "label": "Aug",
+            "value": "620000"
+        },
+        {
+            "label": "Sep",
+            "value": "610000"
+        },
+        {
+            "label": "Oct",
+            "value": "490000"
+        },
+        {
+            "label": "Nov",
+            "value": "900000"
+        },
+        {
+            "label": "Dec",
+            "value": "730000"
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xaxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;\&quot;Month\&quot;&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yaxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;&#39;Amount&#39;&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberprefix&quot;</span><span class="o">:</span> <span class="s2">&quot;¥&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;rotatevalues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;exportenabled&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;showlegend&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;animation&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span>
+<a name="True-13"></a>    <span class="p">},</span>
+<a name="True-14"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-15"></a>        <span class="p">{</span>
+<a name="True-16"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-17"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-18"></a>        <span class="p">},</span>
+<a name="True-19"></a>        <span class="p">{</span>
+<a name="True-20"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-21"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-22"></a>        <span class="p">},</span>
+<a name="True-23"></a>        <span class="p">{</span>
+<a name="True-24"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-25"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-26"></a>        <span class="p">},</span>
+<a name="True-27"></a>        <span class="p">{</span>
+<a name="True-28"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-29"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-30"></a>        <span class="p">},</span>
+<a name="True-31"></a>        <span class="p">{</span>
+<a name="True-32"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-34"></a>        <span class="p">},</span>
+<a name="True-35"></a>        <span class="p">{</span>
+<a name="True-36"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-37"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-38"></a>        <span class="p">},</span>
+<a name="True-39"></a>        <span class="p">{</span>
+<a name="True-40"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-41"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-42"></a>        <span class="p">},</span>
+<a name="True-43"></a>        <span class="p">{</span>
+<a name="True-44"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-45"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-46"></a>        <span class="p">},</span>
+<a name="True-47"></a>        <span class="p">{</span>
+<a name="True-48"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-50"></a>        <span class="p">},</span>
+<a name="True-51"></a>        <span class="p">{</span>
+<a name="True-52"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-53"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-54"></a>        <span class="p">},</span>
+<a name="True-55"></a>        <span class="p">{</span>
+<a name="True-56"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-57"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-58"></a>        <span class="p">},</span>
+<a name="True-59"></a>        <span class="p">{</span>
+<a name="True-60"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-61"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-62"></a>        <span class="p">}</span>
+<a name="True-63"></a>    <span class="p">]</span>
+<a name="True-64"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+

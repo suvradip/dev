@@ -1,0 +1,198 @@
+<p>You can change the text and style of the chart status messages that appear throughout the life cycle of the chart.</p>
+
+<p>Below is a list of status and error messages that can be set for any chart in the FusionCharts constructor.</p>
+
+<table>
+  <tr>
+    <th>Message Type</th>
+    <th>What it does?</th>
+    <th>Default Value</th>
+  </tr>
+  <tr>
+<td><p><code>dataLoadStartMessage</code></p>
+</td>
+<td><p>Sets a custom message when data is being loaded.</p>
+</td>
+<td><p>Retrieving data. Please wait.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataLoadErrorMessage</code></p>
+</td>
+<td><p>Sets a custom message when there is error in loading the chart data from the data URL provided as datasource. This may happen when the URL is invalid or inaccessible.</p>
+</td>
+<td><p>Error in loading data.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataInvalidMessage</code></p>
+</td>
+<td><p>Sets a custom message when data is found to be invalid (post-load).</p>
+</td>
+<td><p>Invalid data.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataEmptyMessage</code></p>
+</td>
+<td><p>Sets a custom message when the chart has retrieved data which does not contain any data for chart to plot or the data does not conform to the data structure required by the chart type.</p>
+</td>
+<td><p>No data to display.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>typeNotSupportedMessage</code></p>
+</td>
+<td><p>Sets a custom message when specified chart type is not supported.</p>
+</td>
+<td><p>Chart type not supported.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>loadMessage</code></p>
+</td>
+<td><p>Sets a custom message when chart is loading.</p>
+</td>
+<td><p>Loading chart. Please wait.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>renderErrorMessage</code></p>
+</td>
+<td><p>Sets a custom message when an error is encountered while rendering the chart.</p>
+</td>
+<td><p>Unable to render chart.</p>
+</td>
+  </tr>
+</table>
+
+<h2 id="setting-custom-messages">Setting custom messages</h2>
+
+<p>A simple column 2D chart that displays custom <code>dataLoadStartMessage</code> is shown below:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-change-chart-messages-example-1.js"></script>
+
+<p>The constructor for the chart is shown below:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-2"></a>    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-3"></a>    <span class="nx">dataLoadStartMessage</span><span class="o">:</span> <span class="s2">&quot;Fetching revenue data for the previous year&quot;</span><span class="p">,</span>
+<a name="True-4"></a>    <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-5"></a>    <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;550&#39;</span><span class="p">,</span>
+<a name="True-6"></a>    <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;350&#39;</span><span class="p">,</span>
+<a name="True-7"></a>    <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;xmlurl&#39;</span><span class="p">,</span>
+<a name="True-8"></a>    <span class="nx">dataSource</span><span class="o">:</span> <span class="s1">&#39;columndata.php&#39;</span>
+<a name="True-9"></a><span class="p">});</span></code></pre></div>
+
+<p>Simlarly, other chart messages can be set using constructor parameters.</p>
+
+<h2 id="styling-chart-messages">Styling chart messages</h2>
+
+<p>Custom styles can also be applied to these messages, i.e. setting custom text font, font-size and color.</p>
+
+<p>To apply common styling to all chart messages, use these attributes:</p>
+
+<table>
+  <tr>
+    <th>Attribute Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+<td><p><code>baseChartMessageFont</code></p>
+</td>
+<td><p>Sets custom font for all chart messages.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>baseChartMessageFontSize</code></p>
+</td>
+<td><p>Sets custom font-size for all chart messages.</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>baseChartMessageColor</code></p>
+</td>
+<td><p>Sets custom font color for all chart messages.</p>
+</td>
+  </tr>
+</table>
+
+<p>A column 2D chart that has custom style for all messages looks like this:</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-change-chart-messages-example-2.js"></script>
+
+<p>The constructor data for the chart is shown below:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-2"></a>    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-3"></a>    <span class="nx">dataLoadStartMessage</span><span class="o">:</span> <span class="s2">&quot;Fetching revenue data for the previous year&quot;</span><span class="p">,</span>
+<a name="True-4"></a>    <span class="nx">baseChartMessageFont</span><span class="o">:</span> <span class="s2">&quot;Arial&quot;</span><span class="p">,</span>
+<a name="True-5"></a>    <span class="nx">baseChartMessageFontSize</span><span class="o">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+<a name="True-6"></a>    <span class="nx">baseChartMessageColor</span><span class="o">:</span> <span class="s2">&quot;#FC0000&quot;</span><span class="p">,</span>
+<a name="True-7"></a>    <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-8"></a>    <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;550&#39;</span><span class="p">,</span>
+<a name="True-9"></a>    <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;350&#39;</span><span class="p">,</span>
+<a name="True-10"></a>    <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;xmlurl&#39;</span><span class="p">,</span>
+<a name="True-11"></a>    <span class="nx">dataSource</span><span class="o">:</span> <span class="s1">&#39;columndata.php&#39;</span>
+<a name="True-12"></a><span class="p">});</span></code></pre></div>
+
+<p>To override styling for individual chart messages, there are attributes corresponding to each type of message. These attributes use a common scheme. Append <code>Font</code>, <code>FontSize</code> or <code>Color</code> to the specific chart message constructor parameter to customise the font, font-size or color of the message respectively.</p>
+
+<p>For example, to customise styling of <code>dataLoadStartMessage</code>, the attributes will be:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="nx">dataLoadStartMessageFont</span><span class="o">:</span> <span class="err">‘</span><span class="nx">Helvetica</span><span class="err">’</span><span class="p">,</span>
+<a name="True-2"></a><span class="nx">dataLoadStartMessageFontSize</span><span class="o">:</span> <span class="err">’</span><span class="mi">24</span><span class="err">’</span><span class="p">,</span>
+<a name="True-3"></a><span class="nx">dataLoadStartMessageColor</span><span class="o">:</span> <span class="err">‘#</span><span class="mi">00</span><span class="nx">FF00</span><span class="err">’</span></code></pre></div>
+
+<p>Given below is a table of all the attributes for applying styles for each of these messages:</p>
+
+<table>
+  <tr>
+    <th>Message Type</th>
+    <th>Style Attributes</th>
+  </tr>
+  <tr>
+<td><p><code>dataLoadStartMessage</code></p>
+</td>
+<td><p>dataLoadStartMessageFont<br />dataLoadStartMessageFontSize<br />dataLoadStartMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataLoadErrorMessage</code></p>
+</td>
+<td><p>dataLoadErrorMessageFont<br />dataLoadErrorMessageFontSize<br />dataLoadErrorMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataInvalidMessage</code></p>
+</td>
+<td><p>dataInvalidMessageFont<br />dataInvalidMessageFontSize<br />dataInvalidMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>dataEmptyMessage</code></p>
+</td>
+<td><p>dataEmptyMessageFont<br />dataEmptyMessageFontSize<br />dataEmptyMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>typeNotSupportedMessage</code></p>
+</td>
+<td><p>typeNotSupportedMessageFont<br />typeNotSupportedMessageFontSize<br />typeNotSupportedMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>loadMessage</code></p>
+</td>
+<td><p>loadMessageFont<br />loadMessageFontSize<br />loadMessageColor</p>
+</td>
+  </tr>
+  <tr>
+<td><p><code>renderErrorMessage</code></p>
+</td>
+<td><p>renderErrorMessageFont<br />renderErrorMessageFontSize<br />renderErrorMessageColor</p>
+</td>
+  </tr>
+</table>

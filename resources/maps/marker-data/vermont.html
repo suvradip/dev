@@ -1,0 +1,643 @@
+<h4 id="map-name-vermont">Map Name: Vermont</h4>
+
+<h4 id="javascript-alias-mapsvermont">JavaScript Alias: maps/vermont</h4>
+
+<ul class="code-tabs">
+    <li class="active">
+        <a data-toggle="new-json">New JSON Format</a>
+    </li>
+    <li>
+        <a data-toggle="old-json">Old JSON Format</a>
+    </li>
+    <li>
+        <a data-toggle="old-xml">Old XML Format</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <pre class="plain-code"></pre>
+    <div class="tab new-json-tab active">
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;map&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;showshadow&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;showlabels&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;showmarkerlabels&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;fillcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;F1f1f1&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;bordercolor&quot;</span><span class="o">:</span> <span class="s2">&quot;CCCCCC&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;basefont&quot;</span><span class="o">:</span> <span class="s2">&quot;Verdana&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;basefontsize&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;markerbordercolor&quot;</span><span class="o">:</span> <span class="s2">&quot;000000&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;markerbgcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;FF5904&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;markerradius&quot;</span><span class="o">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;usehovercolor&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;hoveronempty&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-15"></a>        <span class="s2">&quot;showmarkertooltip&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-16"></a>        <span class="s2">&quot;canvasBorderColor&quot;</span><span class="o">:</span> <span class="s2">&quot;375277&quot;</span><span class="p">,</span>
+<a name="True-17"></a>        <span class="s2">&quot;canvasBorderAlpha&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span>
+<a name="True-18"></a>    <span class="p">},</span>
+<a name="True-19"></a>    <span class="s2">&quot;markers&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-20"></a>        <span class="s2">&quot;shapes&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-21"></a>            <span class="p">{</span>
+<a name="True-22"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;myCustomShape&quot;</span><span class="p">,</span>
+<a name="True-23"></a>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<a name="True-24"></a>                <span class="s2">&quot;fillcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;FFFFFF,333333&quot;</span><span class="p">,</span>
+<a name="True-25"></a>                <span class="s2">&quot;fillpattern&quot;</span><span class="o">:</span> <span class="s2">&quot;radial&quot;</span><span class="p">,</span>
+<a name="True-26"></a>                <span class="s2">&quot;showborder&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-27"></a>                <span class="s2">&quot;radius&quot;</span><span class="o">:</span> <span class="s2">&quot;4&quot;</span>
+<a name="True-28"></a>            <span class="p">},</span>
+<a name="True-29"></a>            <span class="p">{</span>
+<a name="True-30"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-31"></a>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<a name="True-32"></a>                <span class="s2">&quot;fillcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;FFFFFF,000099&quot;</span><span class="p">,</span>
+<a name="True-33"></a>                <span class="s2">&quot;fillpattern&quot;</span><span class="o">:</span> <span class="s2">&quot;radial&quot;</span><span class="p">,</span>
+<a name="True-34"></a>                <span class="s2">&quot;showborder&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-35"></a>                <span class="s2">&quot;radius&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span>
+<a name="True-36"></a>            <span class="p">}</span>
+<a name="True-37"></a>        <span class="p">],</span>
+<a name="True-38"></a>        <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-39"></a>            <span class="p">{</span>
+<a name="True-40"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;MO&quot;</span><span class="p">,</span>
+<a name="True-41"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;myCustomShape&quot;</span><span class="p">,</span>
+<a name="True-42"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;246.4&quot;</span><span class="p">,</span>
+<a name="True-43"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;252.61&quot;</span><span class="p">,</span>
+<a name="True-44"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Montpelier&quot;</span><span class="p">,</span>
+<a name="True-45"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-46"></a>            <span class="p">},</span>
+<a name="True-47"></a>            <span class="p">{</span>
+<a name="True-48"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<a name="True-49"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-50"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;91.63&quot;</span><span class="p">,</span>
+<a name="True-51"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;48.97&quot;</span><span class="p">,</span>
+<a name="True-52"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Swankon&quot;</span><span class="p">,</span>
+<a name="True-53"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-54"></a>            <span class="p">},</span>
+<a name="True-55"></a>            <span class="p">{</span>
+<a name="True-56"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+<a name="True-57"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-58"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;101.81&quot;</span><span class="p">,</span>
+<a name="True-59"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;86.64&quot;</span><span class="p">,</span>
+<a name="True-60"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;St.Albans&quot;</span><span class="p">,</span>
+<a name="True-61"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-62"></a>            <span class="p">},</span>
+<a name="True-63"></a>            <span class="p">{</span>
+<a name="True-64"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;03&quot;</span><span class="p">,</span>
+<a name="True-65"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-66"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;326.83&quot;</span><span class="p">,</span>
+<a name="True-67"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;37.77&quot;</span><span class="p">,</span>
+<a name="True-68"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Newport&quot;</span><span class="p">,</span>
+<a name="True-69"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-70"></a>            <span class="p">},</span>
+<a name="True-71"></a>            <span class="p">{</span>
+<a name="True-72"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
+<a name="True-73"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-74"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;425.6&quot;</span><span class="p">,</span>
+<a name="True-75"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;84.61&quot;</span><span class="p">,</span>
+<a name="True-76"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Island Pond&quot;</span><span class="p">,</span>
+<a name="True-77"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-78"></a>            <span class="p">},</span>
+<a name="True-79"></a>            <span class="p">{</span>
+<a name="True-80"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;05&quot;</span><span class="p">,</span>
+<a name="True-81"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-82"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;211.78&quot;</span><span class="p">,</span>
+<a name="True-83"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;135.52&quot;</span><span class="p">,</span>
+<a name="True-84"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Hycle Park&quot;</span><span class="p">,</span>
+<a name="True-85"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-86"></a>            <span class="p">},</span>
+<a name="True-87"></a>            <span class="p">{</span>
+<a name="True-88"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
+<a name="True-89"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-90"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;350.25&quot;</span><span class="p">,</span>
+<a name="True-91"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;225.12&quot;</span><span class="p">,</span>
+<a name="True-92"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;St.Johnsbury&quot;</span><span class="p">,</span>
+<a name="True-93"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-94"></a>            <span class="p">},</span>
+<a name="True-95"></a>            <span class="p">{</span>
+<a name="True-96"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;07&quot;</span><span class="p">,</span>
+<a name="True-97"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-98"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;29.52&quot;</span><span class="p">,</span>
+<a name="True-99"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;171.15&quot;</span><span class="p">,</span>
+<a name="True-100"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Burlington&quot;</span><span class="p">,</span>
+<a name="True-101"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-102"></a>            <span class="p">},</span>
+<a name="True-103"></a>            <span class="p">{</span>
+<a name="True-104"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
+<a name="True-105"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-106"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;47.85&quot;</span><span class="p">,</span>
+<a name="True-107"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;181.33&quot;</span><span class="p">,</span>
+<a name="True-108"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;South Burlington&quot;</span><span class="p">,</span>
+<a name="True-109"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-110"></a>            <span class="p">},</span>
+<a name="True-111"></a>            <span class="p">{</span>
+<a name="True-112"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;09&quot;</span><span class="p">,</span>
+<a name="True-113"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-114"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;53.96&quot;</span><span class="p">,</span>
+<a name="True-115"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;317.77&quot;</span><span class="p">,</span>
+<a name="True-116"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Vergenses&quot;</span><span class="p">,</span>
+<a name="True-117"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-118"></a>            <span class="p">},</span>
+<a name="True-119"></a>            <span class="p">{</span>
+<a name="True-120"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-121"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-122"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;93.67&quot;</span><span class="p">,</span>
+<a name="True-123"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;388.02&quot;</span><span class="p">,</span>
+<a name="True-124"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Middlebury&quot;</span>
+<a name="True-125"></a>            <span class="p">},</span>
+<a name="True-126"></a>            <span class="p">{</span>
+<a name="True-127"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<a name="True-128"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-129"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;190.4&quot;</span><span class="p">,</span>
+<a name="True-130"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;346.28&quot;</span><span class="p">,</span>
+<a name="True-131"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Northfield&quot;</span>
+<a name="True-132"></a>            <span class="p">},</span>
+<a name="True-133"></a>            <span class="p">{</span>
+<a name="True-134"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<a name="True-135"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-136"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;240.29&quot;</span><span class="p">,</span>
+<a name="True-137"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;233.26&quot;</span><span class="p">,</span>
+<a name="True-138"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Waterbury&quot;</span><span class="p">,</span>
+<a name="True-139"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-140"></a>            <span class="p">},</span>
+<a name="True-141"></a>            <span class="p">{</span>
+<a name="True-142"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+<a name="True-143"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-144"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;261.67&quot;</span><span class="p">,</span>
+<a name="True-145"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;275.01&quot;</span><span class="p">,</span>
+<a name="True-146"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Barre&quot;</span><span class="p">,</span>
+<a name="True-147"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-148"></a>            <span class="p">},</span>
+<a name="True-149"></a>            <span class="p">{</span>
+<a name="True-150"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<a name="True-151"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-152"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;239.27&quot;</span><span class="p">,</span>
+<a name="True-153"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;430.79&quot;</span><span class="p">,</span>
+<a name="True-154"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Bethel&quot;</span>
+<a name="True-155"></a>            <span class="p">},</span>
+<a name="True-156"></a>            <span class="p">{</span>
+<a name="True-157"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+<a name="True-158"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-159"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;257.6&quot;</span><span class="p">,</span>
+<a name="True-160"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;538.72&quot;</span><span class="p">,</span>
+<a name="True-161"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Woodstock&quot;</span><span class="p">,</span>
+<a name="True-162"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-163"></a>            <span class="p">},</span>
+<a name="True-164"></a>            <span class="p">{</span>
+<a name="True-165"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;17&quot;</span><span class="p">,</span>
+<a name="True-166"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-167"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;302.4&quot;</span><span class="p">,</span>
+<a name="True-168"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;526.5&quot;</span><span class="p">,</span>
+<a name="True-169"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;White River Jet&quot;</span><span class="p">,</span>
+<a name="True-170"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-171"></a>            <span class="p">},</span>
+<a name="True-172"></a>            <span class="p">{</span>
+<a name="True-173"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+<a name="True-174"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-175"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;287.12&quot;</span><span class="p">,</span>
+<a name="True-176"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;582.5&quot;</span><span class="p">,</span>
+<a name="True-177"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Windsor&quot;</span><span class="p">,</span>
+<a name="True-178"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-179"></a>            <span class="p">},</span>
+<a name="True-180"></a>            <span class="p">{</span>
+<a name="True-181"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+<a name="True-182"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-183"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;207.7&quot;</span><span class="p">,</span>
+<a name="True-184"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;606.93&quot;</span><span class="p">,</span>
+<a name="True-185"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Ludlow&quot;</span><span class="p">,</span>
+<a name="True-186"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-187"></a>            <span class="p">},</span>
+<a name="True-188"></a>            <span class="p">{</span>
+<a name="True-189"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<a name="True-190"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-191"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;260.65&quot;</span><span class="p">,</span>
+<a name="True-192"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;648.68&quot;</span><span class="p">,</span>
+<a name="True-193"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Springfield&quot;</span><span class="p">,</span>
+<a name="True-194"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-195"></a>            <span class="p">},</span>
+<a name="True-196"></a>            <span class="p">{</span>
+<a name="True-197"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
+<a name="True-198"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-199"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;268.8&quot;</span><span class="p">,</span>
+<a name="True-200"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;721.99&quot;</span><span class="p">,</span>
+<a name="True-201"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Belowa Falls&quot;</span><span class="p">,</span>
+<a name="True-202"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-203"></a>            <span class="p">},</span>
+<a name="True-204"></a>            <span class="p">{</span>
+<a name="True-205"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<a name="True-206"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-207"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;241.3&quot;</span><span class="p">,</span>
+<a name="True-208"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;830.93&quot;</span><span class="p">,</span>
+<a name="True-209"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Brattleboro&quot;</span><span class="p">,</span>
+<a name="True-210"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-211"></a>            <span class="p">},</span>
+<a name="True-212"></a>            <span class="p">{</span>
+<a name="True-213"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;23&quot;</span><span class="p">,</span>
+<a name="True-214"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-215"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;69.23&quot;</span><span class="p">,</span>
+<a name="True-216"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;798.35&quot;</span><span class="p">,</span>
+<a name="True-217"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Bennington&quot;</span><span class="p">,</span>
+<a name="True-218"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-219"></a>            <span class="p">},</span>
+<a name="True-220"></a>            <span class="p">{</span>
+<a name="True-221"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<a name="True-222"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-223"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;148.65&quot;</span><span class="p">,</span>
+<a name="True-224"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;682.28&quot;</span><span class="p">,</span>
+<a name="True-225"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Manchester&quot;</span><span class="p">,</span>
+<a name="True-226"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-227"></a>            <span class="p">},</span>
+<a name="True-228"></a>            <span class="p">{</span>
+<a name="True-229"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+<a name="True-230"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-231"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;137.45&quot;</span><span class="p">,</span>
+<a name="True-232"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;555.01&quot;</span><span class="p">,</span>
+<a name="True-233"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Rotland&quot;</span>
+<a name="True-234"></a>            <span class="p">}</span>
+<a name="True-235"></a>        <span class="p">]</span>
+<a name="True-236"></a>    <span class="p">}</span>
+<a name="True-237"></a><span class="p">}</span></code></pre></div>
+
+
+
+<p class="text-success">New JSON format for map marker data.
+</p>
+
+    </div>
+    <div class="tab old-json-tab">
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;map&quot;</span><span class="o">:</span> <span class="p">{},</span>
+<a name="True-3"></a>    <span class="s2">&quot;markers&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-4"></a>        <span class="s2">&quot;shapes&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-5"></a>            <span class="p">{</span>
+<a name="True-6"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;myCustomShape&quot;</span><span class="p">,</span>
+<a name="True-7"></a>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<a name="True-8"></a>                <span class="s2">&quot;fillcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;FFFFFF,333333&quot;</span><span class="p">,</span>
+<a name="True-9"></a>                <span class="s2">&quot;fillpattern&quot;</span><span class="o">:</span> <span class="s2">&quot;radial&quot;</span><span class="p">,</span>
+<a name="True-10"></a>                <span class="s2">&quot;showborder&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-11"></a>                <span class="s2">&quot;radius&quot;</span><span class="o">:</span> <span class="s2">&quot;4&quot;</span>
+<a name="True-12"></a>            <span class="p">},</span>
+<a name="True-13"></a>            <span class="p">{</span>
+<a name="True-14"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span><span class="p">,</span>
+<a name="True-15"></a>                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+<a name="True-16"></a>                <span class="s2">&quot;fillcolor&quot;</span><span class="o">:</span> <span class="s2">&quot;FFFFFF,000099&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                <span class="s2">&quot;fillpattern&quot;</span><span class="o">:</span> <span class="s2">&quot;radial&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                <span class="s2">&quot;showborder&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                <span class="s2">&quot;radius&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span>
+<a name="True-20"></a>            <span class="p">}</span>
+<a name="True-21"></a>        <span class="p">],</span>
+<a name="True-22"></a>        <span class="s2">&quot;definition&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-23"></a>            <span class="p">{</span>
+<a name="True-24"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;MO&quot;</span><span class="p">,</span>
+<a name="True-25"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;246.4&quot;</span><span class="p">,</span>
+<a name="True-26"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;252.61&quot;</span><span class="p">,</span>
+<a name="True-27"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Montpelier&quot;</span><span class="p">,</span>
+<a name="True-28"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-29"></a>            <span class="p">},</span>
+<a name="True-30"></a>            <span class="p">{</span>
+<a name="True-31"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<a name="True-32"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;91.63&quot;</span><span class="p">,</span>
+<a name="True-33"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;48.97&quot;</span><span class="p">,</span>
+<a name="True-34"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Swankon&quot;</span><span class="p">,</span>
+<a name="True-35"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-36"></a>            <span class="p">},</span>
+<a name="True-37"></a>            <span class="p">{</span>
+<a name="True-38"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+<a name="True-39"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;101.81&quot;</span><span class="p">,</span>
+<a name="True-40"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;86.64&quot;</span><span class="p">,</span>
+<a name="True-41"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;St.Albans&quot;</span><span class="p">,</span>
+<a name="True-42"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-43"></a>            <span class="p">},</span>
+<a name="True-44"></a>            <span class="p">{</span>
+<a name="True-45"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;03&quot;</span><span class="p">,</span>
+<a name="True-46"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;326.83&quot;</span><span class="p">,</span>
+<a name="True-47"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;37.77&quot;</span><span class="p">,</span>
+<a name="True-48"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Newport&quot;</span><span class="p">,</span>
+<a name="True-49"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-50"></a>            <span class="p">},</span>
+<a name="True-51"></a>            <span class="p">{</span>
+<a name="True-52"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
+<a name="True-53"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;425.6&quot;</span><span class="p">,</span>
+<a name="True-54"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;84.61&quot;</span><span class="p">,</span>
+<a name="True-55"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Island Pond&quot;</span><span class="p">,</span>
+<a name="True-56"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-57"></a>            <span class="p">},</span>
+<a name="True-58"></a>            <span class="p">{</span>
+<a name="True-59"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;05&quot;</span><span class="p">,</span>
+<a name="True-60"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;211.78&quot;</span><span class="p">,</span>
+<a name="True-61"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;135.52&quot;</span><span class="p">,</span>
+<a name="True-62"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Hycle Park&quot;</span><span class="p">,</span>
+<a name="True-63"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-64"></a>            <span class="p">},</span>
+<a name="True-65"></a>            <span class="p">{</span>
+<a name="True-66"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
+<a name="True-67"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;350.25&quot;</span><span class="p">,</span>
+<a name="True-68"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;225.12&quot;</span><span class="p">,</span>
+<a name="True-69"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;St.Johnsbury&quot;</span><span class="p">,</span>
+<a name="True-70"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-71"></a>            <span class="p">},</span>
+<a name="True-72"></a>            <span class="p">{</span>
+<a name="True-73"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;07&quot;</span><span class="p">,</span>
+<a name="True-74"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;29.52&quot;</span><span class="p">,</span>
+<a name="True-75"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;171.15&quot;</span><span class="p">,</span>
+<a name="True-76"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Burlington&quot;</span><span class="p">,</span>
+<a name="True-77"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-78"></a>            <span class="p">},</span>
+<a name="True-79"></a>            <span class="p">{</span>
+<a name="True-80"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
+<a name="True-81"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;47.85&quot;</span><span class="p">,</span>
+<a name="True-82"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;181.33&quot;</span><span class="p">,</span>
+<a name="True-83"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;South Burlington&quot;</span><span class="p">,</span>
+<a name="True-84"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-85"></a>            <span class="p">},</span>
+<a name="True-86"></a>            <span class="p">{</span>
+<a name="True-87"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;09&quot;</span><span class="p">,</span>
+<a name="True-88"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;53.96&quot;</span><span class="p">,</span>
+<a name="True-89"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;317.77&quot;</span><span class="p">,</span>
+<a name="True-90"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Vergenses&quot;</span><span class="p">,</span>
+<a name="True-91"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-92"></a>            <span class="p">},</span>
+<a name="True-93"></a>            <span class="p">{</span>
+<a name="True-94"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-95"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;93.67&quot;</span><span class="p">,</span>
+<a name="True-96"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;388.02&quot;</span><span class="p">,</span>
+<a name="True-97"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Middlebury&quot;</span>
+<a name="True-98"></a>            <span class="p">},</span>
+<a name="True-99"></a>            <span class="p">{</span>
+<a name="True-100"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<a name="True-101"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;190.4&quot;</span><span class="p">,</span>
+<a name="True-102"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;346.28&quot;</span><span class="p">,</span>
+<a name="True-103"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Northfield&quot;</span>
+<a name="True-104"></a>            <span class="p">},</span>
+<a name="True-105"></a>            <span class="p">{</span>
+<a name="True-106"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<a name="True-107"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;240.29&quot;</span><span class="p">,</span>
+<a name="True-108"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;233.26&quot;</span><span class="p">,</span>
+<a name="True-109"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Waterbury&quot;</span><span class="p">,</span>
+<a name="True-110"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-111"></a>            <span class="p">},</span>
+<a name="True-112"></a>            <span class="p">{</span>
+<a name="True-113"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+<a name="True-114"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;261.67&quot;</span><span class="p">,</span>
+<a name="True-115"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;275.01&quot;</span><span class="p">,</span>
+<a name="True-116"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Barre&quot;</span><span class="p">,</span>
+<a name="True-117"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-118"></a>            <span class="p">},</span>
+<a name="True-119"></a>            <span class="p">{</span>
+<a name="True-120"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<a name="True-121"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;239.27&quot;</span><span class="p">,</span>
+<a name="True-122"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;430.79&quot;</span><span class="p">,</span>
+<a name="True-123"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Bethel&quot;</span>
+<a name="True-124"></a>            <span class="p">},</span>
+<a name="True-125"></a>            <span class="p">{</span>
+<a name="True-126"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+<a name="True-127"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;257.6&quot;</span><span class="p">,</span>
+<a name="True-128"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;538.72&quot;</span><span class="p">,</span>
+<a name="True-129"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Woodstock&quot;</span><span class="p">,</span>
+<a name="True-130"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-131"></a>            <span class="p">},</span>
+<a name="True-132"></a>            <span class="p">{</span>
+<a name="True-133"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;17&quot;</span><span class="p">,</span>
+<a name="True-134"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;302.4&quot;</span><span class="p">,</span>
+<a name="True-135"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;526.5&quot;</span><span class="p">,</span>
+<a name="True-136"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;White River Jet&quot;</span><span class="p">,</span>
+<a name="True-137"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-138"></a>            <span class="p">},</span>
+<a name="True-139"></a>            <span class="p">{</span>
+<a name="True-140"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+<a name="True-141"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;287.12&quot;</span><span class="p">,</span>
+<a name="True-142"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;582.5&quot;</span><span class="p">,</span>
+<a name="True-143"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Windsor&quot;</span><span class="p">,</span>
+<a name="True-144"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-145"></a>            <span class="p">},</span>
+<a name="True-146"></a>            <span class="p">{</span>
+<a name="True-147"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+<a name="True-148"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;207.7&quot;</span><span class="p">,</span>
+<a name="True-149"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;606.93&quot;</span><span class="p">,</span>
+<a name="True-150"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Ludlow&quot;</span><span class="p">,</span>
+<a name="True-151"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span>
+<a name="True-152"></a>            <span class="p">},</span>
+<a name="True-153"></a>            <span class="p">{</span>
+<a name="True-154"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<a name="True-155"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;260.65&quot;</span><span class="p">,</span>
+<a name="True-156"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;648.68&quot;</span><span class="p">,</span>
+<a name="True-157"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Springfield&quot;</span><span class="p">,</span>
+<a name="True-158"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-159"></a>            <span class="p">},</span>
+<a name="True-160"></a>            <span class="p">{</span>
+<a name="True-161"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
+<a name="True-162"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;268.8&quot;</span><span class="p">,</span>
+<a name="True-163"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;721.99&quot;</span><span class="p">,</span>
+<a name="True-164"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Belowa Falls&quot;</span><span class="p">,</span>
+<a name="True-165"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-166"></a>            <span class="p">},</span>
+<a name="True-167"></a>            <span class="p">{</span>
+<a name="True-168"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<a name="True-169"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;241.3&quot;</span><span class="p">,</span>
+<a name="True-170"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;830.93&quot;</span><span class="p">,</span>
+<a name="True-171"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Brattleboro&quot;</span><span class="p">,</span>
+<a name="True-172"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-173"></a>            <span class="p">},</span>
+<a name="True-174"></a>            <span class="p">{</span>
+<a name="True-175"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;23&quot;</span><span class="p">,</span>
+<a name="True-176"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;69.23&quot;</span><span class="p">,</span>
+<a name="True-177"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;798.35&quot;</span><span class="p">,</span>
+<a name="True-178"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Bennington&quot;</span><span class="p">,</span>
+<a name="True-179"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-180"></a>            <span class="p">},</span>
+<a name="True-181"></a>            <span class="p">{</span>
+<a name="True-182"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<a name="True-183"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;148.65&quot;</span><span class="p">,</span>
+<a name="True-184"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;682.28&quot;</span><span class="p">,</span>
+<a name="True-185"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Manchester&quot;</span><span class="p">,</span>
+<a name="True-186"></a>                <span class="s2">&quot;labelpos&quot;</span><span class="o">:</span> <span class="s2">&quot;left&quot;</span>
+<a name="True-187"></a>            <span class="p">},</span>
+<a name="True-188"></a>            <span class="p">{</span>
+<a name="True-189"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+<a name="True-190"></a>                <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;137.45&quot;</span><span class="p">,</span>
+<a name="True-191"></a>                <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="s2">&quot;555.01&quot;</span><span class="p">,</span>
+<a name="True-192"></a>                <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Rotland&quot;</span>
+<a name="True-193"></a>            <span class="p">}</span>
+<a name="True-194"></a>        <span class="p">],</span>
+<a name="True-195"></a>        <span class="s2">&quot;application&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-196"></a>            <span class="p">{</span>
+<a name="True-197"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;MO&quot;</span><span class="p">,</span>
+<a name="True-198"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;myCustomShape&quot;</span>
+<a name="True-199"></a>            <span class="p">},</span>
+<a name="True-200"></a>            <span class="p">{</span>
+<a name="True-201"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<a name="True-202"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-203"></a>            <span class="p">},</span>
+<a name="True-204"></a>            <span class="p">{</span>
+<a name="True-205"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+<a name="True-206"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-207"></a>            <span class="p">},</span>
+<a name="True-208"></a>            <span class="p">{</span>
+<a name="True-209"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;03&quot;</span><span class="p">,</span>
+<a name="True-210"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-211"></a>            <span class="p">},</span>
+<a name="True-212"></a>            <span class="p">{</span>
+<a name="True-213"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
+<a name="True-214"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-215"></a>            <span class="p">},</span>
+<a name="True-216"></a>            <span class="p">{</span>
+<a name="True-217"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;05&quot;</span><span class="p">,</span>
+<a name="True-218"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-219"></a>            <span class="p">},</span>
+<a name="True-220"></a>            <span class="p">{</span>
+<a name="True-221"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
+<a name="True-222"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-223"></a>            <span class="p">},</span>
+<a name="True-224"></a>            <span class="p">{</span>
+<a name="True-225"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;07&quot;</span><span class="p">,</span>
+<a name="True-226"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-227"></a>            <span class="p">},</span>
+<a name="True-228"></a>            <span class="p">{</span>
+<a name="True-229"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
+<a name="True-230"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-231"></a>            <span class="p">},</span>
+<a name="True-232"></a>            <span class="p">{</span>
+<a name="True-233"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;09&quot;</span><span class="p">,</span>
+<a name="True-234"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-235"></a>            <span class="p">},</span>
+<a name="True-236"></a>            <span class="p">{</span>
+<a name="True-237"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+<a name="True-238"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-239"></a>            <span class="p">},</span>
+<a name="True-240"></a>            <span class="p">{</span>
+<a name="True-241"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<a name="True-242"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-243"></a>            <span class="p">},</span>
+<a name="True-244"></a>            <span class="p">{</span>
+<a name="True-245"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<a name="True-246"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-247"></a>            <span class="p">},</span>
+<a name="True-248"></a>            <span class="p">{</span>
+<a name="True-249"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+<a name="True-250"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-251"></a>            <span class="p">},</span>
+<a name="True-252"></a>            <span class="p">{</span>
+<a name="True-253"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+<a name="True-254"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-255"></a>            <span class="p">},</span>
+<a name="True-256"></a>            <span class="p">{</span>
+<a name="True-257"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+<a name="True-258"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-259"></a>            <span class="p">},</span>
+<a name="True-260"></a>            <span class="p">{</span>
+<a name="True-261"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;17&quot;</span><span class="p">,</span>
+<a name="True-262"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-263"></a>            <span class="p">},</span>
+<a name="True-264"></a>            <span class="p">{</span>
+<a name="True-265"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+<a name="True-266"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-267"></a>            <span class="p">},</span>
+<a name="True-268"></a>            <span class="p">{</span>
+<a name="True-269"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+<a name="True-270"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-271"></a>            <span class="p">},</span>
+<a name="True-272"></a>            <span class="p">{</span>
+<a name="True-273"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
+<a name="True-274"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-275"></a>            <span class="p">},</span>
+<a name="True-276"></a>            <span class="p">{</span>
+<a name="True-277"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
+<a name="True-278"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-279"></a>            <span class="p">},</span>
+<a name="True-280"></a>            <span class="p">{</span>
+<a name="True-281"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+<a name="True-282"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-283"></a>            <span class="p">},</span>
+<a name="True-284"></a>            <span class="p">{</span>
+<a name="True-285"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;23&quot;</span><span class="p">,</span>
+<a name="True-286"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-287"></a>            <span class="p">},</span>
+<a name="True-288"></a>            <span class="p">{</span>
+<a name="True-289"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+<a name="True-290"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-291"></a>            <span class="p">},</span>
+<a name="True-292"></a>            <span class="p">{</span>
+<a name="True-293"></a>                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+<a name="True-294"></a>                <span class="s2">&quot;shapeid&quot;</span><span class="o">:</span> <span class="s2">&quot;newCustomShape&quot;</span>
+<a name="True-295"></a>            <span class="p">}</span>
+<a name="True-296"></a>        <span class="p">]</span>
+<a name="True-297"></a>    <span class="p">}</span>
+<a name="True-298"></a><span class="p">}</span></code></pre></div>
+
+
+
+<p class="text-success">Old JSON format for map marker data, using separate application and definition blocks.
+</p>
+
+    </div>
+    <div class="tab old-xml-tab">
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;map&gt;</span>
+<a name="True-2"></a>	<span class="nt">&lt;markers&gt;</span>
+<a name="True-3"></a>	    <span class="nt">&lt;shapes&gt;</span>
+<a name="True-4"></a>		    <span class="nt">&lt;shape</span> <span class="na">id=</span><span class="s">&#39;myCustomShape&#39;</span> <span class="na">type=</span><span class="s">&#39;circle&#39;</span> <span class="na">fillColor=</span><span class="s">&#39;FFFFFF,333333&#39;</span> <span class="na">fillPattern=</span><span class="s">&#39;radial&#39;</span> <span class="na">showBorder=</span><span class="s">&#39;0&#39;</span> <span class="na">radius=</span><span class="s">&#39;4&#39;</span><span class="nt">/&gt;</span>
+<a name="True-5"></a>			<span class="nt">&lt;shape</span> <span class="na">id=</span><span class="s">&#39;newCustomShape&#39;</span> <span class="na">type=</span><span class="s">&#39;circle&#39;</span> <span class="na">fillColor=</span><span class="s">&#39;FFFFFF,000099&#39;</span> <span class="na">fillPattern=</span><span class="s">&#39;radial&#39;</span> <span class="na">showBorder=</span><span class="s">&#39;0&#39;</span> <span class="na">radius=</span><span class="s">&#39;3&#39;</span><span class="nt">/&gt;</span>
+<a name="True-6"></a>		  <span class="nt">&lt;/shapes&gt;</span>
+<a name="True-7"></a>		<span class="nt">&lt;definition&gt;</span>
+<a name="True-8"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;MO&#39;</span> <span class="na">x=</span><span class="s">&#39;246.4&#39;</span> <span class="na">y=</span><span class="s">&#39;252.61&#39;</span> <span class="na">label=</span><span class="s">&#39;Montpelier&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-9"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;01&#39;</span> <span class="na">x=</span><span class="s">&#39;91.63&#39;</span> <span class="na">y=</span><span class="s">&#39;48.97&#39;</span> <span class="na">label=</span><span class="s">&#39;Swankon&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-10"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;02&#39;</span> <span class="na">x=</span><span class="s">&#39;101.81&#39;</span> <span class="na">y=</span><span class="s">&#39;86.64&#39;</span> <span class="na">label=</span><span class="s">&#39;St.Albans&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-11"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;03&#39;</span> <span class="na">x=</span><span class="s">&#39;326.83&#39;</span> <span class="na">y=</span><span class="s">&#39;37.77&#39;</span> <span class="na">label=</span><span class="s">&#39;Newport&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-12"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;04&#39;</span> <span class="na">x=</span><span class="s">&#39;425.6&#39;</span> <span class="na">y=</span><span class="s">&#39;84.61&#39;</span> <span class="na">label=</span><span class="s">&#39;Island Pond&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-13"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;05&#39;</span> <span class="na">x=</span><span class="s">&#39;211.78&#39;</span> <span class="na">y=</span><span class="s">&#39;135.52&#39;</span> <span class="na">label=</span><span class="s">&#39;Hycle Park&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-14"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;06&#39;</span> <span class="na">x=</span><span class="s">&#39;350.25&#39;</span> <span class="na">y=</span><span class="s">&#39;225.12&#39;</span> <span class="na">label=</span><span class="s">&#39;St.Johnsbury&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-15"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;07&#39;</span> <span class="na">x=</span><span class="s">&#39;29.52&#39;</span> <span class="na">y=</span><span class="s">&#39;171.15&#39;</span> <span class="na">label=</span><span class="s">&#39;Burlington&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span> <span class="nt">/&gt;</span>
+<a name="True-16"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;08&#39;</span> <span class="na">x=</span><span class="s">&#39;47.85&#39;</span> <span class="na">y=</span><span class="s">&#39;181.33&#39;</span> <span class="na">label=</span><span class="s">&#39;South Burlington&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-17"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;09&#39;</span> <span class="na">x=</span><span class="s">&#39;53.96&#39;</span> <span class="na">y=</span><span class="s">&#39;317.77&#39;</span> <span class="na">label=</span><span class="s">&#39;Vergenses&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-18"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;10&#39;</span> <span class="na">x=</span><span class="s">&#39;93.67&#39;</span> <span class="na">y=</span><span class="s">&#39;388.02&#39;</span> <span class="na">label=</span><span class="s">&#39;Middlebury&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-19"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;11&#39;</span> <span class="na">x=</span><span class="s">&#39;190.4&#39;</span> <span class="na">y=</span><span class="s">&#39;346.28&#39;</span> <span class="na">label=</span><span class="s">&#39;Northfield&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-20"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;12&#39;</span> <span class="na">x=</span><span class="s">&#39;240.29&#39;</span> <span class="na">y=</span><span class="s">&#39;233.26&#39;</span> <span class="na">label=</span><span class="s">&#39;Waterbury&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-21"></a>            <span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;14&#39;</span> <span class="na">x=</span><span class="s">&#39;261.67&#39;</span> <span class="na">y=</span><span class="s">&#39;275.01&#39;</span> <span class="na">label=</span><span class="s">&#39;Barre&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-22"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;15&#39;</span> <span class="na">x=</span><span class="s">&#39;239.27&#39;</span> <span class="na">y=</span><span class="s">&#39;430.79&#39;</span> <span class="na">label=</span><span class="s">&#39;Bethel&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-23"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;16&#39;</span> <span class="na">x=</span><span class="s">&#39;257.6&#39;</span> <span class="na">y=</span><span class="s">&#39;538.72&#39;</span> <span class="na">label=</span><span class="s">&#39;Woodstock&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-24"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;17&#39;</span> <span class="na">x=</span><span class="s">&#39;302.4&#39;</span> <span class="na">y=</span><span class="s">&#39;526.5&#39;</span> <span class="na">label=</span><span class="s">&#39;White River Jet&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-25"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;18&#39;</span> <span class="na">x=</span><span class="s">&#39;287.12&#39;</span> <span class="na">y=</span><span class="s">&#39;582.5&#39;</span> <span class="na">label=</span><span class="s">&#39;Windsor&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-26"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;19&#39;</span> <span class="na">x=</span><span class="s">&#39;207.7&#39;</span> <span class="na">y=</span><span class="s">&#39;606.93&#39;</span> <span class="na">label=</span><span class="s">&#39;Ludlow&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;right&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-27"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;20&#39;</span> <span class="na">x=</span><span class="s">&#39;260.65&#39;</span> <span class="na">y=</span><span class="s">&#39;648.68&#39;</span> <span class="na">label=</span><span class="s">&#39;Springfield&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-28"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;21&#39;</span> <span class="na">x=</span><span class="s">&#39;268.8&#39;</span> <span class="na">y=</span><span class="s">&#39;721.99&#39;</span> <span class="na">label=</span><span class="s">&#39;Belowa Falls&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-29"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;22&#39;</span> <span class="na">x=</span><span class="s">&#39;241.3&#39;</span> <span class="na">y=</span><span class="s">&#39;830.93&#39;</span> <span class="na">label=</span><span class="s">&#39;Brattleboro&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-30"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;23&#39;</span> <span class="na">x=</span><span class="s">&#39;69.23&#39;</span> <span class="na">y=</span><span class="s">&#39;798.35&#39;</span> <span class="na">label=</span><span class="s">&#39;Bennington&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-31"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;24&#39;</span> <span class="na">x=</span><span class="s">&#39;148.65&#39;</span> <span class="na">y=</span><span class="s">&#39;682.28&#39;</span> <span class="na">label=</span><span class="s">&#39;Manchester&#39;</span> <span class="na">labelPos=</span><span class="s">&#39;left&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-32"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;25&#39;</span> <span class="na">x=</span><span class="s">&#39;137.45&#39;</span> <span class="na">y=</span><span class="s">&#39;555.01&#39;</span> <span class="na">label=</span><span class="s">&#39;Rotland&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-33"></a>
+<a name="True-34"></a>		<span class="nt">&lt;/definition&gt;</span>
+<a name="True-35"></a>		<span class="nt">&lt;application&gt;</span>
+<a name="True-36"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;MO&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;myCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-37"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;01&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-38"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;02&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-39"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;03&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-40"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;04&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-41"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;05&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-42"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;06&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-43"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;07&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-44"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;08&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-45"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;09&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-46"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;10&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-47"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;11&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-48"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;12&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-49"></a>	        <span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;14&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-50"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;15&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-51"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;16&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-52"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;17&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-53"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;18&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-54"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;19&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-55"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;20&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-56"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;21&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-57"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;22&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-58"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;23&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-59"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;24&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-60"></a>			<span class="nt">&lt;marker</span> <span class="na">id=</span><span class="s">&#39;25&#39;</span> <span class="na">shapeId=</span><span class="s">&#39;newCustomShape&#39;</span>  <span class="nt">/&gt;</span>
+<a name="True-61"></a>
+<a name="True-62"></a>		<span class="nt">&lt;/application&gt;</span>
+<a name="True-63"></a>	<span class="nt">&lt;/markers&gt;</span>
+<a name="True-64"></a><span class="nt">&lt;/map&gt;</span></code></pre></div>
+
+
+<p class="text-success">Old XML format for map marker data, using separate application and definition blocks.
+</p>
+
+</div>
+</div>

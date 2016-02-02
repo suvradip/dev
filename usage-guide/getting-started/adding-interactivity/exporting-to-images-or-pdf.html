@@ -1,0 +1,124 @@
+<p>Harry is finding the dashboards that we’re building for him very useful. He now wants to be able to export specific charts in a dashboard as images or PDF, so that he can share it with his external vendors, without giving them access to the full dashboards.</p>
+
+<p>FusionCharts Suite XT allows Harry’s developers to allow exporting for any chart, by simply switching the attribute <code>exportEnabled</code> to 1. Once done, an icon shows up on the top-right of the chart, allowing user to download the chart as image, SVG or PDF.</p>
+
+<p>The actual conversion of chart to image or PDF is done at server-side using the hosted FusionCharts Suite XT export handler. When Harry clicks on the chart’s export icon and selects a format, the chart sends its visual data to the hosted FusionCharts Suite XT export server, which then returns an image or PDF file.</p>
+
+<p>Let’s enable export for the <a href="/dev/getting-started/building-your-first-chart.html">revenue chart</a> that we created for Harry, earlier. Once done, the export icon will show up as under:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-adding-interactivity-exporting-to-images-or-pdf-example-1.js"></script>
+
+<p>Notice the button on the top right corner of your screen. It lets you select a format for export of the chart.</p>
+
+<p>The JSON code for this chart stays exactly the same as in first example. We just set <code>exportEnabled</code> attribute of chart object to 1.</p>
+
+<p>This is the code needed to enable export on your charts.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My first chart using FusionCharts Suite XT<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a><span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;column2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>  <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>  <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>  <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>  <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>  <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>  <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly revenue for last year&quot;</span><span class="p">,</span>
+<a name="True-17"></a>    <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Harry&#39;s SuperMart&quot;</span><span class="p">,</span>
+<a name="True-18"></a>    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-19"></a>    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues (In USD)&quot;</span><span class="p">,</span>
+<a name="True-20"></a>    <span class="s2">&quot;exportEnabled&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-21"></a>    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-22"></a>  <span class="p">},</span>
+<a name="True-23"></a>  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-24"></a>    <span class="p">{</span>
+<a name="True-25"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-26"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-27"></a>    <span class="p">},</span>
+<a name="True-28"></a>    <span class="p">{</span>
+<a name="True-29"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-30"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-31"></a>    <span class="p">},</span>
+<a name="True-32"></a>    <span class="p">{</span>
+<a name="True-33"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-34"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-35"></a>    <span class="p">},</span>
+<a name="True-36"></a>    <span class="p">{</span>
+<a name="True-37"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-38"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-39"></a>    <span class="p">},</span>
+<a name="True-40"></a>    <span class="p">{</span>
+<a name="True-41"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-42"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-43"></a>    <span class="p">},</span>
+<a name="True-44"></a>    <span class="p">{</span>
+<a name="True-45"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-46"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-47"></a>    <span class="p">},</span>
+<a name="True-48"></a>    <span class="p">{</span>
+<a name="True-49"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-50"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-51"></a>    <span class="p">},</span>
+<a name="True-52"></a>    <span class="p">{</span>
+<a name="True-53"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-54"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-55"></a>    <span class="p">},</span>
+<a name="True-56"></a>    <span class="p">{</span>
+<a name="True-57"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-58"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-59"></a>    <span class="p">},</span>
+<a name="True-60"></a>    <span class="p">{</span>
+<a name="True-61"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-62"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-63"></a>    <span class="p">},</span>
+<a name="True-64"></a>    <span class="p">{</span>
+<a name="True-65"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-66"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-67"></a>    <span class="p">},</span>
+<a name="True-68"></a>    <span class="p">{</span>
+<a name="True-69"></a>       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-70"></a>       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-71"></a>    <span class="p">}</span>
+<a name="True-72"></a>  <span class="p">]</span>
+<a name="True-73"></a><span class="p">}</span>
+<a name="True-74"></a><span class="p">});</span>
+<a name="True-75"></a>
+<a name="True-76"></a><span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-77"></a><span class="p">})</span>
+<a name="True-78"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-79"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-80"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-81"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>FusionCharts XT will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-82"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-83"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>With this you know how to give users an option to export their charts as images or PDFs.</p>
+
+<h2 id="was-there-a-problem-rendering-the-chart">Was there a problem rendering the chart?</h2>
+
+<p>In case something went wrong and you are unable to see the chart, check for the following:</p>
+
+<ul>
+  <li>
+    <p>If you are getting a JavaScript error on your page, check your browser console for the exact error and fix accordingly.</p>
+  </li>
+  <li>
+    <p>If the chart does not show up at all, but there are no JavaScript errors, check if the FusionCharts Suite XT JavaScript library has loaded correctly. You can use developer tools within your browser to see if <code>fusioncharts.js</code> was loaded. Check if the path to <code>fusioncharts.js</code> file is correct, and whether the file exists in that location.</p>
+  </li>
+  <li>
+    <p>If you get a <strong>Loading Data</strong> or <strong>Error in loading data</strong> message, check whether your JSON data structure is correct, and there are no conflicts related to quotation marks in your code.</p>
+  </li>
+</ul>
+
+<p>Click here for more information on <a href="/dev/troubleshooting/debugger.html">Troubleshooting</a>.</p>
+
+<p class="text-info">
+Alternatively, FusionCharts allows to set up a <a href="/dev/exporting-as-image-and-pdf/server-side-export/setup-private-export-server-asp-net.html" target="_blank">private export server</a> as well as <a href="/dev/exporting-as-image-and-pdf/client-side-export/exporting-to-images-or-pdf-using-client-side-exporting.html" target="_blank">client-side export</a> of charts as images or PDFs.
+</p>

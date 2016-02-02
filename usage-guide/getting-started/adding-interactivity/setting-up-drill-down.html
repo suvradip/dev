@@ -1,0 +1,586 @@
+<p>When reviewing the quarterly sales chart, for a particular quarter, Harry wanted to see monthly sales for that quarter. He wants to click on the column representing that quarter and see the monthly figures in that quarter. This can be easily achieved using drill-down functionality of FusionCharts Suite XT.<br />
+The chart with drill-down would look as under. Click on a column to see the result.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-adding-interactivity-setting-up-drill-down-example-1.js"></script>
+
+<h4 id="basics-of-drill-down">Basics of drill-down</h4>
+
+<p>All the charts in FusionCharts Suite XT (except zoom-line chart) offer two types of drill-down:</p>
+
+<ul>
+  <li>
+    <p><strong>Simple links</strong> : Using this method, you can specify custom URLs or JavaScript methods to be invoked for each data point on the chart. When a user clicks the respective data plot (column, line, pie slice etc.), the chart will simply invoke that method, or redirect to the specific URL. If it’s a URL, you can configure whether to open the URL in the same page, a new window, a pop-up or a frame.</p>
+  </li>
+  <li>
+    <p><strong>Chart links (<em>LinkedCharts</em>)</strong> : Using this method, instead of specifying custom URLs or JavaScript methods, you provide reference to a new chart altogether, which opens upon click. The new chart is called dependent chart, which is a child of parent chart. This feature is called <em>LinkedChart</em>. All the links originate from a parent chart. The data of parent chart encompasses data (or URL where they can be fetched from) for all descendant charts. The descendant charts can be configured to either replace the parent chart with an option to drill-up, or open in new dialogs or frames.</p>
+  </li>
+</ul>
+
+<p>Using both the methods specified above, you can create endless levels of drill-down from your parent chart. It has been kept very generic to accommodate all types of requirements. Let’s first quickly explore simple links, before we build the chart that Harry wants using <em>LinkedCharts</em>.</p>
+
+<h2 id="creating-simple-links-in-charts">Creating Simple links in charts</h2>
+
+<p>Using simple links, you can create the following behaviors:</p>
+
+<ul>
+  <li>
+    <p>Open custom URL in the same page</p>
+  </li>
+  <li>
+    <p>Open custom URL in a new browser window</p>
+  </li>
+  <li>
+    <p>Open custom URL in a specified frame/iframe</p>
+  </li>
+  <li>
+    <p>Open URL in a new pop-up window</p>
+  </li>
+  <li>
+    <p>Invoke JavaScript methods in the scope of the page</p>
+  </li>
+  <li>
+    <p>Set the whole chart as a hot-spot and apply any of the above simple-link features</p>
+  </li>
+</ul>
+
+<p>A simple XML/JSON to reflect all of the above use-cases is below:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;chart</span> <span class="na">caption=</span><span class="s">&#39;Monthly Sales Summary&#39;</span> <span class="na">subcaption=</span><span class="s">&#39;For the year 2014&#39;</span> <span class="na">xAxisName=</span><span class="s">&#39;Month&#39;</span> <span class="na">yAxisName=</span><span class="s">&#39;Sales&#39;</span> <span class="na">numberPrefix=</span><span class="s">&#39;$&#39;</span><span class="nt">&gt;</span>
+<a name="True-2"></a>  <span class="nt">&lt;set</span> <span class="na">label=</span><span class="s">&#39;Jan&#39;</span> <span class="na">value=</span><span class="s">&#39;17400&#39;</span> <span class="na">link=</span><span class="s">&#39;Detailed/SalesJan.html&#39;</span><span class="nt">/&gt;</span>
+<a name="True-3"></a>   <span class="c">&lt;!-- Simple Link that opens in same window --&gt;</span>
+<a name="True-4"></a>  <span class="nt">&lt;set</span> <span class="na">label=</span><span class="s">&#39;Feb&#39;</span> <span class="na">value=</span><span class="s">&#39;19800&#39;</span> <span class="na">link=</span><span class="s">&#39;n-Detailed/SalesFeb.html&#39;</span><span class="nt">/&gt;</span>
+<a name="True-5"></a>  <span class="c">&lt;!-- Link that opens in new window --&gt;</span>
+<a name="True-6"></a>  <span class="nt">&lt;set</span> <span class="na">label=</span><span class="s">&#39;Mar&#39;</span> <span class="na">value=</span><span class="s">&#39;21800&#39;</span> <span class="na">link=</span><span class="s">&#39;F-detailsFrame-Detailed/SalesMar.htm&#39;</span><span class="nt">/&gt;</span>
+<a name="True-7"></a>   <span class="c">&lt;!-- Link that opens in a frame --&gt;</span>
+<a name="True-8"></a>  <span class="nt">&lt;set</span> <span class="na">label=</span><span class="s">&#39;Apr&#39;</span> <span class="na">value=</span><span class="s">&#39;23800&#39;</span> <span class="na">link=</span><span class="s">&#39;P-detailsPopUp,width=400,height=300,toolbar=no,</span>
+<a name="True-9"></a><span class="s">    scrollbars=no,resizable=no-Detailed/SalesApr.html&#39;</span><span class="nt">/&gt;</span>
+<a name="True-10"></a>    <span class="c">&lt;!-- Link that opens in a pop-up --&gt;</span>
+<a name="True-11"></a>  <span class="nt">&lt;set</span> <span class="na">label=</span><span class="s">&#39;May&#39;</span> <span class="na">value=</span><span class="s">&#39;29600&#39;</span> <span class="na">link=</span><span class="s">&#39;j-showSalesDetails-May&#39;</span><span class="nt">/&gt;</span>
+<a name="True-12"></a>   <span class="c">&lt;!-- JavaScript function showSalesDetails invoked as link, with &#39;May&#39; as parameter passed to it --&gt;</span>
+<a name="True-13"></a><span class="nt">&lt;/chart&gt;</span></code></pre></div>
+
+<p>Now that you’ve seen how to create simple links in charts, let’s build the chart that Harry wants using <em>LinkedCharts</em> feature.</p>
+
+<h2 id="using-linkedcharts-to-build-a-drill-down-chart">Using <em>LinkedCharts</em> to build a drill-down chart</h2>
+
+<p><em>LinkedCharts</em> allows you to create unlimited level of drill-down charts using a single data source. All the links originate from a parent chart whose data encompasses data (or URL to fetch from) for all descendant (child, grand-child) charts.</p>
+
+<p>Upon clicking the data plot items (columns, pie, etc.) of the parent chart, users can drill-down into descendant charts. The descendant charts can be configured to either replace the parent chart with an option to drill-up, or can be opened in new dialogs or frames.</p>
+
+<p>For Harry’s example, we just need to build a single level of drill-down - from quarterly sales to monthly sales. The parent chart shows quarterly sales, whose columns when clicked will render child charts having monthly sales for that quarter. <em>LinkedCharts</em> allows you to build these kinds of scenarios (and much more complex ones) without having to write any additional lines of code.</p>
+
+<p>To create <em>LinkedCharts</em>, you need to follow these steps:</p>
+
+<ul>
+  <li>
+    <p>First, create the XML/JSON data for parent chart. This is called the parent data source and comprehensively contains Data String or Data URL for all descendant charts.</p>
+  </li>
+  <li>
+    <p>Next, append the Data String or Data URL for all the descendant charts within the parent data source. If Data String method is used, data for each descendant chart is embedded within the parent data source and linked using unique data identifiers. To make this example self-enclosed, we will use the Data String method.</p>
+  </li>
+  <li>
+    <p>You have your <em>LinkedChart</em> ready!</p>
+  </li>
+</ul>
+
+<p>Yes, no additional code is required! The <em>LinkedChart</em> feature automatically takes care of the following:</p>
+
+<ul>
+  <li>
+    <p>It creates and shows a detailed child chart when a data plot in the parent chart is clicked.</p>
+  </li>
+  <li>
+    <p>It clones all chart configuration settings from the parent chart to create the descendant chart or the <em>LinkedChart</em>.</p>
+  </li>
+  <li>
+    <p>It also allows you to configure specific properties for the descendant charts using <a href="/dev/api/fusioncharts/fusioncharts-methods.html#configureLink"><code>configureLink()</code></a> function.</p>
+  </li>
+  <li>
+    <p>It notifies your code by way of JavaScript events whenever a link is invoked, link item is opened and link item is closed.</p>
+  </li>
+  <li>
+    <p>It allows you to drill down to unlimited numbers of levels.</p>
+  </li>
+</ul>
+
+<p>The data required to build this chart for Harry would look as under:</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Quarterly revenue",
+        "subCaption": "Last year",
+        "xAxisName": "Quarter (Click to drill down)",
+        "yAxisName": "Revenue (In USD)",
+        "numberPrefix": "$",
+        "theme": "fint"
+    },
+    "data": [
+        {
+            "label": "Q1",
+            "value": "1950000",
+            "link": "newchart-json-q1"
+        },
+        {
+            "label": "Q2",
+            "value": "1970000",
+            "link": "newchart-json-q2"
+        },
+        {
+            "label": "Q3",
+            "value": "1910000",
+            "link": "newchart-json-q3"
+        },
+        {
+            "label": "Q4",
+            "value": "2120000",
+            "link": "newchart-json-q4"
+        }
+    ],
+    "linkeddata": [
+        {
+            "id": "q1",
+            "linkedchart": {
+                "chart": {
+                    "caption": "Monthly Revenue",
+                    "subcaption": "First Quarter",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenue (In USD)",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+                },
+                "data": [
+                    {
+                        "label": "Jan",
+                        "value": "420000"
+                    },
+                    {
+                        "label": "Feb",
+                        "value": "810000"
+                    },
+                    {
+                        "label": "Mar",
+                        "value": "720000"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "q2",
+            "linkedchart": {
+                "chart": {
+                    "caption": "Monthly Revenue",
+                    "subcaption": "Second Quarter",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenue (In USD)",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+                },
+                "data": [
+                    {
+                        "label": "Apr",
+                        "value": "550000"
+                    },
+                    {
+                        "label": "May",
+                        "value": "910000"
+                    },
+                    {
+                        "label": "Jun",
+                        "value": "510000"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "q3",
+            "linkedchart": {
+                "chart": {
+                    "caption": "Monthly Revenue",
+                    "subcaption": "Third Quarter",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenue (In USD)",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+                },
+                "data": [
+                    {
+                        "label": "Jul",
+                        "value": "680000"
+                    },
+                    {
+                        "label": "Aug",
+                        "value": "620000"
+                    },
+                    {
+                        "label": "Sep",
+                        "value": "610000"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "q4",
+            "linkedchart": {
+                "chart": {
+                    "caption": "Monthly Revenue",
+                    "subcaption": "Fourth Quarter",
+                    "xAxisName": "Month",
+                    "yAxisName": "Revenue (In USD)",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+                },
+                "data": [
+                    {
+                        "label": "Oct",
+                        "value": "490000"
+                    },
+                    {
+                        "label": "Nov",
+                        "value": "900000"
+                    },
+                    {
+                        "label": "Dec",
+                        "value": "730000"
+                    }
+                ]
+            }
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarterly revenue&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter (Click to drill down)&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue (In USD)&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-9"></a>    <span class="p">},</span>
+<a name="True-10"></a>    <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-11"></a>        <span class="p">{</span>
+<a name="True-12"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span><span class="p">,</span>
+<a name="True-13"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1950000&quot;</span><span class="p">,</span>
+<a name="True-14"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-q1&quot;</span>
+<a name="True-15"></a>        <span class="p">},</span>
+<a name="True-16"></a>        <span class="p">{</span>
+<a name="True-17"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span><span class="p">,</span>
+<a name="True-18"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1970000&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-q2&quot;</span>
+<a name="True-20"></a>        <span class="p">},</span>
+<a name="True-21"></a>        <span class="p">{</span>
+<a name="True-22"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span><span class="p">,</span>
+<a name="True-23"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1910000&quot;</span><span class="p">,</span>
+<a name="True-24"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-q3&quot;</span>
+<a name="True-25"></a>        <span class="p">},</span>
+<a name="True-26"></a>        <span class="p">{</span>
+<a name="True-27"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span><span class="p">,</span>
+<a name="True-28"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2120000&quot;</span><span class="p">,</span>
+<a name="True-29"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-q4&quot;</span>
+<a name="True-30"></a>        <span class="p">}</span>
+<a name="True-31"></a>    <span class="p">],</span>
+<a name="True-32"></a>    <span class="s2">&quot;linkeddata&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-33"></a>        <span class="p">{</span>
+<a name="True-34"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;q1&quot;</span><span class="p">,</span>
+<a name="True-35"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-36"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-37"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-38"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;First Quarter&quot;</span><span class="p">,</span>
+<a name="True-39"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-40"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue (In USD)&quot;</span><span class="p">,</span>
+<a name="True-41"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-42"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-43"></a>                <span class="p">},</span>
+<a name="True-44"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-45"></a>                    <span class="p">{</span>
+<a name="True-46"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-47"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-48"></a>                    <span class="p">},</span>
+<a name="True-49"></a>                    <span class="p">{</span>
+<a name="True-50"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-51"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-52"></a>                    <span class="p">},</span>
+<a name="True-53"></a>                    <span class="p">{</span>
+<a name="True-54"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-55"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-56"></a>                    <span class="p">}</span>
+<a name="True-57"></a>                <span class="p">]</span>
+<a name="True-58"></a>            <span class="p">}</span>
+<a name="True-59"></a>        <span class="p">},</span>
+<a name="True-60"></a>        <span class="p">{</span>
+<a name="True-61"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;q2&quot;</span><span class="p">,</span>
+<a name="True-62"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-63"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-64"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-65"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Second Quarter&quot;</span><span class="p">,</span>
+<a name="True-66"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-67"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue (In USD)&quot;</span><span class="p">,</span>
+<a name="True-68"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-69"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-70"></a>                <span class="p">},</span>
+<a name="True-71"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-72"></a>                    <span class="p">{</span>
+<a name="True-73"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-74"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-75"></a>                    <span class="p">},</span>
+<a name="True-76"></a>                    <span class="p">{</span>
+<a name="True-77"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-78"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-79"></a>                    <span class="p">},</span>
+<a name="True-80"></a>                    <span class="p">{</span>
+<a name="True-81"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-82"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-83"></a>                    <span class="p">}</span>
+<a name="True-84"></a>                <span class="p">]</span>
+<a name="True-85"></a>            <span class="p">}</span>
+<a name="True-86"></a>        <span class="p">},</span>
+<a name="True-87"></a>        <span class="p">{</span>
+<a name="True-88"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;q3&quot;</span><span class="p">,</span>
+<a name="True-89"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-90"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-91"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-92"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Third Quarter&quot;</span><span class="p">,</span>
+<a name="True-93"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-94"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue (In USD)&quot;</span><span class="p">,</span>
+<a name="True-95"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-96"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-97"></a>                <span class="p">},</span>
+<a name="True-98"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-99"></a>                    <span class="p">{</span>
+<a name="True-100"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-101"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-102"></a>                    <span class="p">},</span>
+<a name="True-103"></a>                    <span class="p">{</span>
+<a name="True-104"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-105"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-106"></a>                    <span class="p">},</span>
+<a name="True-107"></a>                    <span class="p">{</span>
+<a name="True-108"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-109"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-110"></a>                    <span class="p">}</span>
+<a name="True-111"></a>                <span class="p">]</span>
+<a name="True-112"></a>            <span class="p">}</span>
+<a name="True-113"></a>        <span class="p">},</span>
+<a name="True-114"></a>        <span class="p">{</span>
+<a name="True-115"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;q4&quot;</span><span class="p">,</span>
+<a name="True-116"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-117"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-118"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-119"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Fourth Quarter&quot;</span><span class="p">,</span>
+<a name="True-120"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-121"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue (In USD)&quot;</span><span class="p">,</span>
+<a name="True-122"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-123"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-124"></a>                <span class="p">},</span>
+<a name="True-125"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-126"></a>                    <span class="p">{</span>
+<a name="True-127"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-128"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-129"></a>                    <span class="p">},</span>
+<a name="True-130"></a>                    <span class="p">{</span>
+<a name="True-131"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-132"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-133"></a>                    <span class="p">},</span>
+<a name="True-134"></a>                    <span class="p">{</span>
+<a name="True-135"></a>                        <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-136"></a>                        <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-137"></a>                    <span class="p">}</span>
+<a name="True-138"></a>                <span class="p">]</span>
+<a name="True-139"></a>            <span class="p">}</span>
+<a name="True-140"></a>        <span class="p">}</span>
+<a name="True-141"></a>    <span class="p">]</span>
+<a name="True-142"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<p>Explanation of data structure required for <em>LinkedCharts</em></p>
+
+<p>If you look at the data above, we have first defined a <code>column2d</code> chart showing quarterly sales. Each quarter’s data is set with a link whose value starts with a prefix - <code>newchart</code>. The prefix lets the parent chart know that it is going to open a <em>LinkedChart</em> when the dataplot is clicked. <code>newchart</code> takes additional parameters as listed below:</p>
+
+<ul>
+  <li>
+    <p><code>newchart</code> is followed by a hyphen (-) and then the data format for the new chart is specified. If you are looking at the JSON data, you will find it as <code>json</code>, whereas for the XML data, it is defined as <code>xml</code>. When using data URL method, you can specify <code>xmlurl</code> or <code>jsonurl</code> as its value.</p>
+  </li>
+  <li>The rest of the value, after a hyphen again (-), of the <code>link</code> attribute defines the data source as per the specified data format:
+    <ul>
+      <li>
+        <p>When <code>json</code> is set as the data format, the data becomes an <code>id</code> of a <code>linkeddata</code> element in the same JSON data that contains the data for the existing chart.</p>
+      </li>
+      <li>
+        <p>When <code>xml</code> is set as the data format, the data becomes an <code>id</code> of a <code>linkeddata</code> element in the same XML data that contains the data for the existing chart.</p>
+      </li>
+      <li>
+        <p>When <code>jsonurl</code> or <code>xmlurl</code> is set as the data format, the data is pulled from the URL specified after the hyphen, at run-time. E.g., <code>newchart</code>-<code>jsonurl</code>-/<code>data</code>/<code>jsonjan2014.json</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>If you scroll down the data, it contains a special Array (or element in case of XML) called <code>linkeddata</code>. This is required when you build self-contained drill-down charts using Data String method. This element is NOT required when using Data URL method.
+    <ul>
+      <li>Each element of <code>linkeddata</code> array contains data for the descendent <em>LinkedCharts</em>.</li>
+    </ul>
+  </li>
+  <li>Each element is an Object with 2 properties - <code>id</code> and <code>linkedchart</code>. id is used to map data for descendent chart with parent chart, and should be unique for each item (remember <code>link</code> attribute in parent chart with <code>newchart</code>-<code>json</code>-<code>id</code> as value?). <code>linkedchart</code> attribute contains the full data for the specific descendant chart as string (JSON or XML).</li>
+</ul>
+
+<p>That’s it! You have just configured a drill-down chart to display the quarterly as well as monthly revenue earned by Harry’s supermarket over the last year.</p>
+
+<p>The code for entire page is below:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First chart using FusionCharts Suite XT<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a><span class="kd">var</span> <span class="nx">drillDownChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;column2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>    <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>    <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;450&quot;</span><span class="p">,</span>
+<a name="True-12"></a>    <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>    <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>    <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>        <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>            <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarterly revenue&quot;</span><span class="p">,</span>
+<a name="True-17"></a>            <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year (Click on columns to see details)&quot;</span><span class="p">,</span>
+<a name="True-18"></a>            <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-19"></a>            <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span>
+<a name="True-20"></a>            <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-21"></a>            <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-22"></a>        <span class="p">},</span>
+<a name="True-23"></a>        <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-24"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span><span class="p">,</span>
+<a name="True-25"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1950000&quot;</span><span class="p">,</span>
+<a name="True-26"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-Q1&quot;</span>
+<a name="True-27"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-28"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span><span class="p">,</span>
+<a name="True-29"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1970000&quot;</span><span class="p">,</span>
+<a name="True-30"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-Q2&quot;</span>
+<a name="True-31"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-32"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span><span class="p">,</span>
+<a name="True-33"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1910000&quot;</span><span class="p">,</span>
+<a name="True-34"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-Q3&quot;</span>
+<a name="True-35"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-36"></a>            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span><span class="p">,</span>
+<a name="True-37"></a>            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2120000&quot;</span><span class="p">,</span>
+<a name="True-38"></a>            <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;newchart-json-Q4&quot;</span>
+<a name="True-39"></a>        <span class="p">}],</span>
+<a name="True-40"></a>        <span class="s2">&quot;linkeddata&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-41"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span><span class="p">,</span>
+<a name="True-42"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-43"></a>                <span class="c1">//Data String Method. Data for linked chart added as string instead of url.</span>
+<a name="True-44"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-45"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-46"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;First Quarter&quot;</span><span class="p">,</span>
+<a name="True-47"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-48"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span>
+<a name="True-49"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-50"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-51"></a>                <span class="p">},</span>
+<a name="True-52"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-53"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+<a name="True-54"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;420000&quot;</span>
+<a name="True-55"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-56"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;810000&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-59"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;720000&quot;</span>
+<a name="True-61"></a>                <span class="p">}]</span>
+<a name="True-62"></a>            <span class="p">}</span>
+<a name="True-63"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-64"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span><span class="p">,</span>
+<a name="True-65"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-66"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-67"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-68"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Second Quarter&quot;</span><span class="p">,</span>
+<a name="True-69"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-70"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span>
+<a name="True-71"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-72"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-73"></a>                <span class="p">},</span>
+<a name="True-74"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-75"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+<a name="True-76"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;550000&quot;</span>
+<a name="True-77"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-78"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+<a name="True-79"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;910000&quot;</span>
+<a name="True-80"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-81"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+<a name="True-82"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;510000&quot;</span>
+<a name="True-83"></a>                <span class="p">}]</span>
+<a name="True-84"></a>            <span class="p">}</span>
+<a name="True-85"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-86"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span><span class="p">,</span>
+<a name="True-87"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-88"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-89"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-90"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Third Quarter&quot;</span><span class="p">,</span>
+<a name="True-91"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-92"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span>
+<a name="True-93"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-94"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-95"></a>                <span class="p">},</span>
+<a name="True-96"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-97"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+<a name="True-98"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;680000&quot;</span>
+<a name="True-99"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-100"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+<a name="True-101"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;620000&quot;</span>
+<a name="True-102"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-103"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+<a name="True-104"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;610000&quot;</span>
+<a name="True-105"></a>                <span class="p">}]</span>
+<a name="True-106"></a>            <span class="p">}</span>
+<a name="True-107"></a>        <span class="p">},</span> <span class="p">{</span>
+<a name="True-108"></a>            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span><span class="p">,</span>
+<a name="True-109"></a>            <span class="s2">&quot;linkedchart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-110"></a>                <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-111"></a>                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Monthly Revenue&quot;</span><span class="p">,</span>
+<a name="True-112"></a>                    <span class="s2">&quot;subcaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Fourth Quarter&quot;</span><span class="p">,</span>
+<a name="True-113"></a>                    <span class="s2">&quot;xAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span>
+<a name="True-114"></a>                    <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span>
+<a name="True-115"></a>                    <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-116"></a>                    <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-117"></a>                <span class="p">},</span>
+<a name="True-118"></a>                <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[{</span>
+<a name="True-119"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+<a name="True-120"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;490000&quot;</span>
+<a name="True-121"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-122"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+<a name="True-123"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;900000&quot;</span>
+<a name="True-124"></a>                <span class="p">},</span> <span class="p">{</span>
+<a name="True-125"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+<a name="True-126"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;730000&quot;</span>
+<a name="True-127"></a>                <span class="p">}]</span>
+<a name="True-128"></a>            <span class="p">}</span>
+<a name="True-129"></a>        <span class="p">}]</span>
+<a name="True-130"></a>    <span class="p">}</span>
+<a name="True-131"></a><span class="p">});</span>
+<a name="True-132"></a>
+<a name="True-133"></a><span class="nx">drillDownChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-134"></a><span class="p">})</span>
+<a name="True-135"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-136"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-137"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-138"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-139"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-140"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<h2 id="was-there-a-problem-rendering-the-chart">Was there a problem rendering the chart?</h2>
+
+<p>In case something went wrong and you are unable to see the chart, check for the following:</p>
+
+<ul>
+  <li>
+    <p>If you are getting a JavaScript error on your page, check your browser console for the exact error and fix accordingly.</p>
+  </li>
+  <li>
+    <p>If the chart does not show up at all, but there are no JavaScript errors, check if the FusionCharts Suite XT JavaScript library has loaded correctly. You can use developer tools within your browser to see if <code>fusioncharts.js</code> was loaded. Check if the path to <code>fusioncharts.js</code> file is correct, and whether the file exists in that location.</p>
+  </li>
+  <li>
+    <p>If you get a <strong>Loading Data</strong> or <strong>Error in loading data</strong> message, check whether your JSON data structure is correct, and there are no conflicts related to quotation marks in your code.</p>
+  </li>
+</ul>
+
+<p>Click here for more information on <a href="/dev/troubleshooting/debugger.html">Troubleshooting</a>.</p>

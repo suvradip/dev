@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- Fiddle sample for the static addEventListener() method -->
+<div id="indicatorDiv">Method name: <b>addEventListener()</b> (static)
+    <br>
+    <br>Listens to events across all FusionCharts instances on a page and executes custom functions when an event is triggered.</br>
+    <br>For this implementation, we have three pie charts rendered on the same page. When <b>Add event listener for all charts</b> is clicked, the <b>dataplotRollOver</b> event is configured for all three pie charts.</br>
+        <br></br>
+    <center>
+        <button id="add_lstnr">Add event listener for all charts</button>
+        <br>
+        <br>
+            <div id="data1"></div>
+        </br>
+        <br>
+        <div id="chart-container1">Chart Container 1</div>
+        </br>
+        <br>
+        <div id="chart-container2">Chart Container 2</div>
+        </br>
+        <br>
+        <div id="chart-container3">Chart Container 3</div>
+        </br> </center><script type="text/javascript">FusionCharts.ready(function () {
+    var chart_1 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container1',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2012",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2500"
+            }, {
+                "label": "Electronics",
+                    "value": "2000"
+            }]
+        }
+    });
+    chart_1.render();
+
+    var chart_2 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container2',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2013",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2600"
+            }, {
+                "label": "Electronics",
+                    "value": "1800"
+            }]
+        }
+    });
+    chart_2.render();
+
+    var chart_3 = new FusionCharts({
+        type: 'pie3d',
+        renderAt: 'chart-container3',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Revenue Comparison",
+                    "subCaption": "2014",
+                    "numberPrefix": "$",
+                    "theme": "fint"
+            },
+                "data": [{
+                "label": "Food products",
+                    "value": "2800"
+            }, {
+                "label": "Electronics",
+                    "value": "2500"
+            }]
+        }
+    });
+    chart_3.render();
+
+    function handler(eventObj, dataObj) {
+
+
+        var json = eventObj.sender.getJSONData();
+        document.getElementById("data1").innerHTML = "Label: " + dataObj.categoryLabel + " | Value: " + dataObj.dataValue;
+    }
+    
+    /**
+     * @description
+     * The static addEventListener() Listens to events across all FusionCharts instances on a page and executes custom functions when an event is triggered.
+     * @param {String or array} type: Type (name) of the event to listen to. To register the listener for multiple events in the same registration call, provide all event names as an array.
+             * @param {FusionCharts~eventListener} listener: Function to be exceuted when the event is triggered. If multiple listeners are bound to an event, the listeners are executed in the order of definition, with arguments specific to the triggered event.
+             * usage: FusionCharts.addEventListener(type,listener);
+     */
+
+    function addListener() {
+        FusionCharts.addEventListener("dataplotRollOver", handler);
+    }
+
+    document.getElementById("add_lstnr").addEventListener("click", addListener);
+
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

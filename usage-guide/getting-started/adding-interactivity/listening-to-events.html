@@ -1,0 +1,150 @@
+<p>Harry loves the <a href="/dev/advanced-chart-configurations/drill-down/simple-drill-down.html">drill-down chart</a> that we just built for him. Now he wants to extend his other visualizations by adding more interactivity on top of it. FusionCharts Suite XT lets you configure standard interactivity for items like tooltips and legend through the chart attributes itself. However, if you need to extend those further, you can always tap into the JavaScript events raised by each chart, and then build your custom behavior.</p>
+
+<p>FusionCharts Suite XT JavaScript class allows you to listen to a host of events raised by the chart. These include:</p>
+
+<ul>
+  <li>
+    <p><strong>Chart Events</strong> - Triggered for instances such as when chart is loaded, before or after it renders, if the rendering is cancelled, upon completion of drawing, click of the entire chart, and so on.</p>
+  </li>
+  <li>
+    <p><strong>Data Events</strong> - Triggered for instances such as when data loading request is initiated, request is completed or cancelled, the actual loading event, before it is applied to chart, and so on.</p>
+  </li>
+  <li>
+    <p><strong>Drill-down Events</strong> - Triggered for instances such as when a link is clicked, before and after the click, a linked chart is opened or closed, and so on.</p>
+  </li>
+  <li>
+    <p><strong>Legend Events</strong> - Triggered when a legend item is clicked, rolled-over or rolled-out, range of a slider legend changes, or legend is dragged.</p>
+  </li>
+  <li>
+    <p><strong>Pie and Doughnut Events</strong> - Triggered when a slicing in/out event happens, rotation start/end event happens, or rolled-over/rolled-out on center label.</p>
+  </li>
+  <li>
+    <p><strong>Annotation Events</strong> - Triggered when annotations are clicked on, rolled over, or rolled out.</p>
+  </li>
+  <li>
+    <p><strong>Error Events</strong> - Triggered if an error was raised by the chart.</p>
+  </li>
+</ul>
+
+<p>In this example, we will extend a pie chart for Harry, where upon click of a slice, we capture information from the chart, and display it outside the chart. While the example doesn’t reflect a true real-life scenario, it gives you an understanding of how you can use this information outside the chart and build more effective use-cases. Roll-over a pie slice to see how the text outside the chart changes.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-adding-interactivity-listening-to-events-example-1.js"></script>
+
+<p>The code for this example is listed below:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First chart using FusionCharts Suite XT<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a> <span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">ageGroupChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;pie2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;450&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span>  <span class="p">{</span>
+<a name="True-15"></a>            <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>                <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Split of visitors by age group&quot;</span><span class="p">,</span>
+<a name="True-17"></a>                <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;Last year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>                <span class="s2">&quot;enableSmartLabels&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-19"></a>                <span class="s2">&quot;showPercentValues&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-20"></a>                <span class="s2">&quot;showTooltip&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-21"></a>                <span class="s2">&quot;decimals&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-22"></a>                <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-23"></a>            <span class="p">},</span>
+<a name="True-24"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-25"></a>                <span class="p">{</span>
+<a name="True-26"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Teenage&quot;</span><span class="p">,</span>
+<a name="True-27"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1250400&quot;</span>
+<a name="True-28"></a>                <span class="p">},</span>
+<a name="True-29"></a>                <span class="p">{</span>
+<a name="True-30"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Adult&quot;</span><span class="p">,</span>
+<a name="True-31"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1463300&quot;</span>
+<a name="True-32"></a>                <span class="p">},</span>
+<a name="True-33"></a>                <span class="p">{</span>
+<a name="True-34"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mid-age&quot;</span><span class="p">,</span>
+<a name="True-35"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1050700&quot;</span>
+<a name="True-36"></a>                <span class="p">},</span>
+<a name="True-37"></a>                <span class="p">{</span>
+<a name="True-38"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Senior&quot;</span><span class="p">,</span>
+<a name="True-39"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;491000&quot;</span>
+<a name="True-40"></a>                <span class="p">}</span>
+<a name="True-41"></a>            <span class="p">]</span>
+<a name="True-42"></a>        <span class="p">},</span>
+<a name="True-43"></a>        <span class="s2">&quot;events&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-44"></a>            <span class="s2">&quot;dataplotrollover&quot;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">evt</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<a name="True-45"></a>                <span class="kd">var</span> <span class="nx">txt</span> <span class="o">=</span> <span class="s2">&quot;Age group : &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">categoryLabel</span> <span class="o">+</span> <span class="s2">&quot;,&lt;br/&gt;No. of visitors : &quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+<a name="True-46"></a>               <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;indicatorDiv&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">txt</span><span class="p">;</span>
+<a name="True-47"></a>            <span class="p">},</span>
+<a name="True-48"></a>            <span class="s2">&quot;dataplotrollout&quot;</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">evt</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<a name="True-49"></a>                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;indicatorDiv&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span>
+<a name="True-50"></a>                    <span class="s2">&quot;Hover on any of the pie slice to view details.&quot;</span><span class="p">;</span>
+<a name="True-51"></a>            <span class="p">}</span>
+<a name="True-52"></a>        <span class="p">}</span>
+<a name="True-53"></a>    <span class="p">});</span>
+<a name="True-54"></a>
+<a name="True-55"></a>    <span class="nx">ageGroupChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-56"></a>
+<a name="True-57"></a><span class="p">});</span>
+<a name="True-58"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-59"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-60"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-61"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-62"></a>  <span class="nt">&lt;div&gt;</span>
+<a name="True-63"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;indicatorDiv&quot;</span> <span class="na">class=</span><span class="s">&quot;well&quot;</span><span class="nt">&gt;</span>Hover on any of the pie slice to view details.<span class="nt">&lt;/div&gt;</span>
+<a name="True-64"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-65"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>In this code, we have:</p>
+
+<ul>
+  <li>
+    <p>Created a <code>pie2d</code> chart showing demographics of visitors.</p>
+  </li>
+  <li>
+    <p>Created a <code>&lt;div&gt;</code> element below the chart to show additional information. This <code>&lt;div&gt;</code> has an ID of <code>indicatorDiv</code>.</p>
+  </li>
+  <li>
+    <p>Defined event listener in the <code>FusionCharts()</code> constructor function to listen to 2 events. This is the quickest way to define event listeners for chart. Alternatively, you can use <code>addEventListener()</code> method on specific chart instances, or on all charts globally, to listen to events.</p>
+  </li>
+  <li>
+    <p>Each event generated by FusionCharts Suite XT has a string event-alias for ease of usage.  The 2 events that we listen to, are:</p>
+
+    <ul>
+      <li>
+        <p><code>dataplotRollOver</code> : Fired when the mouse moves into the drawing area of a chart.</p>
+      </li>
+      <li>
+        <p><code>dataplotRollOut</code> : Fired when the mouse moves out of the drawing area of a chart.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>To each event listener method, two standard argument objects - <code>eventObject</code> and <code>argumentsObject</code> are provided, when the event is invoked. In this example, within those methods, we have used jQuery functions to hide and show the text based on user mouse interactions. We get the <code>label</code> and <code>value</code> of rolled-over slice using <code>argumentsObject</code>,<code>categoryLabel</code> and <code>argumentsObject.value</code>.</p>
+  </li>
+</ul>
+
+<h4 id="event-parameters">Event Parameters</h4>
+
+<p>The properties contained by the arguments are as follows:</p>
+
+<ul>
+  <li>The first argument is <code>eventObject</code> which provides details of the event. It is an object which consists of three properties :</li>
+</ul>
+
+<pre><code>* `eventId` : An unique ID given to the event.
+
+* `eventType` : A string containing the name or the event type, for example, "rendered" etc.
+
+* `sender` : A FusionCharts Suite XT JavaScript Object reference to the chart which has raised that event
+</code></pre>
+
+<ul>
+  <li>The second argument is <code>argumentsObject</code> which is an object and contains details of the event. As per the type of the event the properties of parameter objects varies.</li>
+</ul>
+
+<p>That’s it. You can now refer to the <a href="/dev/api/fusioncharts/fusioncharts-events.html">API documentation for the events</a> in FusionCharts Suite XT to understand all the events that the charts expose, and various parameters exposed to you to build interactive dashboards.</p>

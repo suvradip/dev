@@ -1,0 +1,560 @@
+<p>Now that Harry has a sense of his <a href="/dev/getting-started/building-your-first-chart.html">current year revenues</a>, <a href="/dev/getting-started/building-your-gauge.html">customer satisfaction score</a>, <a href="/dev/getting-started/building-your-map.html">how each state in the US is performing</a>, and <a href="/dev/chart-guide/multi-series-charts/creating-multi-series-charts.html">quarterly perfomance of his stores over the last 2 years</a>, Harry wants to know the split of revenue between Food and Non-food products for his SuperMart.</p>
+
+<p>Stacked charts are used to show sum of constituents as a composition in a visualization. While in a multi-series chart, each series is plotted next to each other to aid visual comparison, in a stacked chart, they are plotted on top of each other, to form a single column. Each segment of the column constitutes to the total of this column, and is used to visualize the sum of parts.</p>
+
+<p>The stacked chart, once built for Harry, would look as under:</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-stacked-charts-example-1.js"></script>
+
+<p>The data for this chart is represented in the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quarter</th>
+      <th>Food Products</th>
+      <th>Non Food Products</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quarter 1</td>
+      <td>$11,000</td>
+      <td>$11,400</td>
+    </tr>
+    <tr>
+      <td>Quarter 2</td>
+      <td>$15,000</td>
+      <td>$14,800</td>
+    </tr>
+    <tr>
+      <td>Quarter 3</td>
+      <td>$13,500</td>
+      <td>$8,300</td>
+    </tr>
+    <tr>
+      <td>Quarter 4</td>
+      <td>$15,000</td>
+      <td>$11,800</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lets-begin">Let’s Begin</h2>
+
+<p>Creating this chart involves the following steps:</p>
+
+<ol>
+  <li>Installing FusionCharts Suite XT for your application</li>
+  <li>Converting your data to a JSON or XML format. FusionCharts Suite XT accepts both data formats, and can read it as a string, or from a file, local or remote</li>
+  <li>Including the FusionCharts Suite XT JavaScript library in your HTML page.</li>
+  <li>Creating a container <code>&lt;div&gt;</code> for the chart</li>
+  <li>Using the new <code>FusionCharts()</code> constructor to create the map instance, and then calling the <code>render()</code> method</li>
+</ol>
+
+<h3 id="converting-your-data-to-fusioncharts-suite-xt-jsonxml-format">Converting your data to FusionCharts Suite XT JSON/XML format</h3>
+
+<p>For this example, our dataset, when converted to FusionCharts Suite XT JSON/XML format, looks as under.</p>
+
+<ul class="code-tabs"><li class="active"><a data-toggle="json">JSON</a></li><li><a data-toggle="xml">XML</a></li></ul>
+<div class="tab-content"><span class="plain-code">{
+    "chart": {
+        "caption": "Revenue split by product category",
+        "subCaption": "For current year",
+        "xAxisname": "Quarter",
+        "yAxisName": "Revenues (In USD)",
+        "showSum": "1",
+        "numberPrefix": "$",
+        "theme": "fint"
+    },
+    "categories": [
+        {
+            "category": [
+                {
+                    "label": "Q1"
+                },
+                {
+                    "label": "Q2"
+                },
+                {
+                    "label": "Q3"
+                },
+                {
+                    "label": "Q4"
+                }
+            ]
+        }
+    ],
+    "dataset": [
+        {
+            "seriesname": "Food Products",
+            "data": [
+                {
+                    "value": "11000"
+                },
+                {
+                    "value": "15000"
+                },
+                {
+                    "value": "13500"
+                },
+                {
+                    "value": "15000"
+                }
+            ]
+        },
+        {
+            "seriesname": "Non-Food Products",
+            "data": [
+                {
+                    "value": "11400"
+                },
+                {
+                    "value": "14800"
+                },
+                {
+                    "value": "8300"
+                },
+                {
+                    "value": "11800"
+                }
+            ]
+        }
+    ]
+}</span><div class="tab json-tab active">
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="p">{</span>
+<a name="True-2"></a>    <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-3"></a>        <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue split by product category&quot;</span><span class="p">,</span>
+<a name="True-4"></a>        <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For current year&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues (In USD)&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;showSum&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-10"></a>    <span class="p">},</span>
+<a name="True-11"></a>    <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-12"></a>        <span class="p">{</span>
+<a name="True-13"></a>            <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-14"></a>                <span class="p">{</span>
+<a name="True-15"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-16"></a>                <span class="p">},</span>
+<a name="True-17"></a>                <span class="p">{</span>
+<a name="True-18"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-19"></a>                <span class="p">},</span>
+<a name="True-20"></a>                <span class="p">{</span>
+<a name="True-21"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-22"></a>                <span class="p">},</span>
+<a name="True-23"></a>                <span class="p">{</span>
+<a name="True-24"></a>                    <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-25"></a>                <span class="p">}</span>
+<a name="True-26"></a>            <span class="p">]</span>
+<a name="True-27"></a>        <span class="p">}</span>
+<a name="True-28"></a>    <span class="p">],</span>
+<a name="True-29"></a>    <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-30"></a>        <span class="p">{</span>
+<a name="True-31"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Food Products&quot;</span><span class="p">,</span>
+<a name="True-32"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-33"></a>                <span class="p">{</span>
+<a name="True-34"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11000&quot;</span>
+<a name="True-35"></a>                <span class="p">},</span>
+<a name="True-36"></a>                <span class="p">{</span>
+<a name="True-37"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-38"></a>                <span class="p">},</span>
+<a name="True-39"></a>                <span class="p">{</span>
+<a name="True-40"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;13500&quot;</span>
+<a name="True-41"></a>                <span class="p">},</span>
+<a name="True-42"></a>                <span class="p">{</span>
+<a name="True-43"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-44"></a>                <span class="p">}</span>
+<a name="True-45"></a>            <span class="p">]</span>
+<a name="True-46"></a>        <span class="p">},</span>
+<a name="True-47"></a>        <span class="p">{</span>
+<a name="True-48"></a>            <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Non-Food Products&quot;</span><span class="p">,</span>
+<a name="True-49"></a>            <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-50"></a>                <span class="p">{</span>
+<a name="True-51"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11400&quot;</span>
+<a name="True-52"></a>                <span class="p">},</span>
+<a name="True-53"></a>                <span class="p">{</span>
+<a name="True-54"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;14800&quot;</span>
+<a name="True-55"></a>                <span class="p">},</span>
+<a name="True-56"></a>                <span class="p">{</span>
+<a name="True-57"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8300&quot;</span>
+<a name="True-58"></a>                <span class="p">},</span>
+<a name="True-59"></a>                <span class="p">{</span>
+<a name="True-60"></a>                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11800&quot;</span>
+<a name="True-61"></a>                <span class="p">}</span>
+<a name="True-62"></a>            <span class="p">]</span>
+<a name="True-63"></a>        <span class="p">}</span>
+<a name="True-64"></a>    <span class="p">]</span>
+<a name="True-65"></a><span class="p">}</span></code></pre></div>
+</div><div class="tab xml-tab"><div class="highlight"><pre class="line-numbers language-markup"><code></code></pre></div></div></div>
+
+<h3 id="including-fusioncharts-suite-xt-in-your-application">Including FusionCharts Suite XT in your application</h3>
+
+<p>To include the FusionCharts Suite XT JavaScript library in your HTML page, you use the <code>&lt;script&gt;</code> tag as under. Next, we include a theme file to style the chart. The theme is called <code>fint</code> (FusionCharts internal) and it is present in <code>themes</code> folder of your download.</p>
+
+<p>The HTML code needed to do this would look like:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Stacked Chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-7"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>It informs the browser where to load the FusionCharts Suite XT JavaScript library from.</p>
+
+<h3 id="creating-a-container-for-your-chart-in-the-web-page">Creating a container for your chart in the web page</h3>
+
+<p>Next, you will need to create a container for your chart in the form of a <code>&lt;div&gt;</code> element, as under:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-2"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A stacked column 2D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;/body&gt;</span></code></pre></div>
+
+<h3 id="creating-an-instance-of-the-chart">Creating an instance of the chart</h3>
+
+<p>The JavaScript code needed to create an instance of this chart would look like</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-2"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-3"></a>    <span class="kd">var</span> <span class="nx">stackedChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-4"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;stackedcolumn2d&quot;</span><span class="p">,</span>
+<a name="True-5"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-6"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-10"></a>           <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-11"></a>              <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue split by product category&quot;</span><span class="p">,</span>
+<a name="True-12"></a>              <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For current year&quot;</span><span class="p">,</span>
+<a name="True-13"></a>              <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-14"></a>              <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues (In USD)&quot;</span><span class="p">,</span>
+<a name="True-15"></a>              <span class="s2">&quot;showSum&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-16"></a>              <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-17"></a>              <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-18"></a>           <span class="p">},</span>
+<a name="True-19"></a>           <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-20"></a>              <span class="p">{</span>
+<a name="True-21"></a>                 <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-22"></a>                    <span class="p">{</span>
+<a name="True-23"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-24"></a>                    <span class="p">},</span>
+<a name="True-25"></a>                    <span class="p">{</span>
+<a name="True-26"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-27"></a>                    <span class="p">},</span>
+<a name="True-28"></a>                    <span class="p">{</span>
+<a name="True-29"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-30"></a>                    <span class="p">},</span>
+<a name="True-31"></a>                    <span class="p">{</span>
+<a name="True-32"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-33"></a>                    <span class="p">}</span>
+<a name="True-34"></a>                 <span class="p">]</span>
+<a name="True-35"></a>              <span class="p">}</span>
+<a name="True-36"></a>           <span class="p">],</span>
+<a name="True-37"></a>           <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-38"></a>              <span class="p">{</span>
+<a name="True-39"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Food Products&quot;</span><span class="p">,</span>
+<a name="True-40"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-41"></a>                    <span class="p">{</span>
+<a name="True-42"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11000&quot;</span>
+<a name="True-43"></a>                    <span class="p">},</span>
+<a name="True-44"></a>                    <span class="p">{</span>
+<a name="True-45"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-46"></a>                    <span class="p">},</span>
+<a name="True-47"></a>                    <span class="p">{</span>
+<a name="True-48"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;13500&quot;</span>
+<a name="True-49"></a>                    <span class="p">},</span>
+<a name="True-50"></a>                    <span class="p">{</span>
+<a name="True-51"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-52"></a>                    <span class="p">}</span>
+<a name="True-53"></a>                 <span class="p">]</span>
+<a name="True-54"></a>              <span class="p">},</span>
+<a name="True-55"></a>              <span class="p">{</span>
+<a name="True-56"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Non-Food Products&quot;</span><span class="p">,</span>
+<a name="True-57"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-58"></a>                    <span class="p">{</span>
+<a name="True-59"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11400&quot;</span>
+<a name="True-60"></a>                    <span class="p">},</span>
+<a name="True-61"></a>                    <span class="p">{</span>
+<a name="True-62"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;14800&quot;</span>
+<a name="True-63"></a>                    <span class="p">},</span>
+<a name="True-64"></a>                    <span class="p">{</span>
+<a name="True-65"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8300&quot;</span>
+<a name="True-66"></a>                    <span class="p">},</span>
+<a name="True-67"></a>                    <span class="p">{</span>
+<a name="True-68"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11800&quot;</span>
+<a name="True-69"></a>                    <span class="p">}</span>
+<a name="True-70"></a>                 <span class="p">]</span>
+<a name="True-71"></a>              <span class="p">}</span>
+<a name="True-72"></a>           <span class="p">]</span>
+<a name="True-73"></a>        <span class="p">}</span>
+<a name="True-74"></a>      <span class="p">});</span>
+<a name="True-75"></a>
+<a name="True-76"></a>    <span class="nx">stackedChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-77"></a><span class="p">});</span>
+<a name="True-78"></a><span class="nt">&lt;/script&gt;</span></code></pre></div>
+
+<p>In the above code, we:</p>
+
+<ul>
+  <li>
+    <p>Created an instance of <code>FusionCharts</code> object in the <code>revenueChart</code> variable. Each chart or gauge in your HTML page needs to have a separate variable. The initialization code is wrapped within <code>FusionCharts.ready</code> method. This safeguards your chart instantiation code from being called before FusionCharts Suite XT library is loaded and is ready to be used on the page.</p>
+  </li>
+  <li>
+    <p>Next, we created an instance of <code>stackedcolumn2d</code> chart. Each chart type in FusionCharts Suite XT has a unique alias, using which you can create instance of that chart. In this case, we are creating an instance of a Stacked Column 2D chart with dimensions of 500x300 pixels, and providing JSON data as a string.</p>
+  </li>
+  <li>
+    <p>Next, we specified the width and height of chart (in pixels) using <code>width</code> and <code>height</code> property of the constructor.</p>
+  </li>
+  <li>
+    <p>To specify the data format as JSON, we set the <code>dataFormat</code> parameter to json.</p>
+  </li>
+  <li>
+    <p>Next we used a theme to manage the cosmetic properties of the chart. In this example we used the <strong>FusionCharts Internal Theme</strong> (<code>fint</code>). You can choose one of the predefined themes that are shipped with FusionCharts Suite XT like <code>ocean</code> ,  <code>zune</code> and <code>carbon</code> or create your own.</p>
+  </li>
+  <li>
+    <p>The actual JSON data is embedded as string as value of <code>dataSource</code> parameter. The <code>chart</code> object contains a list of key-value pairs that let you configure the functional and cosmetic attributes of your chart. Each category is contained in the <code>categories</code> array with <code>label</code> as key. Each of the series of the data is present within the <code>dataset</code> array, with name of the series as <code>seriesname</code>. The data itself is present within the <code>data</code> array, with revenue with the key as <code>value</code></p>
+  </li>
+  <li>
+    <p>Call the <code>render</code> method to draw the chart in chart-container <code>&lt;div&gt;</code> element.</p>
+  </li>
+</ul>
+
+<p>The final HTML code used in this example looks like:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My first Multi-series Chart<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">stackedChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;stackedcolumn2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-15"></a>           <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>              <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue split by product category&quot;</span><span class="p">,</span>
+<a name="True-17"></a>              <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For current year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>              <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-19"></a>              <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenues (In USD)&quot;</span><span class="p">,</span>
+<a name="True-20"></a>              <span class="s2">&quot;showSum&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-21"></a>              <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-22"></a>              <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-23"></a>           <span class="p">},</span>
+<a name="True-24"></a>           <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-25"></a>              <span class="p">{</span>
+<a name="True-26"></a>                 <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-27"></a>                    <span class="p">{</span>
+<a name="True-28"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-29"></a>                    <span class="p">},</span>
+<a name="True-30"></a>                    <span class="p">{</span>
+<a name="True-31"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-32"></a>                    <span class="p">},</span>
+<a name="True-33"></a>                    <span class="p">{</span>
+<a name="True-34"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-35"></a>                    <span class="p">},</span>
+<a name="True-36"></a>                    <span class="p">{</span>
+<a name="True-37"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-38"></a>                    <span class="p">}</span>
+<a name="True-39"></a>                 <span class="p">]</span>
+<a name="True-40"></a>              <span class="p">}</span>
+<a name="True-41"></a>           <span class="p">],</span>
+<a name="True-42"></a>           <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-43"></a>              <span class="p">{</span>
+<a name="True-44"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Food Products&quot;</span><span class="p">,</span>
+<a name="True-45"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-46"></a>                    <span class="p">{</span>
+<a name="True-47"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11000&quot;</span>
+<a name="True-48"></a>                    <span class="p">},</span>
+<a name="True-49"></a>                    <span class="p">{</span>
+<a name="True-50"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-51"></a>                    <span class="p">},</span>
+<a name="True-52"></a>                    <span class="p">{</span>
+<a name="True-53"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;13500&quot;</span>
+<a name="True-54"></a>                    <span class="p">},</span>
+<a name="True-55"></a>                    <span class="p">{</span>
+<a name="True-56"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-57"></a>                    <span class="p">}</span>
+<a name="True-58"></a>                 <span class="p">]</span>
+<a name="True-59"></a>              <span class="p">},</span>
+<a name="True-60"></a>              <span class="p">{</span>
+<a name="True-61"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Non-Food Products&quot;</span><span class="p">,</span>
+<a name="True-62"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-63"></a>                    <span class="p">{</span>
+<a name="True-64"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11400&quot;</span>
+<a name="True-65"></a>                    <span class="p">},</span>
+<a name="True-66"></a>                    <span class="p">{</span>
+<a name="True-67"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;14800&quot;</span>
+<a name="True-68"></a>                    <span class="p">},</span>
+<a name="True-69"></a>                    <span class="p">{</span>
+<a name="True-70"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8300&quot;</span>
+<a name="True-71"></a>                    <span class="p">},</span>
+<a name="True-72"></a>                    <span class="p">{</span>
+<a name="True-73"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11800&quot;</span>
+<a name="True-74"></a>                    <span class="p">}</span>
+<a name="True-75"></a>                 <span class="p">]</span>
+<a name="True-76"></a>              <span class="p">}</span>
+<a name="True-77"></a>           <span class="p">]</span>
+<a name="True-78"></a>        <span class="p">}</span>
+<a name="True-79"></a>    <span class="p">});</span>
+<a name="True-80"></a>
+<a name="True-81"></a>    <span class="nx">stackedChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-82"></a><span class="p">});</span>
+<a name="True-83"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-84"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-85"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-86"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A stacked column 2D chart will load here!<span class="nt">&lt;/div&gt;</span>
+<a name="True-87"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-88"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>Using this stacked chart, you can easily tell that the revenue generated for the first quarter of the current year is $22.4K and the revenue generated by food and non-food products individually are $11K and $11.4K, respectively.</p>
+
+<h2 id="stacked-chart-showing-percentage-distribution">100% Stacked Chart showing percentage distribution</h2>
+
+<p>The stacked chart that we just built for Harry shows the revenue split for each quarter, between Food and Non-food numbers, in absolute sales numbers. For example, if you hover over Food Products for Q1, you can see the sales as $11K. Harry now wants to convert these relative numbers to percentage, so that he can know what % of sales in Q1 was from Food Products. This a special kind of stacked chart called 100% Stacked Charts. The y-axis, instead of representing the actual data values, represents percentage.</p>
+
+<p>The stacked column 2D chart with percentage distribution looks like this:</p>
+
+<div class="chart-example" id="chart-container-2">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/getting-started-more-chart-types-stacked-charts-example-2.js"></script>
+
+<p>It uses the same data structure as the normal stacked chart, with the addition of 2 new attributes given below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>stack100Percent</code></td>
+      <td>If set to <strong>1</strong>, indicates that the stacked chart will be rendered as a 100% stacked chart.</td>
+    </tr>
+    <tr>
+      <td><code>decimals</code></td>
+      <td>It sets the number of digits that will be shown after the decimal point.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The final HTML code to generate this example looks like this:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;title&gt;</span>My First Stacked Chart with Percentage Distribution<span class="nt">&lt;/title&gt;</span>
+<a name="True-4"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-5"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;fusioncharts/themes/fusioncharts.theme.fint.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="True-6"></a><span class="nt">&lt;script&gt;</span>
+<a name="True-7"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<a name="True-8"></a>    <span class="kd">var</span> <span class="nx">stackedChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-9"></a>        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;stackedcolumn2d&quot;</span><span class="p">,</span>
+<a name="True-10"></a>        <span class="s2">&quot;renderAt&quot;</span><span class="o">:</span> <span class="s2">&quot;chartContainer&quot;</span><span class="p">,</span>
+<a name="True-11"></a>        <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="s2">&quot;500&quot;</span><span class="p">,</span>
+<a name="True-12"></a>        <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<a name="True-13"></a>        <span class="s2">&quot;dataFormat&quot;</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<a name="True-14"></a>        <span class="s2">&quot;dataSource&quot;</span><span class="o">:</span>  <span class="p">{</span>
+<a name="True-15"></a>           <span class="s2">&quot;chart&quot;</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-16"></a>              <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Revenue split by product category&quot;</span><span class="p">,</span>
+<a name="True-17"></a>              <span class="s2">&quot;subCaption&quot;</span><span class="o">:</span> <span class="s2">&quot;For current year&quot;</span><span class="p">,</span>
+<a name="True-18"></a>              <span class="s2">&quot;xAxisname&quot;</span><span class="o">:</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span>
+<a name="True-19"></a>              <span class="s2">&quot;yAxisName&quot;</span><span class="o">:</span> <span class="s2">&quot;% Revenue&quot;</span><span class="p">,</span>
+<a name="True-20"></a>              <span class="s2">&quot;numberPrefix&quot;</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
+<a name="True-21"></a>              <span class="s2">&quot;stack100Percent&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a name="True-22"></a>              <span class="s2">&quot;decimals&quot;</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<a name="True-23"></a>              <span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;fint&quot;</span>
+<a name="True-24"></a>           <span class="p">},</span>
+<a name="True-25"></a>           <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-26"></a>              <span class="p">{</span>
+<a name="True-27"></a>                 <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-28"></a>                    <span class="p">{</span>
+<a name="True-29"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q1&quot;</span>
+<a name="True-30"></a>                    <span class="p">},</span>
+<a name="True-31"></a>                    <span class="p">{</span>
+<a name="True-32"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q2&quot;</span>
+<a name="True-33"></a>                    <span class="p">},</span>
+<a name="True-34"></a>                    <span class="p">{</span>
+<a name="True-35"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q3&quot;</span>
+<a name="True-36"></a>                    <span class="p">},</span>
+<a name="True-37"></a>                    <span class="p">{</span>
+<a name="True-38"></a>                       <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Q4&quot;</span>
+<a name="True-39"></a>                    <span class="p">}</span>
+<a name="True-40"></a>                 <span class="p">]</span>
+<a name="True-41"></a>              <span class="p">}</span>
+<a name="True-42"></a>           <span class="p">],</span>
+<a name="True-43"></a>           <span class="s2">&quot;dataset&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-44"></a>              <span class="p">{</span>
+<a name="True-45"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Food Products&quot;</span><span class="p">,</span>
+<a name="True-46"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-47"></a>                    <span class="p">{</span>
+<a name="True-48"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11000&quot;</span>
+<a name="True-49"></a>                    <span class="p">},</span>
+<a name="True-50"></a>                    <span class="p">{</span>
+<a name="True-51"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-52"></a>                    <span class="p">},</span>
+<a name="True-53"></a>                    <span class="p">{</span>
+<a name="True-54"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;13500&quot;</span>
+<a name="True-55"></a>                    <span class="p">},</span>
+<a name="True-56"></a>                    <span class="p">{</span>
+<a name="True-57"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;15000&quot;</span>
+<a name="True-58"></a>                    <span class="p">}</span>
+<a name="True-59"></a>                 <span class="p">]</span>
+<a name="True-60"></a>              <span class="p">},</span>
+<a name="True-61"></a>              <span class="p">{</span>
+<a name="True-62"></a>                 <span class="s2">&quot;seriesname&quot;</span><span class="o">:</span> <span class="s2">&quot;Non-Food Products&quot;</span><span class="p">,</span>
+<a name="True-63"></a>                 <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">[</span>
+<a name="True-64"></a>                    <span class="p">{</span>
+<a name="True-65"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11400&quot;</span>
+<a name="True-66"></a>                    <span class="p">},</span>
+<a name="True-67"></a>                    <span class="p">{</span>
+<a name="True-68"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;14800&quot;</span>
+<a name="True-69"></a>                    <span class="p">},</span>
+<a name="True-70"></a>                    <span class="p">{</span>
+<a name="True-71"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;8300&quot;</span>
+<a name="True-72"></a>                    <span class="p">},</span>
+<a name="True-73"></a>                    <span class="p">{</span>
+<a name="True-74"></a>                       <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;11800&quot;</span>
+<a name="True-75"></a>                    <span class="p">}</span>
+<a name="True-76"></a>                 <span class="p">]</span>
+<a name="True-77"></a>              <span class="p">}</span>
+<a name="True-78"></a>           <span class="p">]</span>
+<a name="True-79"></a>        <span class="p">}</span>
+<a name="True-80"></a>   <span class="p">});</span>
+<a name="True-81"></a>
+<a name="True-82"></a>    <span class="nx">stackedChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-83"></a><span class="p">});</span>
+<a name="True-84"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-85"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-86"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-87"></a>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chartContainer&quot;</span><span class="nt">&gt;</span>A stacked column 2D chart will load here! <span class="nt">&lt;/div&gt;</span>
+<a name="True-88"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-89"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>With this, you have built your first 100% stacked chart. In the next part we will look at Combination Charts where you can plot multiple chart types on the same chart.</p>
+
+<h2 id="was-there-a-problem-rendering-the-chart">Was there a problem rendering the chart?</h2>
+
+<p>In case something went wrong and you are unable to see the chart, check for the following:</p>
+
+<ul>
+  <li>
+    <p>If you are getting a JavaScript error on your page, check your browser console for the exact error and fix accordingly.</p>
+  </li>
+  <li>
+    <p>If the chart does not show up at all, but there are no JavaScript errors, check if the FusionCharts Suite XT JavaScript library has loaded correctly. You can use developer tools within your browser to see if <code>fusioncharts.js</code> was loaded. Check if the path to <code>fusioncharts.js</code> file is correct, and whether the file exists in that location.</p>
+  </li>
+  <li>
+    <p>If you get a <strong>Loading Data</strong> or <strong>Error in loading data</strong> message, check whether your JSON data structure is correct, and there are no conflicts related to quotation marks in your code.</p>
+  </li>
+</ul>
+
+<p>Click here for more information on <a href="/dev/troubleshooting/debugger.html">Troubleshooting</a>.</p>
+

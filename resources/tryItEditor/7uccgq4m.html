@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- This sample shows the usage of the render() method -->
+<div id="indicatorDiv">Method Name: <b>render()</b>
+
+    <br>
+    <br>Renders a chart inside a container element on a page. If the chart is already rendered, it can be re-rendered inside the same container DOM element or a different element.</br>
+    <br>Click <b>Render</b> to render the chart. The message shown below the chart is rendered using a callback function - a function that is executed when the chart is rendered.</br>
+</div>
+<br>
+<center>
+    <br>
+    <button id="render"><b>Render</b>
+
+    </button>
+    </br>
+    <br>
+    <div id="chart-container">FusionCharts will render here</div>
+    </br>
+    <br>
+    <div id="message"><i>The message from the callback function is rendered here.</div>
+            </br>
+    
+</center><script type="text/javascript">FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'column2d',
+        renderAt: 'chart-container',
+        width: '400',
+        height: '200',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Split of Revenue by Product Categories",
+                    "subCaption": "2014",
+                    "numberPrefix": "$",
+                    "theme": "fint",
+                    "captionFontSize": "13",
+                    "subcaptionFontSize": "12",
+                    "subcaptionFontBold": "0",
+                    "showValues": "0"
+            },
+                "data": [{
+                "label": "Food",
+                    "value": "28504"
+            }, {
+                "label": "Apparels",
+                    "value": "14633"
+            }, {
+                "label": "Electronics",
+                    "value": "10507"
+            }, {
+                "label": "Household",
+                    "value": "4910"
+            }]
+        }
+    });
+
+
+    /**
+     * @description
+     * The render() method returns the DOMElement created inside the chart container by FusionCharts. This is equivalent to accessing the DOMElement using the ref property.    
+     *
+     * @param {String} containerElement: Reference or ID of the DOM element inside which the chart is to be rendered. If this argument is not provided, it is assumed that the renderAt attribute is provided during chart creation.
+     *
+     *  @param {FusionCharts~DOMInsertModes} insertMode: Method for inserting the chart’s DOM element within the containerElement. there are 3 modes replace, append, prepend. and default is replace
+     *
+     * @param {Function} callback  Callback function executed after the chart is successfully rendered.
+     *
+     * usage: chartObj.render();
+     *         chartObj.render(containerElement);
+     *         chartObj.render(containerElement,insertMode);
+     *         chartObj.render(containerElement,insertMode,callback);
+     */
+    function rend_clbk() {
+        revenueChart.render('chart-container', undefined, callBack);
+    }
+
+    function callBack() {
+        console.log("callback");
+        document.getElementById("message").innerHTML = "<i>Message from the callback function: <b>The chart has rendered.</b></i>";
+    }
+
+
+    var button = document.getElementById("render");
+
+    button.addEventListener("click", rend_clbk);
+
+
+
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

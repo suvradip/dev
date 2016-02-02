@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FusionCharts :  Try It editor</title>
+    <link rel="stylesheet" type="text/css" href="css/editor-style.css">
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<div class="fctie_wrapper">
+    <div class="fctie_header">
+        <div class="fctie_header-rad">
+            External Libraries (Click to include/exclude): <span class="button-wrapper"><button class="fctie_lib_button btn" data-index="__index__" title="Click to INCLUDE this library">__name__<span></span></button></span>
+        </div>
+      
+
+        <div class="fctie_test">
+            <div class="fctie_header-block">
+                <a title="Export the output as standalone html file" href=""  class="fctie_a-export btn btn-blue" download>export</a>   
+            </div>
+        </div>
+    </div>
+   
+    <div class="fctie_container">
+
+        <div  class="fctie_block">
+          <div class="fctie_block-heading">Give your code here</div>  
+          <div class="fctie_block-container fctie_input"><textarea id="tryit">
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+<script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.charts.js"></script>
+<!-- This sample shows the usage of the isUpdateActive() method -->
+<div id="indicatorDiv">Method Name: <b>isUpdateActive()</b>
+
+    <br>
+    <br>Returns true if real-time update is enabled for a chart. Returns false is real-time update is stopped using the <a href="http://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods.html#stopUpdate" target="_blank">stopUpdate()</a> method.</br>
+    <br>Click <b>Check update status</b> to check if real-time update has been enabled for the chart shown below.</div>
+<br>
+<center>
+    <div id="chart-container">FusiomCharts will render here.</div>
+    <button id="update_status"><b>Check update status</b>
+
+    </button>
+    <button id="stop_updt"><b>Stop update</b>
+
+    </button>
+    <br>
+    <br>
+    <div id="update_message">Real-time update status: <span id="msg"></span>
+
+        </br>
+</center><script type="text/javascript">FusionCharts.ready(function () {
+    var interval;
+    var stockPriceChart = new FusionCharts({
+        id: "stockRealTimeChart",
+        type: 'realtimeline',
+        renderAt: 'chart-container',
+        width: '450',
+        height: '250',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Real-time stock price monitor",
+                    "subCaption": "Harry's SuperMart",
+                    "xAxisName": "Time",
+                    "yAxisName": "Stock Price",
+                    "numberPrefix": "$",
+                    "refreshinterval": "5",
+                    "yaxisminvalue": "35",
+                    "yaxismaxvalue": "36",
+                    "numdisplaysets": "10",
+                    "labeldisplay": "rotate",
+                    "showValues": "0",
+                    "showRealTimeValue": "0",
+                    "theme": "fint",
+                    "captionFontSize": "13",
+                    "subCaptionFontSize": "12"
+            },
+                "categories": [{
+                "category": [{
+                    "label": "Day Start"
+                }]
+            }],
+                "dataset": [{
+                "data": [{
+                    "value": "35.27"
+                }]
+            }]
+        },
+            "events": {
+            "initialized": function (e) {
+                function addLeadingZero(num) {
+                    return (num <= 9) ? ("0" + num) : num;
+                }
+
+                function updateData() {
+                    // Get reference to the chart using its ID
+                    var chartRef = FusionCharts("stockRealTimeChart"),
+                        // We need to create a querystring format incremental update, containing
+                        // label in hh:mm:ss format
+                        // and a value (random).
+                        currDate = new Date(),
+                        label = addLeadingZero(currDate.getHours()) + ":" + addLeadingZero(currDate.getMinutes()) + ":" + addLeadingZero(currDate.getSeconds()),
+                        // Get random number between 35.25 & 35.75 - rounded to 2 decimal places
+                        randomValue = Math.floor(Math.random() * 50) / 100 + 35.25,
+                        // Build Data String in format &label=...&value=...
+                        strData = "&label=" + label + "&value=" + randomValue;
+                    // Feed it to chart.
+                    chartRef.feedData(strData);
+                }
+
+                interval = setInterval(function () {
+                    updateData();
+                }, 2000);
+            }
+        }
+    })
+        .render();
+
+    /**
+     * @description
+     * The isUpdateActive() method Returns true if real-time update is enabled for a chart. Returns false is real-time update is stopped using the stopUpdate() method.
+     *
+     * usage: chartObj.isUpdateActive();     *         
+     */
+    function check() {
+        document.getElementById("msg").innerHTML = stockPriceChart.isUpdateActive();
+
+    }
+
+    function stop_update() {
+        // This method is useful only when we poll the server for real time updates. Since this example uses client side data updating, we use clear interval method.
+        stockPriceChart.stopUpdate();
+        clearInterval(interval);
+    }
+    document.getElementById("update_status").addEventListener("click", check);
+
+    document.getElementById("stop_updt").addEventListener("click", stop_update);
+
+});</script></textarea></div>
+        </div>
+        <input type="submit" value="execute" id="execute-btn" class="fctie_input-execute btn btn-transparent"/>    
+        <div class="fctie_block ">
+            <div class="fctie_block-heading">Output of your code</div> 
+            <div class="fctie_block-container output-block"> <object type="text/html" src="" data="" id="fctie_output"></object></div> 
+        </div>
+        
+    </div>
+    <div class="fctie_footer">
+        Note: Your code will become the body content of the output, no need to specify "html" or "head" tag.
+    </div>
+
+</div>
+<script>
+
+
+  var a = $(".fctie_header").outerHeight(),
+      b = $(".fctie_block-heading").outerHeight(),
+      c = $(window).height();
+
+  var d = c - (a + b + 180);
+
+  $(".output-block").css("height", d);
+  var theight = $(".output-block").css("height");
+  var resizeTextArea =(function(){
+  $("#tryit").css("width","100%");
+  $("#tryit").css("height",theight);
+  $("#fctie_output").css("height",theight);
+  });
+
+var settings = {
+
+    "id": "tryit", // id of the textarea to transform    
+    "start_highlight": true,  // if start with highlight
+    "allow_resize": false,
+    "allow_toggle": false,
+    "word_wrap": true,
+    "language": "en",
+    "syntax": "js", 
+    "toolbar": "Editor", //undo,redo
+    "EA_init_callback": resizeTextArea()
+};
+
+ editAreaLoader.init(settings);
+
+$(window).resize(function(event) {
+  jQuery("#fcwp_block").css({"height":jQuery(window).height(), "width":jQuery(window).width()});
+  editAreaLoader.execCommand("tryit", "init", settings);
+});
+
+
+
+</script>
+<script type="text/javascript" src="scripts/editor-interactivity.js"></script>
+</body>
+</html>
+

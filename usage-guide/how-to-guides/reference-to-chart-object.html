@@ -1,0 +1,94 @@
+<p>FusionCharts Suite XT supports 3 ways of getting references to the chart object at runtime. This reference comes in handy if you want to perform operations on the chart like change its properties or chart type once the chart is rendered.</p>
+
+<h2 id="using-the-fusioncharts-constructor">Using the FusionCharts constructor</h2>
+
+<p>The FusionCharts constructor returns a reference to the <code>id</code> of the chart passed to it when it is called without the <code>new</code> keyword.</p>
+
+<p>The following code snippet shows how to get a reference of the chart using this method</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;script&gt;</span>
+<a name="True-4"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-5"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-6"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart&#39;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span>
+<a name="True-10"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-11"></a>		      <span class="c1">// Chart data goes here</span>
+<a name="True-12"></a>        <span class="p">}</span>
+<a name="True-13"></a>		<span class="p">});</span>
+<a name="True-14"></a>
+<a name="True-15"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-16"></a>    <span class="nx">revenueChart</span> <span class="o">=</span> <span class="nx">FusionCharts</span><span class="p">(</span><span class="s1">&#39;revenue-chart&#39;</span><span class="p">);</span>
+<a name="True-17"></a><span class="p">});</span>
+<a name="True-18"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-19"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-20"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-21"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chart-container&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-22"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-23"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>Here the <code>revenueChart</code> variable contains a reference to the chart object.</p>
+
+<h2 id="using-the-items-object">Using the items object</h2>
+
+<p>When the FusionCharts library is used and charts are rendered on a page, an <code>items</code> object contains references to all the charts used in the page. The FusionCharts <code>items</code> object returns a reference to the <code>id</code> of the chart passed to it.</p>
+
+<p>The following code snippet shows how to get a reference of the chart using this method. <code>revenueChart</code> contains the object reference we are looking at</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;script&gt;</span>
+<a name="True-4"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-5"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-6"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart&#39;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span>
+<a name="True-10"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-11"></a>		     <span class="c1">// Chart data goes here</span>
+<a name="True-12"></a>      <span class="p">}</span>
+<a name="True-13"></a>		<span class="p">});</span>
+<a name="True-14"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-15"></a>    <span class="nx">revenueChart</span> <span class="o">=</span> <span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="s1">&#39;revenue-chart&#39;</span><span class="p">];</span>
+<a name="True-16"></a><span class="p">});</span>
+<a name="True-17"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-18"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-19"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-20"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chart-container&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-21"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-22"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<h2 id="using-the-getchartfromid-function">Using the getChartFromId function</h2>
+
+<p>The <code>getChartFromId</code> function returns an object reference to the <code>id</code> of the chart passed to it.</p>
+
+<p>The following code snippet shows how to get a reference of the chart using this method</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;html&gt;</span>
+<a name="True-2"></a><span class="nt">&lt;head&gt;</span>
+<a name="True-3"></a><span class="nt">&lt;script&gt;</span>
+<a name="True-4"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<a name="True-5"></a>    <span class="kd">var</span> <span class="nx">revenueChart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span><span class="p">({</span>
+<a name="True-6"></a>        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;revenue-chart&#39;</span><span class="p">,</span>
+<a name="True-7"></a>        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column2d&#39;</span><span class="p">,</span>
+<a name="True-8"></a>        <span class="nx">renderAt</span><span class="o">:</span> <span class="s1">&#39;chart-container&#39;</span><span class="p">,</span>
+<a name="True-9"></a>        <span class="nx">dataFormat</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span>
+<a name="True-10"></a>        <span class="nx">dataSource</span><span class="o">:</span> <span class="p">{</span>
+<a name="True-11"></a>		      <span class="c1">// Chart data goes here</span>
+<a name="True-12"></a>        <span class="p">}</span>
+<a name="True-13"></a>		<span class="p">});</span>
+<a name="True-14"></a>    <span class="nx">revenueChart</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+<a name="True-15"></a>    <span class="nx">revenueChart</span> <span class="o">=</span> <span class="nx">getChartFromId</span><span class="p">(</span><span class="s1">&#39;revenue-chart&#39;</span><span class="p">);</span>
+<a name="True-16"></a><span class="p">});</span>
+<a name="True-17"></a><span class="nt">&lt;/script&gt;</span>
+<a name="True-18"></a><span class="nt">&lt;/head&gt;</span>
+<a name="True-19"></a><span class="nt">&lt;body&gt;</span>
+<a name="True-20"></a><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;chart-container&quot;</span><span class="nt">&gt;</span>FusionCharts will render here<span class="nt">&lt;/div&gt;</span>
+<a name="True-21"></a><span class="nt">&lt;/body&gt;</span>
+<a name="True-22"></a><span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>Here the <code>revenueChart</code> variable contains a reference to the chart object.</p>
+

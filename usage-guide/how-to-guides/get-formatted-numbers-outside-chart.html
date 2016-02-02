@@ -1,0 +1,49 @@
+<p>FusionCharts number formatter module lets you format data, you can get this data even outside the chart area.</p>
+
+<p>Given below is a live example of data visualisation along with the raw data. If you wish to see the data in the same format as that within the chart, just click on the format button.</p>
+
+<div class="chart-example" id="chart-container-1">FusionCharts will load here..</div>
+<script pagespeed_no_defer="" data-chart="true" type="text/javascript" src="/dev/embedded-charts/usage-guide/how-to-guides-get-formatted-numbers-outside-chart-example-1.js"></script>
+
+<p>This cool feature is actually very simple to implement in a page. Think of FusionCharts as a JS library providing you a simple API to format numbers. You can do that in two ways.</p>
+
+<ol>
+  <li>
+    <p>Reuse the number format used in the chart (included in the page)</p>
+  </li>
+  <li>
+    <p>Use FusionCharts library in the page to specify the number format required</p>
+  </li>
+</ol>
+
+<h1 id="reuse-the-number-format-used-in-the-chart-on-page">Reuse the number format used in the chart on page</h1>
+
+<p>Number formatting is by default active in all charts. Reuse this format in your page by simply invoking the API as below.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FusionCharts</span> <span class="p">(</span> <span class="cm">/* set of parameters */</span> <span class="p">);</span>
+<a name="True-2"></a>
+<a name="True-3"></a><span class="c1">// Rendering of chart is not a prerequisite to use the API on the chart instance.</span>
+<a name="True-4"></a><span class="c1">// Once the chart instance is created, you can use the number formatter API.</span>
+<a name="True-5"></a><span class="c1">// Returns the formatted number as string</span>
+<a name="True-6"></a><span class="nx">chart</span><span class="p">.</span><span class="nx">formatNumber</span><span class="p">(</span> <span class="nx">theNumberToBeFormatted</span> <span class="p">);</span></code></pre></div>
+
+<h1 id="use-fusioncharts-library-in-the-page-to-specify-the-number-format-required">Use FusionCharts library in the page to specify the number format required</h1>
+
+<p>You may use FusionCharts library to format number even if you are not rendering a chart using FusionCharts Suite XT in your page. Just include <code>fusioncharts.js</code> in your page and you are ready to format numbers in your page using the number formatter API.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><a name="True-1"></a><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;js/fusioncharts.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+
+<p>A sample API usage is given below. Here, we are formatting bytes to KB, MB and GB.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><a name="True-1"></a><span class="nx">FusionCharts</span><span class="p">.</span><span class="nx">formatNumber</span><span class="p">(</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="nx">numberScaleValue</span> <span class="o">:</span> <span class="s1">&#39;1024,1024,1024&#39;</span><span class="p">,</span> <span class="nx">numberScaleUnit</span> <span class="o">:</span> <span class="s1">&#39; KB, MB, GB&#39;</span> <span class="p">})</span>
+<a name="True-2"></a>
+<a name="True-3"></a><span class="c1">// Returns &quot;5 GB&quot;</span></code></pre></div>
+
+<p>The first parameter accepts the number to be formatted. In this case, we provide the size of a memory in bytes.</p>
+
+<p>The second parameter accepts an object of number formatting configurations, here the pair of attributes <code>numberScaleValue</code> and <code>numberScaleUnit</code> work together to specify the rule of number conversion and defines the system of units.</p>
+
+<p>The API returns a string of the formatted number.</p>
+
+<p>Read more about the FusionCharts Suite Number Format options at <a href="/dev/basic-chart-configurations/number-format.html">Number Format</a>.</p>
+
